@@ -1,0 +1,30 @@
+# Core dependencies
+fastapi>=0.104.0
+uvicorn>=0.24.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+
+# AI/ML
+langchain>=0.0.340
+langchain-community>=0.0.13
+langchain-text-splitters>=0.0.1
+langchain-groq>=0.1.0
+langchain_huggingface>=0.0.2
+sentence_transformers>=2.2.2
+faiss-cpu>=1.7.4
+
+# Document processing
+pymupdf>=1.23.0
+beautifulsoup4>=4.12.2
+
+# Utils
+validators>=0.28.1
+pydantic>=2.0.0
+httpx>=0.25.0
+aiofiles>=23.2.1
+
+# Optional (uncomment if needed)
+# langchain-openai>=0.0.5
+# pinecone-client>=3.0.0
+# mysql-connector-python>=8.1.0
+# SQLAlchemy>=2.0.0
