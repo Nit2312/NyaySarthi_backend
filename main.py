@@ -171,22 +171,190 @@ IK_API_KEY = os.getenv("INDIAN_KANOON_API_KEY", "")
 IK_EMAIL = os.getenv("INDIAN_KANOON_EMAIL", "")
 SCRAPE_FALLBACK = os.getenv("SCRAPE_INDIAN_KANOON", "false").lower() in {"1", "true", "yes"}
 
+# Initialize embeddings with better configuration
+embeddings = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-mpnet-base-v2",
+    model_kwargs={'device': 'cpu'},
+    encode_kwargs={'normalize_embeddings': True}
+)
 
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-if os.path.exists("faiss_index"):
-    vector_store = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
-    retriever = vector_store.as_retriever()
-else:
-    loader = PyMuPDFLoader('./data/constitution.pdf')
-    docs = loader.load()
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=100, chunk_overlap=50)
-    final_documents = text_splitter.split_documents(docs[:50])
-    vector_store = FAISS.from_documents(final_documents, embeddings)
-    vector_store.save_local("faiss_index")
-    retriever = vector_store.as_retriever()
+# Check if we have a saved index
+import os
+from pathlib import Path
 
-# Optimize retriever for speed and accuracy
-retriever.search_kwargs = {'k': 3, 'score_threshold': 0.3}
+# Define the index path as an absolute path to avoid any issues
+base_dir = Path(__file__).parent.absolute()
+index_path = str(base_dir / "faiss_index")
+vector_store = None
+
+# Ensure the directory exists
+os.makedirs(index_path, exist_ok=True)
+
+# Get the expected embedding dimension from the embeddings model
+embedding_dim = len(embeddings.embed_query("test"))
+logger.info(f"Expected embedding dimension: {embedding_dim}")
+logger.info(f"Using index path: {index_path}")
+
+if os.path.exists(index_path) and os.path.isdir(index_path):
+    try:
+        logger.info("Loading existing FAISS index...")
+        # Load the index without the embeddings first
+        faiss_index = faiss.read_index(os.path.join(index_path, "index.faiss"))
+        
+        # Check if dimensions match
+        if faiss_index.d != embedding_dim:
+            logger.warning(f"Dimension mismatch: Index has {faiss_index.d} dimensions, expected {embedding_dim}")
+            raise ValueError("Embedding dimension mismatch")
+            
+        # Now load with embeddings
+        vector_store = FAISS.load_local(
+            index_path, 
+            embeddings, 
+            allow_dangerous_deserialization=True
+        )
+        logger.info(f"Successfully loaded FAISS index with {vector_store.index.ntotal} vectors")
+    except Exception as e:
+        logger.error(f"Error loading FAISS index: {str(e)}")
+        logger.info("Creating new FAISS index...")
+        vector_store = None
+
+# If no valid index was loaded, create a new one
+if vector_store is None:
+    try:
+        logger.info("Loading and processing constitution PDF...")
+        pdf_path = os.path.join("data", "constitution.pdf")
+        if not os.path.exists(pdf_path):
+            raise FileNotFoundError(f"Constitution PDF not found at {os.path.abspath(pdf_path)}")
+            
+        logger.info(f"Extracting text from all pages of the constitution...")
+        
+        # Use PyMuPDF directly for better control over text extraction
+        import fitz  # PyMuPDF
+        
+        doc = fitz.open(pdf_path)
+        docs = []
+        
+        for page_num in range(len(doc)):
+            page = doc.load_page(page_num)
+            # Extract text with better options to avoid garbage characters
+            text = page.get_text("text", flags=fitz.TEXT_PRESERVE_IMAGES | fitz.TEXT_DEHYPHENATE)
+            
+            # Clean up common issues in extracted text
+            text = text.strip()
+            
+            # Skip empty pages
+            if not text:
+                continue
+                
+            # Create a document for this page
+            from langchain.docstore.document import Document
+            docs.append(Document(
+                page_content=text,
+                metadata={
+                    "source": pdf_path,
+                    "page": page_num + 1,
+                    "total_pages": len(doc)
+                }
+            ))
+        
+        if not docs:
+            raise ValueError("No valid text was extracted from the constitution PDF")
+            
+        logger.info(f"Successfully extracted text from {len(docs)} pages of the constitution")
+        
+        # Configure text splitter for legal documents
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=1000,  # Good balance for legal text
+            chunk_overlap=200,  # Maintains context between chunks
+            length_function=len,
+            add_start_index=True,
+            separators=["\n\n", "\n", ". ", " ", ""]  # Better handling of legal document structure
+        )
+        
+        # Process all pages of the constitution
+        logger.info("Splitting document into chunks...")
+        final_documents = text_splitter.split_documents(docs)
+        
+        if not final_documents:
+            raise ValueError("No documents were created after splitting the PDF")
+            
+        logger.info(f"Split into {len(final_documents)} chunks with average length of "
+                  f"{sum(len(d.page_content) for d in final_documents)/len(final_documents):.0f} chars")
+        
+        # Create the vector store with the approach that worked in the test
+        logger.info("Creating FAISS index...")
+        logger.info(f"Number of documents to index: {len(final_documents)}")
+        logger.info(f"First document sample: {final_documents[0].page_content[:200]}...")
+        
+        # Ensure the directory exists
+        os.makedirs(index_path, exist_ok=True)
+        logger.info(f"Created directory: {os.path.abspath(index_path)}")
+        
+        try:
+            from langchain_community.vectorstores import FAISS
+            from langchain.docstore.document import Document
+            
+            # Process documents in smaller batches to avoid memory issues
+            batch_size = 100
+            vector_store = None
+            
+            for i in range(0, len(final_documents), batch_size):
+                batch = final_documents[i:i + batch_size]
+                logger.info(f"Processing batch {i//batch_size + 1}/{(len(final_documents)-1)//batch_size + 1} with {len(batch)} documents")
+                
+                if vector_store is None:
+                    # First batch - create new index
+                    vector_store = FAISS.from_documents(
+                        documents=batch,
+                        embedding=embeddings
+                    )
+                else:
+                    # Subsequent batches - add to existing index
+                    vector_store.add_documents(batch)
+            
+            if vector_store is None:
+                raise ValueError("No documents were added to the vector store")
+                
+            logger.info("FAISS index created successfully")
+            logger.info(f"Index dimension: {vector_store.index.d}, Number of vectors: {vector_store.index.ntotal}")
+            
+            # Save the index
+            logger.info(f"Saving FAISS index to {os.path.abspath(index_path)}")
+            vector_store.save_local(index_path)
+            
+            # Verify the files were created
+            required_files = ["index.faiss", "index.pkl"]
+            for file in required_files:
+                file_path = os.path.join(index_path, file)
+                if not os.path.exists(file_path):
+                    raise RuntimeError(f"Failed to create {file_path}")
+                file_size = os.path.getsize(file_path) / (1024 * 1024)  # in MB
+                logger.info(f"Created {file} - Size: {file_size:.2f} MB")
+            
+            logger.info(f"Successfully created and saved FAISS index with {len(final_documents)} vectors")
+            
+        except Exception as e:
+            logger.error(f"Error creating FAISS index: {str(e)}", exc_info=True)
+            raise
+        
+    except Exception as e:
+        logger.error(f"Error creating FAISS index: {str(e)}")
+        raise RuntimeError("Failed to initialize document vector store") from e
+
+# Initialize the retriever with a simple similarity search first
+retriever = vector_store.as_retriever(
+    search_type="similarity",  # Use basic similarity search
+    search_kwargs={
+        'k': 5,  # Number of documents to retrieve
+        'fetch_k': 20  # Number of documents to consider during search
+    }
+)
+
+logger.info(f"Initialized retriever with {vector_store.index.ntotal} vectors")
+
+# Store global references for debugging
+FAISS_INDEX = vector_store
+EMBEDDINGS = embeddings
 
 llm = ChatGroq(groq_api_key=groq_api_key, model_name=groq_model)
 
@@ -1036,16 +1204,6 @@ def summarize_cases(cases: List[CaseDoc], user_case: str) -> List[CaseDoc]:
     return cases
 
 
-def should_use_case_search(user_input: str) -> bool:
-    """Simple agentic router to decide if the query is about finding similar cases."""
-    q = (user_input or "").lower()
-    keywords = [
-        "similar cases", "relevant cases", "precedent", "case law", "find cases", "citations",
-        "judgment similar", "landmark cases", "case like mine",
-    ]
-    return any(k in q for k in keywords)
-
-
 def synthesize_search_query(user_case: str) -> str:
     """Use the LLM to turn a free-form case description into a concise legal search query.
     The query should contain key facts, sections/articles, and issue terms.
@@ -1203,8 +1361,8 @@ async def _rerank_documents(question: str, docs: List[Document], top_k: int = 15
         return docs[:top_k]
 
 @app.post("/chat")
-def chat(input: str = Form(...), conversation_id: Optional[str] = Form(None)):
-    """Handle chat requests with case search and document retrieval capabilities.
+async def chat(input: str = Form(...), conversation_id: Optional[str] = Form(None)):
+    """Handle chat requests using the RAG pipeline for document retrieval and response generation.
     
     Args:
         input: User's input message
@@ -1213,9 +1371,19 @@ def chat(input: str = Form(...), conversation_id: Optional[str] = Form(None)):
     Returns:
         JSON response with the assistant's response and metadata
     """
-    global retriever
-    if not retriever:
-        return JSONResponse(status_code=400, content={"error": "Vector store not initialized"})
+    global retriever, document_chain, FAISS_INDEX, EMBEDDINGS
+    
+    # Debug: Log initialization status
+    logger.info(f"[RAG Debug] Initializing chat endpoint")
+    logger.info(f"[RAG Debug] Retriever initialized: {retriever is not None}")
+    logger.info(f"[RAG Debug] Document chain initialized: {document_chain is not None}")
+    logger.info(f"[RAG Debug] FAISS index available: {FAISS_INDEX is not None}")
+    logger.info(f"[RAG Debug] Embeddings available: {EMBEDDINGS is not None}")
+    
+    if not retriever or not document_chain:
+        error_msg = "Vector store or document chain not initialized"
+        logger.error(f"[RAG Error] {error_msg}")
+        return JSONResponse(status_code=500, content={"error": error_msg})
 
     # Determine conversation id
     conv_id = conversation_id or str(uuid4())
@@ -1224,107 +1392,90 @@ def chat(input: str = Form(...), conversation_id: Optional[str] = Form(None)):
     # Prepare chat history text for context
     history_text = "\n".join([f"{role}: {content}" for role, content in history])
     
-    # Agentic routing: decide if this is a case search query
-    if should_use_case_search(input):
-        try:
-            # LLM-assisted query synthesis
-            query_used = synthesize_search_query(input)
-            
-            # Search Indian Kanoon for relevant cases
-            cases, ik_error = search_indian_kanoon(query_used, limit=5)
-            
-            if not cases and ik_error:
-                return {
-                    "response": f"I couldn't find any relevant cases. Error: {ik_error}",
-                    "conversation_id": conv_id,
-                    "source": "indian_kanoon"
-                }
-            
-            # Process cases with enhanced summarization
-            case_details = []
-            for case in cases:
-                try:
-                    # Get case details (from cache or scrape)
-                    details = scrape_case_details(case.doc_id)
-                    
-                    # Generate enhanced summary and analysis
-                    summary = summarize_case_detail(
-                        user_case=input,
-                        title=details.get('title') or case.title,
-                        full_text=details.get('full_text')
-                    )
-                    
-                    if summary.get("success", False):
-                        case_details.append({
-                            "title": details.get('title') or case.title,
-                            "url": details.get('url') or case.url,
-                            "court": details.get('court'),
-                            "date": details.get('date'),
-                            "citation": details.get('citation'),
-                            "summary": summary.get("summary", "No summary available."),
-                            "legal_principles": summary.get("legal_principles", []),
-                            "similarities": summary.get("similarities", []),
-                            "relevance": summary.get("relevance", "")
-                        })
-                        
-                except Exception as e:
-                    logger.error(f"Error processing case {case.doc_id}: {str(e)}", exc_info=True)
-                    continue
-            
-            # Update chat history
-            history.append(("user", input))
-            history.append(("assistant", f"Found {len(case_details)} relevant cases based on your query."))
-            chat_histories[conv_id] = history[-10:]  # Keep last 10 messages
-            
-            # Prepare response with simplified string formatting
-            case_count = len(case_details)
-            response = {
-                'response': f"I found {case_count} relevant case{'s' if case_count != 1 else ''} based on your query:",
-                'query_used': query_used,
-                'cases': case_details,
-                'conversation_id': conv_id,
-                'source': 'indian_kanoon'
-            }
-            
-            if ik_error and not case_details:
-                response["ik_error"] = ik_error
-                
-            return response
-            
-        except Exception as e:
-            logger.error(f"Error in case search: {str(e)}", exc_info=True)
-            error_response = {
-                "response": "An error occurred while processing your request. Please try again.",
-                "conversation_id": conv_id,
-                "error": str(e)
-            }
-            history.append(("assistant", error_response["response"]))
-            chat_histories[conv_id] = history[-10:]
-            return error_response
-    
-    # Handle non-case search queries
     try:
-        const_docs = retriever.get_relevant_documents(input) if retriever else []
-        # Tag constitution docs for source extraction downstream
-        for d in const_docs:
-            meta = d.metadata or {}
+        logger.info(f"[RAG Debug] Processing query: {input}")
+        
+        # Get relevant documents using the retriever
+        try:
+            if hasattr(retriever, 'invoke'):
+                logger.info("[RAG Debug] Using invoke() method for retrieval")
+                docs = await retriever.ainvoke(input)
+            else:
+                logger.info("[RAG Debug] Using get_relevant_documents() for retrieval")
+                docs = await retriever.aget_relevant_documents(input)
+                
+            logger.info(f"[RAG Debug] Retrieved {len(docs)} documents")
+            
+            # Debug: Log document metadata
+            for i, doc in enumerate(docs[:3]):  # Log first 3 docs to avoid too much output
+                logger.info(f"[RAG Debug] Doc {i+1} metadata: {getattr(doc, 'metadata', 'No metadata')}")
+                logger.info(f"[RAG Debug] Doc {i+1} content preview: {getattr(doc, 'page_content', '')[:200]}...")
+                
+        except Exception as e:
+            logger.error(f"[RAG Error] Document retrieval failed: {str(e)}", exc_info=True)
+            return {
+                "response": "An error occurred while searching for relevant information.",
+                "conversation_id": conv_id,
+                "source": "error",
+                "sources": [],
+                "error": f"Retrieval error: {str(e)}"
+            }
+        
+        if not docs:
+            logger.warning("[RAG Warning] No documents retrieved from vector store")
+            # Try to provide more helpful feedback based on the query
+            if any(term in input.lower() for term in ["fundamental rights", "article", "constitution"]):
+                return {
+                    "response": "I couldn't find specific information about that topic in the constitution. "
+                              "The query might be too specific or the relevant sections might not be in the indexed documents. "
+                              "Try rephrasing your question or asking about a broader constitutional topic.",
+                    "conversation_id": conv_id,
+                    "source": "constitution",
+                    "sources": []
+                }
+            return {
+                "response": "I couldn't find any relevant information in the constitution to answer your question. "
+                          "The query might be outside the scope of the available constitutional documents or too specific. "
+                          "Please try rephrasing your question.",
+                "conversation_id": conv_id,
+                "source": "constitution",
+                "sources": []
+            }
+            
+        # Ensure all documents have proper source metadata
+        for doc in docs:
+            meta = getattr(doc, 'metadata', {}) or {}
             meta["source"] = meta.get("source") or "constitution"
-            d.metadata = meta
-        case_docs = build_case_documents(input, limit_cases=3)
-        combined_docs = const_docs + case_docs
-        # Rerank to keep the most relevant chunks overall
-        combined_docs = _rerank_documents(input, combined_docs, top_k=18)
-
-        response = document_chain.invoke({
+            doc.metadata = meta
+        
+        # Rerank documents by relevance to the query
+        ranked_docs = await _rerank_documents(input, docs, top_k=5)  # Reduced top_k for better performance
+        
+        # Prepare the input for the document chain
+        chain_input = {
             'input': input,
             'chat_history': history_text,
-            'context': combined_docs
-        })
+            'context': ranked_docs
+        }
+        
+        # Generate response using the document chain
+        if hasattr(document_chain, 'ainvoke'):
+            response = await document_chain.ainvoke(chain_input)
+        else:
+            response = document_chain.invoke(chain_input)
 
-        answer = response if isinstance(response, str) else getattr(response, "content", "") or response.get("answer", "")
-        sources = _extract_sources(combined_docs)
+        # Extract the answer from the response object
+        if isinstance(response, dict):
+            answer = response.get('answer', '') or response.get('text', '')
+        elif hasattr(response, 'content'):
+            answer = response.content
+        else:
+            answer = str(response)
+        
+        # Extract sources from the ranked documents
+        sources = _extract_sources(ranked_docs) if ranked_docs else []
 
-        # Update history
+        # Update conversation history
         history.append(("user", input))
         history.append(("assistant", answer))
         chat_histories[conv_id] = history[-10:]  # Keep last 10 messages
@@ -1332,20 +1483,20 @@ def chat(input: str = Form(...), conversation_id: Optional[str] = Form(None)):
         return {
             "response": answer, 
             "conversation_id": conv_id, 
-            "source": "constitution_plus_cases", 
+            "source": "constitution", 
             "sources": sources
         }
 
     except Exception as e:
-        logger.error(f"Error in document retrieval: {str(e)}", exc_info=True)
+        logger.error(f"Error in RAG pipeline: {str(e)}", exc_info=True)
         error_response = {
-            "response": "An error occurred while retrieving documents. Please try again.",
+            "response": "An error occurred while processing your request. Please try again.",
             "conversation_id": conv_id,
-            "error": str(e)
+            "error": str(e) if str(e) else "Unknown error"
         }
         history.append(("assistant", error_response["response"]))
         chat_histories[conv_id] = history[-10:]
-        return error_response
+        return JSONResponse(status_code=500, content=error_response)
 
 
 @app.options("/cases/search")

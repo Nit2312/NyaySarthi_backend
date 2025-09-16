@@ -1320,3 +1320,1121 @@ TypeError: object dict can't be used in 'await' expression
 2025-09-15 14:20:38,006 - main - INFO - Initialized HTTP client with connection pooling
 2025-09-15 14:20:38,008 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
 2025-09-15 14:20:43,024 - main - INFO - Successfully loaded FAISS index
+2025-09-15 15:04:40,185 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 15:04:40,186 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 15:04:44,079 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 15:04:44,080 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 15:04:50,588 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 15:04:50,593 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 15:05:03,966 - main - INFO - Successfully loaded FAISS index
+2025-09-15 15:08:47,774 - main - INFO - Processing cases search request: 'a case which is categories in both criminal and civil case...' (limit: 5)
+2025-09-15 15:08:48,199 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 15:08:48,221 - main - INFO - Searching Indian Kanoon for: "Criminal civil overlap case law India Indian Kanoon Section 20 Criminal Procedure Code, Code of Civ...
+2025-09-15 15:08:48,221 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 15:08:49,767 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22%22Criminal+civil+overlap+case+law+India+Indian+Kanoon+Section+20+Criminal+Procedure+Code%2C+Code+of+Civil+Procedure%22%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=15-09-2025 "HTTP/1.1 200 OK"
+2025-09-15 15:08:49,781 - main - INFO - Successfully scraped 1 cases from Indian Kanoon
+2025-09-15 15:08:49,782 - main - INFO - Cache set: ik_search:f9a0f0d4be56344c
+2025-09-15 15:08:50,226 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 15:08:50,229 - main - INFO - Cache set: cases_search:ff9059b919253c2c
+2025-09-15 15:08:50,229 - main - INFO - Cases search completed in 2.455s, found 1 cases
+2025-09-15 15:08:51,887 - main - INFO - [case-details] Start processing doc_id=58790965
+2025-09-15 15:08:51,887 - main - INFO - [scrape_case_details] Start for doc_id=58790965
+2025-09-15 15:08:51,888 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/58790965/
+2025-09-15 15:08:54,162 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/58790965/
+2025-09-15 15:08:54,331 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=58790965
+2025-09-15 15:08:54,332 - main - INFO - [scrape_case_details] Extracted title for doc_id=58790965
+2025-09-15 15:08:54,332 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=58790965
+2025-09-15 15:08:54,473 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=58790965
+2025-09-15 15:08:54,479 - main - INFO - [scrape_case_details] Extracting main content for doc_id=58790965
+2025-09-15 15:08:54,620 - main - INFO - [scrape_case_details] Extracted main content for doc_id=58790965
+2025-09-15 15:08:54,621 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=58790965
+2025-09-15 15:08:54,621 - main - INFO - [scrape_case_details] Extracting sections for doc_id=58790965
+2025-09-15 15:08:54,628 - main - INFO - [scrape_case_details] Finished sections for doc_id=58790965
+2025-09-15 15:08:54,629 - main - INFO - Cache set: case_details:f75e2ed95ea9c616
+2025-09-15 15:08:54,630 - main - INFO - [scrape_case_details] Finished and cached for doc_id=58790965
+2025-09-15 15:08:54,633 - main - INFO - [case-details] Finished scrape_case_details for doc_id=58790965
+2025-09-15 15:08:54,633 - main - INFO - [case-details] Start summarize_case_detail for doc_id=58790965
+2025-09-15 15:08:55,711 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 15:08:55,716 - main - INFO - [case-details] Finished summarize_case_detail for doc_id=58790965
+2025-09-15 15:08:55,885 - main - INFO - Cache set: case_details:e014db5da9055d8e
+2025-09-15 15:08:55,886 - main - INFO - Cached case details for 58790965
+2025-09-15 15:09:34,403 - main - INFO - [case-details] Start processing doc_id=58790965
+2025-09-15 15:09:34,404 - main - INFO - [scrape_case_details] Start for doc_id=58790965
+2025-09-15 15:09:34,404 - main - INFO - Cache hit: case_details:f75e2ed95ea9c616
+2025-09-15 15:09:34,405 - main - INFO - [scrape_case_details] Cache hit for doc_id=58790965
+2025-09-15 15:09:34,405 - main - INFO - [case-details] Finished scrape_case_details for doc_id=58790965
+2025-09-15 15:09:34,634 - main - INFO - Cache set: case_details:72b93e37babe5131
+2025-09-15 15:09:34,634 - main - INFO - Cached case details for 58790965
+2025-09-15 15:11:55,998 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 15:11:56,000 - main - INFO - Searching Indian Kanoon for: "Fundamental Rights under Articles 14, 19, 21, 226 of the Constitution of India, case law on Part II...
+2025-09-15 15:11:56,000 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 15:12:00,686 - main - INFO - Successfully scraped 3 cases from Indian Kanoon
+2025-09-15 15:12:00,686 - main - INFO - Cache set: ik_search:e8576bcf5524dcc2
+2025-09-15 15:12:00,688 - main - INFO - [scrape_case_details] Start for doc_id=43580703
+2025-09-15 15:12:00,689 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/43580703/
+2025-09-15 15:12:02,938 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/43580703/
+2025-09-15 15:12:03,198 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=43580703
+2025-09-15 15:12:03,199 - main - INFO - [scrape_case_details] Extracted title for doc_id=43580703
+2025-09-15 15:12:03,199 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=43580703
+2025-09-15 15:12:03,431 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=43580703
+2025-09-15 15:12:03,440 - main - INFO - [scrape_case_details] Extracting main content for doc_id=43580703
+2025-09-15 15:12:03,657 - main - INFO - [scrape_case_details] Extracted main content for doc_id=43580703
+2025-09-15 15:12:03,658 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=43580703
+2025-09-15 15:12:03,658 - main - INFO - [scrape_case_details] Extracting sections for doc_id=43580703
+2025-09-15 15:12:46,652 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 15:12:46,652 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 15:12:50,508 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 15:12:50,508 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 15:12:57,403 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 15:12:57,406 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 15:13:02,280 - main - INFO - Successfully loaded FAISS index
+2025-09-15 15:13:13,655 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 15:13:13,669 - main - INFO - Searching Indian Kanoon for: "Preamble to Indian Constitution, Article 39, 14, 19, 21, Fundamental Rights, Directive Principles, ...
+2025-09-15 15:13:13,669 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 15:13:17,272 - main - INFO - Successfully scraped 3 cases from Indian Kanoon
+2025-09-15 15:13:17,272 - main - INFO - Cache set: ik_search:f027698fa2b9a917
+2025-09-15 15:13:17,273 - main - INFO - [scrape_case_details] Start for doc_id=168450156
+2025-09-15 15:13:17,273 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/168450156/
+2025-09-15 15:13:18,902 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/168450156/
+2025-09-15 15:13:18,960 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=168450156
+2025-09-15 15:13:18,961 - main - INFO - [scrape_case_details] Extracted title for doc_id=168450156
+2025-09-15 15:13:18,963 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=168450156
+2025-09-15 15:13:19,024 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=168450156
+2025-09-15 15:13:19,026 - main - INFO - [scrape_case_details] Extracting main content for doc_id=168450156
+2025-09-15 15:13:19,084 - main - INFO - [scrape_case_details] Extracted main content for doc_id=168450156
+2025-09-15 15:13:19,085 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=168450156
+2025-09-15 15:13:19,086 - main - INFO - [scrape_case_details] Extracting sections for doc_id=168450156
+2025-09-15 15:19:51,676 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 15:19:51,676 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 15:19:54,893 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 15:19:54,893 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 15:20:01,462 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 15:20:01,465 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 15:20:06,076 - main - INFO - Successfully loaded FAISS index
+2025-09-15 15:20:32,281 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 15:20:32,306 - main - INFO - Searching Indian Kanoon for: "Articles 14, 19, 21, 22 & 32 of the Constitution, Fundamental Rights, Indian citizen, Constitutiona...
+2025-09-15 15:20:32,307 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 15:20:37,762 - main - INFO - Successfully scraped 3 cases from Indian Kanoon
+2025-09-15 15:20:37,762 - main - INFO - Cache set: ik_search:f8ffc6d11a386843
+2025-09-15 15:20:37,763 - main - INFO - [scrape_case_details] Start for doc_id=190080663
+2025-09-15 15:20:37,764 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/190080663/
+2025-09-15 15:20:39,539 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/190080663/
+2025-09-15 15:20:39,599 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=190080663
+2025-09-15 15:20:39,600 - main - INFO - [scrape_case_details] Extracted title for doc_id=190080663
+2025-09-15 15:20:39,602 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=190080663
+2025-09-15 15:20:39,667 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=190080663
+2025-09-15 15:20:39,669 - main - INFO - [scrape_case_details] Extracting main content for doc_id=190080663
+2025-09-15 15:20:39,730 - main - INFO - [scrape_case_details] Extracted main content for doc_id=190080663
+2025-09-15 15:20:39,731 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=190080663
+2025-09-15 15:20:39,731 - main - INFO - [scrape_case_details] Extracting sections for doc_id=190080663
+2025-09-15 15:20:39,765 - main - INFO - [scrape_case_details] Finished sections for doc_id=190080663
+2025-09-15 15:20:39,765 - main - INFO - Cache set: case_details:081c9ce95940b666
+2025-09-15 15:20:39,766 - main - INFO - [scrape_case_details] Finished and cached for doc_id=190080663
+2025-09-15 15:20:39,771 - main - INFO - [scrape_case_details] Start for doc_id=129202312
+2025-09-15 15:20:39,771 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/129202312/
+2025-09-15 15:20:41,842 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/129202312/
+2025-09-15 15:20:41,975 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=129202312
+2025-09-15 15:20:41,977 - main - INFO - [scrape_case_details] Extracted title for doc_id=129202312
+2025-09-15 15:20:41,977 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=129202312
+2025-09-15 15:20:42,125 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=129202312
+2025-09-15 15:20:42,131 - main - INFO - [scrape_case_details] Extracting main content for doc_id=129202312
+2025-09-15 15:20:42,299 - main - INFO - [scrape_case_details] Extracted main content for doc_id=129202312
+2025-09-15 15:20:42,299 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=129202312
+2025-09-15 15:20:42,300 - main - INFO - [scrape_case_details] Extracting sections for doc_id=129202312
+2025-09-15 15:26:43,629 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 15:26:43,629 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 15:26:46,785 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 15:26:46,787 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 15:26:52,948 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 15:26:52,949 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 15:26:57,887 - main - INFO - Successfully loaded FAISS index
+2025-09-15 15:36:02,901 - main - INFO - HTTP client closed
+2025-09-15 15:36:53,184 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 15:36:53,184 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 15:36:56,169 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 15:36:56,169 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 15:37:02,013 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 15:37:02,015 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 15:37:06,463 - main - INFO - Successfully loaded FAISS index
+2025-09-15 15:43:50,943 - main - INFO - HTTP client closed
+2025-09-15 15:43:58,026 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 15:43:58,027 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 15:44:01,036 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 15:44:01,036 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 15:44:06,914 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 15:44:06,917 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 15:44:11,161 - main - INFO - Successfully loaded FAISS index
+2025-09-15 15:47:09,997 - main - INFO - HTTP client closed
+2025-09-15 15:47:17,382 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 15:47:17,383 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 15:47:21,200 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 15:47:21,202 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 15:47:27,874 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 15:47:27,877 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 15:47:32,316 - main - INFO - Successfully loaded FAISS index
+2025-09-15 15:47:53,779 - main - INFO - HTTP client closed
+2025-09-15 15:48:01,160 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 15:48:01,161 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 15:48:05,060 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 15:48:05,061 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 15:48:11,202 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 15:48:11,203 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 15:48:15,501 - main - INFO - Successfully loaded FAISS index
+2025-09-15 15:48:31,911 - main - INFO - HTTP client closed
+2025-09-15 15:48:38,986 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 15:48:38,987 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 15:48:42,082 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 15:48:42,082 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 15:48:47,958 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 15:48:47,960 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 15:48:52,296 - main - INFO - Successfully loaded FAISS index
+2025-09-15 15:50:47,819 - main - INFO - HTTP client closed
+2025-09-15 15:50:55,027 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 15:50:55,027 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 15:50:58,977 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 15:50:58,978 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 15:51:05,959 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 15:51:05,961 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 15:51:11,082 - main - INFO - Successfully loaded FAISS index
+2025-09-15 15:51:29,424 - main - INFO - HTTP client closed
+2025-09-15 16:14:16,874 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 16:14:16,874 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 16:14:20,001 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 16:14:20,002 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 16:14:27,200 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 16:14:27,202 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 16:14:32,318 - main - INFO - Successfully loaded FAISS index
+2025-09-15 16:14:32,325 - main - INFO - HTTP client closed
+2025-09-15 16:14:39,744 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 16:14:39,745 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 16:14:43,585 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 16:14:43,585 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 16:14:51,022 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 16:14:51,023 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 16:14:55,570 - main - INFO - Successfully loaded FAISS index
+2025-09-15 16:21:56,787 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 16:21:56,803 - main - INFO - Searching Indian Kanoon for: "Fundamental Rights under Articles 14-35 of the Constitution of India, Indian Kanoon"...
+2025-09-15 16:21:56,804 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 16:21:59,854 - main - INFO - Successfully scraped 3 cases from Indian Kanoon
+2025-09-15 16:21:59,855 - main - INFO - Cache set: ik_search:24b996219202cb9b
+2025-09-15 16:21:59,855 - main - INFO - [scrape_case_details] Start for doc_id=44094250
+2025-09-15 16:21:59,856 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/44094250/
+2025-09-15 16:22:01,702 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/44094250/
+2025-09-15 16:22:01,845 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=44094250
+2025-09-15 16:22:01,846 - main - INFO - [scrape_case_details] Extracted title for doc_id=44094250
+2025-09-15 16:22:01,847 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=44094250
+2025-09-15 16:22:01,984 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=44094250
+2025-09-15 16:22:01,990 - main - INFO - [scrape_case_details] Extracting main content for doc_id=44094250
+2025-09-15 16:22:02,122 - main - INFO - [scrape_case_details] Extracted main content for doc_id=44094250
+2025-09-15 16:22:02,123 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=44094250
+2025-09-15 16:22:02,123 - main - INFO - [scrape_case_details] Extracting sections for doc_id=44094250
+2025-09-15 16:22:02,130 - main - INFO - [scrape_case_details] Finished sections for doc_id=44094250
+2025-09-15 16:22:02,132 - main - INFO - Cache set: case_details:903dba1b0b94bf39
+2025-09-15 16:22:02,132 - main - INFO - [scrape_case_details] Finished and cached for doc_id=44094250
+2025-09-15 16:22:02,136 - main - INFO - [scrape_case_details] Start for doc_id=172025473
+2025-09-15 16:22:02,138 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/172025473/
+2025-09-15 16:22:04,533 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/172025473/
+2025-09-15 16:22:04,666 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=172025473
+2025-09-15 16:22:04,667 - main - INFO - [scrape_case_details] Extracted title for doc_id=172025473
+2025-09-15 16:22:04,667 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=172025473
+2025-09-15 16:22:04,800 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=172025473
+2025-09-15 16:22:04,806 - main - INFO - [scrape_case_details] Extracting main content for doc_id=172025473
+2025-09-15 16:22:04,936 - main - INFO - [scrape_case_details] Extracted main content for doc_id=172025473
+2025-09-15 16:22:04,937 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=172025473
+2025-09-15 16:22:04,938 - main - INFO - [scrape_case_details] Extracting sections for doc_id=172025473
+2025-09-15 16:22:04,942 - main - INFO - [scrape_case_details] Finished sections for doc_id=172025473
+2025-09-15 16:22:04,942 - main - INFO - Cache set: case_details:84bfe71e450c09c8
+2025-09-15 16:22:04,943 - main - INFO - [scrape_case_details] Finished and cached for doc_id=172025473
+2025-09-15 16:22:04,947 - main - INFO - [scrape_case_details] Start for doc_id=101738211
+2025-09-15 16:22:04,949 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/101738211/
+2025-09-15 16:22:06,877 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/101738211/
+2025-09-15 16:22:07,238 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=101738211
+2025-09-15 16:22:07,239 - main - INFO - [scrape_case_details] Extracted title for doc_id=101738211
+2025-09-15 16:22:07,239 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=101738211
+2025-09-15 16:22:07,421 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=101738211
+2025-09-15 16:22:07,429 - main - INFO - [scrape_case_details] Extracting main content for doc_id=101738211
+2025-09-15 16:22:07,597 - main - INFO - [scrape_case_details] Extracted main content for doc_id=101738211
+2025-09-15 16:22:07,598 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=101738211
+2025-09-15 16:22:07,599 - main - INFO - [scrape_case_details] Extracting sections for doc_id=101738211
+2025-09-15 16:22:07,602 - main - INFO - [scrape_case_details] Finished sections for doc_id=101738211
+2025-09-15 16:22:07,604 - main - INFO - Cache set: case_details:4c22e29c21e1d85e
+2025-09-15 16:22:07,604 - main - INFO - [scrape_case_details] Finished and cached for doc_id=101738211
+2025-09-15 16:22:07,619 - main - ERROR - Error in document retrieval: 'coroutine' object is not iterable
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\main.py", line 1318, in chat
+    response = document_chain.invoke({
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 5441, in invoke
+    return self.bound.invoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3047, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 5441, in invoke
+    return self.bound.invoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\passthrough.py", line 513, in invoke
+    return self._call_with_config(self._invoke, input, config, **kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 1938, in _call_with_config
+    context.run(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 429, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\passthrough.py", line 499, in _invoke
+    **self.mapper.invoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3777, in invoke
+    output = {key: future.result() for key, future in zip(steps, futures)}
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3777, in <dictcomp>
+    output = {key: future.result() for key, future in zip(steps, futures)}
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\concurrent\futures\_base.py", line 451, in result
+    return self.__get_result()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3761, in _invoke_step
+    return context.run(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 4781, in invoke
+    return self._call_with_config(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 1938, in _call_with_config
+    context.run(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 429, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 4639, in _invoke
+    output = call_func_with_variable_args(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 429, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain\chains\combine_documents\stuff.py", line 84, in format_docs
+    return document_separator.join(
+TypeError: 'coroutine' object is not iterable
+2025-09-15 16:22:57,859 - main - INFO - HTTP client closed
+2025-09-15 16:23:11,269 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 16:23:11,269 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 16:23:14,517 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 16:23:14,517 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 16:23:21,178 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 16:23:21,180 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 16:23:25,988 - main - INFO - Successfully loaded FAISS index
+2025-09-15 16:24:02,325 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 16:24:02,363 - main - INFO - Searching Indian Kanoon for: "Indian Kanoon - Fundamental Rights under Article 14, 19, 21, 300 of Constitution of India"...
+2025-09-15 16:24:02,364 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 16:24:05,451 - main - INFO - Successfully scraped 3 cases from Indian Kanoon
+2025-09-15 16:24:05,453 - main - INFO - Cache set: ik_search:7a8a3f91050da2c6
+2025-09-15 16:24:05,454 - main - INFO - [scrape_case_details] Start for doc_id=44094250
+2025-09-15 16:24:05,456 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/44094250/
+2025-09-15 16:24:07,903 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/44094250/
+2025-09-15 16:24:08,051 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=44094250
+2025-09-15 16:24:08,053 - main - INFO - [scrape_case_details] Extracted title for doc_id=44094250
+2025-09-15 16:24:08,053 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=44094250
+2025-09-15 16:24:08,205 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=44094250
+2025-09-15 16:24:08,211 - main - INFO - [scrape_case_details] Extracting main content for doc_id=44094250
+2025-09-15 16:24:08,353 - main - INFO - [scrape_case_details] Extracted main content for doc_id=44094250
+2025-09-15 16:24:08,354 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=44094250
+2025-09-15 16:24:08,354 - main - INFO - [scrape_case_details] Extracting sections for doc_id=44094250
+2025-09-15 16:24:08,361 - main - INFO - [scrape_case_details] Finished sections for doc_id=44094250
+2025-09-15 16:24:08,361 - main - INFO - Cache set: case_details:903dba1b0b94bf39
+2025-09-15 16:24:08,362 - main - INFO - [scrape_case_details] Finished and cached for doc_id=44094250
+2025-09-15 16:24:08,366 - main - INFO - [scrape_case_details] Start for doc_id=172025473
+2025-09-15 16:24:08,370 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/172025473/
+2025-09-15 16:24:10,175 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/172025473/
+2025-09-15 16:24:10,324 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=172025473
+2025-09-15 16:24:10,324 - main - INFO - [scrape_case_details] Extracted title for doc_id=172025473
+2025-09-15 16:24:10,324 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=172025473
+2025-09-15 16:24:10,459 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=172025473
+2025-09-15 16:24:10,465 - main - INFO - [scrape_case_details] Extracting main content for doc_id=172025473
+2025-09-15 16:24:10,591 - main - INFO - [scrape_case_details] Extracted main content for doc_id=172025473
+2025-09-15 16:24:10,592 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=172025473
+2025-09-15 16:24:10,592 - main - INFO - [scrape_case_details] Extracting sections for doc_id=172025473
+2025-09-15 16:24:10,595 - main - INFO - [scrape_case_details] Finished sections for doc_id=172025473
+2025-09-15 16:24:10,596 - main - INFO - Cache set: case_details:84bfe71e450c09c8
+2025-09-15 16:24:10,597 - main - INFO - [scrape_case_details] Finished and cached for doc_id=172025473
+2025-09-15 16:24:10,601 - main - INFO - [scrape_case_details] Start for doc_id=237570
+2025-09-15 16:24:10,603 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/237570/
+2025-09-15 16:24:12,832 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/237570/
+2025-09-15 16:24:13,882 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=237570
+2025-09-15 16:24:13,883 - main - INFO - [scrape_case_details] Extracted title for doc_id=237570
+2025-09-15 16:24:13,883 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=237570
+2025-09-15 16:24:15,320 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=237570
+2025-09-15 16:24:15,353 - main - INFO - [scrape_case_details] Extracting main content for doc_id=237570
+2025-09-15 16:24:18,052 - main - INFO - [scrape_case_details] Extracted main content for doc_id=237570
+2025-09-15 16:24:18,053 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=237570
+2025-09-15 16:24:18,054 - main - INFO - [scrape_case_details] Extracting sections for doc_id=237570
+2025-09-15 16:29:45,226 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 16:29:45,227 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 16:29:48,359 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 16:29:48,359 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 16:29:54,646 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 16:29:54,648 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 16:29:59,560 - main - INFO - Successfully loaded FAISS index
+2025-09-15 16:33:29,989 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 16:33:30,007 - main - INFO - Searching Indian Kanoon for: "Constitution of India, Part III, Fundamental Rights, Article 14, 19(1)(a), 21, judicial review"...
+2025-09-15 16:33:30,007 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 16:33:38,762 - main - INFO - Successfully scraped 3 cases from Indian Kanoon
+2025-09-15 16:33:38,764 - main - INFO - Cache set: ik_search:2ce01bc60961361e
+2025-09-15 16:33:38,764 - main - INFO - [scrape_case_details] Start for doc_id=177744098
+2025-09-15 16:33:38,766 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/177744098/
+2025-09-15 16:33:40,391 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/177744098/
+2025-09-15 16:33:40,522 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=177744098
+2025-09-15 16:33:40,524 - main - INFO - [scrape_case_details] Extracted title for doc_id=177744098
+2025-09-15 16:33:40,524 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=177744098
+2025-09-15 16:33:40,659 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=177744098
+2025-09-15 16:33:40,664 - main - INFO - [scrape_case_details] Extracting main content for doc_id=177744098
+2025-09-15 16:33:40,801 - main - INFO - [scrape_case_details] Extracted main content for doc_id=177744098
+2025-09-15 16:33:40,801 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=177744098
+2025-09-15 16:33:40,802 - main - INFO - [scrape_case_details] Extracting sections for doc_id=177744098
+2025-09-15 16:33:40,811 - main - INFO - [scrape_case_details] Finished sections for doc_id=177744098
+2025-09-15 16:33:40,811 - main - INFO - Cache set: case_details:988a981e3969e0b0
+2025-09-15 16:33:40,811 - main - INFO - [scrape_case_details] Finished and cached for doc_id=177744098
+2025-09-15 16:33:40,817 - main - INFO - [scrape_case_details] Start for doc_id=160848393
+2025-09-15 16:33:40,818 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/160848393/
+2025-09-15 16:33:42,738 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/160848393/
+2025-09-15 16:33:42,821 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=160848393
+2025-09-15 16:33:42,823 - main - INFO - [scrape_case_details] Extracted title for doc_id=160848393
+2025-09-15 16:33:42,825 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=160848393
+2025-09-15 16:33:42,911 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=160848393
+2025-09-15 16:33:42,914 - main - INFO - [scrape_case_details] Extracting main content for doc_id=160848393
+2025-09-15 16:33:42,993 - main - INFO - [scrape_case_details] Extracted main content for doc_id=160848393
+2025-09-15 16:33:42,994 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=160848393
+2025-09-15 16:33:42,995 - main - INFO - [scrape_case_details] Extracting sections for doc_id=160848393
+2025-09-15 16:36:50,387 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 16:36:50,387 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 16:36:54,711 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 16:36:54,711 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 16:37:02,339 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 16:37:02,342 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 16:37:07,842 - main - INFO - Successfully loaded FAISS index
+2025-09-15 16:37:43,670 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 16:37:43,704 - main - INFO - Searching Indian Kanoon for: "Indian Kanoon: Articles 14, 19, 21 of Constitution of India, Fundamental Rights, Judicial Review, I...
+2025-09-15 16:37:43,707 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 16:37:45,769 - main - INFO - Successfully scraped 3 cases from Indian Kanoon
+2025-09-15 16:37:45,771 - main - INFO - Cache set: ik_search:241a99c07bae7aa1
+2025-09-15 16:37:45,782 - main - INFO - [scrape_case_details] Start for doc_id=1011035
+2025-09-15 16:37:45,783 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/1011035/
+2025-09-15 16:37:47,664 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/1011035/
+2025-09-15 16:37:47,673 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=1011035
+2025-09-15 16:37:47,675 - main - INFO - [scrape_case_details] Extracted title for doc_id=1011035
+2025-09-15 16:37:47,676 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=1011035
+2025-09-15 16:37:47,688 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=1011035
+2025-09-15 16:37:47,696 - main - INFO - [scrape_case_details] Extracting main content for doc_id=1011035
+2025-09-15 16:37:47,715 - main - INFO - [scrape_case_details] Extracted main content for doc_id=1011035
+2025-09-15 16:37:47,716 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=1011035
+2025-09-15 16:37:47,717 - main - INFO - [scrape_case_details] Extracting sections for doc_id=1011035
+2025-09-15 16:37:47,736 - main - INFO - [scrape_case_details] Finished sections for doc_id=1011035
+2025-09-15 16:37:47,737 - main - INFO - Cache set: case_details:a2c5689ceb986cf9
+2025-09-15 16:37:47,737 - main - INFO - [scrape_case_details] Finished and cached for doc_id=1011035
+2025-09-15 16:37:47,748 - main - INFO - [scrape_case_details] Start for doc_id=37788
+2025-09-15 16:37:47,749 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/37788/
+2025-09-15 16:37:49,345 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/37788/
+2025-09-15 16:37:49,350 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=37788
+2025-09-15 16:37:49,350 - main - INFO - [scrape_case_details] Extracted title for doc_id=37788
+2025-09-15 16:37:49,350 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=37788
+2025-09-15 16:37:49,357 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=37788
+2025-09-15 16:37:49,357 - main - INFO - [scrape_case_details] Extracting main content for doc_id=37788
+2025-09-15 16:37:49,367 - main - INFO - [scrape_case_details] Extracted main content for doc_id=37788
+2025-09-15 16:37:49,368 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=37788
+2025-09-15 16:37:49,368 - main - INFO - [scrape_case_details] Extracting sections for doc_id=37788
+2025-09-15 16:37:49,370 - main - INFO - [scrape_case_details] Finished sections for doc_id=37788
+2025-09-15 16:37:49,370 - main - INFO - Cache set: case_details:6af61fb573a8011b
+2025-09-15 16:37:49,370 - main - INFO - [scrape_case_details] Finished and cached for doc_id=37788
+2025-09-15 16:37:49,373 - main - INFO - [scrape_case_details] Start for doc_id=1290514
+2025-09-15 16:37:49,379 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/1290514/
+2025-09-15 16:37:50,939 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/1290514/
+2025-09-15 16:37:50,948 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=1290514
+2025-09-15 16:37:50,949 - main - INFO - [scrape_case_details] Extracted title for doc_id=1290514
+2025-09-15 16:37:50,949 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=1290514
+2025-09-15 16:37:50,961 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=1290514
+2025-09-15 16:37:50,962 - main - INFO - [scrape_case_details] Extracting main content for doc_id=1290514
+2025-09-15 16:37:50,980 - main - INFO - [scrape_case_details] Extracted main content for doc_id=1290514
+2025-09-15 16:37:50,981 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=1290514
+2025-09-15 16:37:50,981 - main - INFO - [scrape_case_details] Extracting sections for doc_id=1290514
+2025-09-15 16:41:35,803 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 16:41:35,803 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 16:41:39,188 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 16:41:39,189 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 16:41:45,657 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 16:41:45,660 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 16:41:50,567 - main - INFO - Successfully loaded FAISS index
+2025-09-15 16:42:32,597 - main - INFO - Using RAG pipeline for query: fundamental rights 
+2025-09-15 16:42:33,049 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 16:42:33,066 - main - INFO - Searching Indian Kanoon for: "Art 14, 19, 21 Indian Constitution, Fundamental Rights, Judicial Review, Equality before law"...
+2025-09-15 16:42:33,066 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 16:42:36,955 - main - INFO - Successfully scraped 3 cases from Indian Kanoon
+2025-09-15 16:42:36,956 - main - INFO - Cache set: ik_search:ec4d7fcc67a49023
+2025-09-15 16:42:36,956 - main - INFO - [scrape_case_details] Start for doc_id=33465676
+2025-09-15 16:42:36,959 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/33465676/
+2025-09-15 16:42:38,868 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/33465676/
+2025-09-15 16:42:39,162 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=33465676
+2025-09-15 16:42:39,163 - main - INFO - [scrape_case_details] Extracted title for doc_id=33465676
+2025-09-15 16:42:39,164 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=33465676
+2025-09-15 16:42:39,467 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=33465676
+2025-09-15 16:42:39,479 - main - INFO - [scrape_case_details] Extracting main content for doc_id=33465676
+2025-09-15 16:42:39,799 - main - INFO - [scrape_case_details] Extracted main content for doc_id=33465676
+2025-09-15 16:42:39,800 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=33465676
+2025-09-15 16:42:39,800 - main - INFO - [scrape_case_details] Extracting sections for doc_id=33465676
+2025-09-15 16:42:39,814 - main - INFO - [scrape_case_details] Finished sections for doc_id=33465676
+2025-09-15 16:42:39,816 - main - INFO - Cache set: case_details:5bb11bbf5c863ad8
+2025-09-15 16:42:39,818 - main - INFO - [scrape_case_details] Finished and cached for doc_id=33465676
+2025-09-15 16:42:39,825 - main - INFO - [scrape_case_details] Start for doc_id=974148
+2025-09-15 16:42:39,826 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/974148/
+2025-09-15 16:42:42,191 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/974148/
+2025-09-15 16:42:42,247 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=974148
+2025-09-15 16:42:42,248 - main - INFO - [scrape_case_details] Extracted title for doc_id=974148
+2025-09-15 16:42:42,249 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=974148
+2025-09-15 16:42:42,300 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=974148
+2025-09-15 16:42:42,304 - main - INFO - [scrape_case_details] Extracting main content for doc_id=974148
+2025-09-15 16:42:42,359 - main - INFO - [scrape_case_details] Extracted main content for doc_id=974148
+2025-09-15 16:42:42,359 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=974148
+2025-09-15 16:42:42,361 - main - INFO - [scrape_case_details] Extracting sections for doc_id=974148
+2025-09-15 16:42:43,968 - main - INFO - [scrape_case_details] Finished sections for doc_id=974148
+2025-09-15 16:42:43,969 - main - INFO - Cache set: case_details:bad42f8e96466bce
+2025-09-15 16:42:43,970 - main - INFO - [scrape_case_details] Finished and cached for doc_id=974148
+2025-09-15 16:42:43,975 - main - INFO - [scrape_case_details] Start for doc_id=165099707
+2025-09-15 16:42:43,975 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/165099707/
+2025-09-15 16:42:46,448 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/165099707/
+2025-09-15 16:42:46,841 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=165099707
+2025-09-15 16:42:46,841 - main - INFO - [scrape_case_details] Extracted title for doc_id=165099707
+2025-09-15 16:42:46,841 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=165099707
+2025-09-15 16:42:47,092 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=165099707
+2025-09-15 16:42:47,102 - main - INFO - [scrape_case_details] Extracting main content for doc_id=165099707
+2025-09-15 16:42:47,360 - main - INFO - [scrape_case_details] Extracted main content for doc_id=165099707
+2025-09-15 16:42:47,360 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=165099707
+2025-09-15 16:42:47,361 - main - INFO - [scrape_case_details] Extracting sections for doc_id=165099707
+2025-09-15 16:47:13,088 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 16:47:13,088 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 16:47:16,328 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 16:47:16,328 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 16:47:22,854 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 16:47:22,856 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 16:47:28,412 - main - INFO - Successfully loaded FAISS index
+2025-09-15 16:47:42,719 - main - INFO - Using RAG pipeline for query: fundamental rights
+2025-09-15 16:47:43,219 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 16:47:43,246 - main - INFO - Searching Indian Kanoon for: "Article 14, 19, 21, 32 of Constitution of India, Fundamental Rights, Supreme Court judgments"...
+2025-09-15 16:47:43,246 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 16:47:48,976 - main - INFO - HTTP client closed
+2025-09-15 16:47:54,308 - main - INFO - Successfully scraped 3 cases from Indian Kanoon
+2025-09-15 16:47:54,309 - main - INFO - Cache set: ik_search:ec08f73909efcd60
+2025-09-15 16:47:54,309 - main - INFO - [scrape_case_details] Start for doc_id=139947963
+2025-09-15 16:47:54,310 - main - ERROR - Error parsing case details: cannot schedule new futures after interpreter shutdown
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\main.py", line 1695, in scrape_case_details
+    future = executor.submit(_scrape)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2025-09-15 16:47:54,310 - main - INFO - [scrape_case_details] Start for doc_id=72140481
+2025-09-15 16:47:54,311 - main - ERROR - Error parsing case details: cannot schedule new futures after interpreter shutdown
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\main.py", line 1695, in scrape_case_details
+    future = executor.submit(_scrape)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2025-09-15 16:47:54,312 - main - INFO - [scrape_case_details] Start for doc_id=123358897
+2025-09-15 16:47:54,313 - main - ERROR - Error parsing case details: cannot schedule new futures after interpreter shutdown
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\main.py", line 1695, in scrape_case_details
+    future = executor.submit(_scrape)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2025-09-15 16:47:54,325 - main - ERROR - Error in document retrieval: cannot schedule new futures after interpreter shutdown
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\main.py", line 1380, in chat
+    response = document_chain.invoke({
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 5441, in invoke
+    return self.bound.invoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3047, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 5441, in invoke
+    return self.bound.invoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\passthrough.py", line 513, in invoke
+    return self._call_with_config(self._invoke, input, config, **kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 1938, in _call_with_config
+    context.run(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 429, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\passthrough.py", line 499, in _invoke
+    **self.mapper.invoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3773, in invoke
+    futures = [
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3774, in <listcomp>
+    executor.submit(_invoke_step, step, input, config, key)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 530, in submit
+    return super().submit(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\concurrent\futures\thread.py", line 169, in submit
+    raise RuntimeError('cannot schedule new futures after '
+RuntimeError: cannot schedule new futures after interpreter shutdown
+2025-09-15 16:59:27,829 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 16:59:27,829 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 16:59:30,961 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 16:59:30,961 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 16:59:38,202 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 16:59:38,203 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 16:59:43,205 - main - INFO - Successfully loaded FAISS index
+2025-09-15 17:01:10,900 - main - INFO - Using RAG pipeline for query: fundemental rights 
+2025-09-15 17:01:11,458 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 17:01:11,489 - main - INFO - Searching Indian Kanoon for: "Article 14, 19, 21 and 300 of Constitution of India, Fundamental Rights, Indian Kanoon"...
+2025-09-15 17:01:11,490 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 17:01:14,656 - main - INFO - Successfully scraped 3 cases from Indian Kanoon
+2025-09-15 17:01:14,657 - main - INFO - Cache set: ik_search:43df7c3c730c8ad5
+2025-09-15 17:01:14,658 - main - INFO - [scrape_case_details] Start for doc_id=237570
+2025-09-15 17:01:14,659 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/237570/
+2025-09-15 17:01:16,657 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/237570/
+2025-09-15 17:01:17,627 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=237570
+2025-09-15 17:01:17,630 - main - INFO - [scrape_case_details] Extracted title for doc_id=237570
+2025-09-15 17:01:17,631 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=237570
+2025-09-15 17:01:18,925 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=237570
+2025-09-15 17:01:18,969 - main - INFO - [scrape_case_details] Extracting main content for doc_id=237570
+2025-09-15 17:01:21,461 - main - INFO - [scrape_case_details] Extracted main content for doc_id=237570
+2025-09-15 17:01:21,462 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=237570
+2025-09-15 17:01:21,462 - main - INFO - [scrape_case_details] Extracting sections for doc_id=237570
+2025-09-15 17:07:28,422 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 17:07:28,422 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 17:07:31,506 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 17:07:31,506 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 17:07:39,422 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 17:07:39,425 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 17:07:44,319 - main - INFO - Successfully loaded FAISS index
+2025-09-15 17:08:05,424 - main - INFO - Using RAG pipeline for query: What are my fundamental rights under Article 19?
+2025-09-15 17:08:05,969 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 17:08:05,986 - main - INFO - Searching Indian Kanoon for: "Article 19 Fundamental Rights Indian Constitution Right to Freedom of Speech Expression Trade or Oc...
+2025-09-15 17:08:05,987 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 17:08:09,361 - main - INFO - Successfully scraped 3 cases from Indian Kanoon
+2025-09-15 17:08:09,361 - main - INFO - Cache set: ik_search:a0bf45be3a5a784c
+2025-09-15 17:08:09,362 - main - INFO - [scrape_case_details] Start for doc_id=237570
+2025-09-15 17:08:09,363 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/237570/
+2025-09-15 17:08:11,277 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/237570/
+2025-09-15 17:08:12,222 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=237570
+2025-09-15 17:08:12,223 - main - INFO - [scrape_case_details] Extracted title for doc_id=237570
+2025-09-15 17:08:12,224 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=237570
+2025-09-15 17:08:13,503 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=237570
+2025-09-15 17:08:13,534 - main - INFO - [scrape_case_details] Extracting main content for doc_id=237570
+2025-09-15 17:08:16,003 - main - INFO - [scrape_case_details] Extracted main content for doc_id=237570
+2025-09-15 17:08:16,004 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=237570
+2025-09-15 17:08:16,005 - main - INFO - [scrape_case_details] Extracting sections for doc_id=237570
+2025-09-15 17:31:34,537 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 17:31:34,538 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 17:31:37,837 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 17:31:37,838 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 17:31:44,325 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 17:31:44,326 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 17:31:48,928 - main - INFO - Successfully loaded FAISS index
+2025-09-15 17:34:10,634 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-15 17:34:10,652 - main - INFO - Searching Indian Kanoon for: "Fundamental Rights under Article 14, 19, 21, 22 of Indian Constitution, case law on Article 32, 226...
+2025-09-15 17:34:10,652 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-09-15 17:34:18,448 - main - INFO - Successfully scraped 3 cases from Indian Kanoon
+2025-09-15 17:34:18,449 - main - INFO - Cache set: ik_search:918897328b441152
+2025-09-15 17:34:18,450 - main - INFO - [scrape_case_details] Start for doc_id=1276078
+2025-09-15 17:34:18,452 - main - INFO - [scrape_case_details] Requesting https://indiankanoon.org/doc/1276078/
+2025-09-15 17:34:20,117 - main - INFO - [scrape_case_details] Response 200 for https://indiankanoon.org/doc/1276078/
+2025-09-15 17:34:20,176 - main - INFO - [scrape_case_details] Parsed HTML for doc_id=1276078
+2025-09-15 17:34:20,177 - main - INFO - [scrape_case_details] Extracted title for doc_id=1276078
+2025-09-15 17:34:20,178 - main - INFO - [scrape_case_details] Extracting metadata for doc_id=1276078
+2025-09-15 17:34:20,241 - main - INFO - [scrape_case_details] Extracted meta_text for doc_id=1276078
+2025-09-15 17:34:20,245 - main - INFO - [scrape_case_details] Extracting main content for doc_id=1276078
+2025-09-15 17:34:20,302 - main - INFO - [scrape_case_details] Extracted main content for doc_id=1276078
+2025-09-15 17:34:20,304 - main - INFO - [scrape_case_details] Finished all extraction for doc_id=1276078
+2025-09-15 17:34:20,304 - main - INFO - [scrape_case_details] Extracting sections for doc_id=1276078
+2025-09-15 17:39:10,525 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 17:39:10,525 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 17:39:13,551 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 17:39:13,553 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 17:39:20,645 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 17:39:20,647 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 17:39:25,582 - main - INFO - Successfully loaded FAISS index
+2025-09-15 17:39:53,285 - main - ERROR - Error in RAG pipeline: 'coroutine' object is not iterable
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\main.py", line 1236, in chat
+    response = document_chain.invoke({
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 5441, in invoke
+    return self.bound.invoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3047, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 5441, in invoke
+    return self.bound.invoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\passthrough.py", line 513, in invoke
+    return self._call_with_config(self._invoke, input, config, **kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 1938, in _call_with_config
+    context.run(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 429, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\passthrough.py", line 499, in _invoke
+    **self.mapper.invoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3777, in invoke
+    output = {key: future.result() for key, future in zip(steps, futures)}
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3777, in <dictcomp>
+    output = {key: future.result() for key, future in zip(steps, futures)}
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\concurrent\futures\_base.py", line 451, in result
+    return self.__get_result()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3761, in _invoke_step
+    return context.run(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 4781, in invoke
+    return self._call_with_config(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 1938, in _call_with_config
+    context.run(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 429, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 4639, in _invoke
+    output = call_func_with_variable_args(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 429, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain\chains\combine_documents\stuff.py", line 84, in format_docs
+    return document_separator.join(
+TypeError: 'coroutine' object is not iterable
+2025-09-15 17:41:42,071 - main - INFO - HTTP client closed
+2025-09-15 17:41:49,580 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 17:41:49,580 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 17:41:52,770 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 17:41:52,772 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 17:41:59,403 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 17:41:59,406 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 17:42:04,261 - main - INFO - Successfully loaded FAISS index
+2025-09-15 17:44:29,752 - main - INFO - HTTP client closed
+2025-09-15 17:44:37,292 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 17:44:37,292 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 17:44:40,507 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-09-15 17:44:40,508 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-09-15 17:44:47,173 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-15 17:44:47,175 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 17:44:52,251 - main - INFO - Successfully loaded FAISS index
+2025-09-15 17:45:25,817 - main - INFO - HTTP client closed
+2025-09-15 17:45:33,383 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-15 17:45:33,384 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-15 17:45:36,622 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-15 17:45:41,758 - main - INFO - Loading existing FAISS index...
+2025-09-15 17:45:41,768 - main - INFO - Successfully loaded FAISS index with 1202 vectors
+2025-09-16 19:20:36,616 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-16 19:20:36,616 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-16 19:20:57,165 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:21:02,082 - main - INFO - Loading existing FAISS index...
+2025-09-16 19:21:02,086 - main - INFO - Successfully loaded FAISS index with 1202 vectors
+2025-09-16 19:22:03,651 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-16 19:22:03,652 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-16 19:22:05,063 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:22:09,972 - main - INFO - Loading existing FAISS index...
+2025-09-16 19:22:09,976 - main - INFO - Successfully loaded FAISS index with 1202 vectors
+2025-09-16 19:23:31,861 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-16 19:23:31,862 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-16 19:23:33,260 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:23:38,712 - main - INFO - Loading existing FAISS index...
+2025-09-16 19:23:38,716 - main - INFO - Successfully loaded FAISS index with 1202 vectors
+2025-09-16 19:24:39,108 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-16 19:24:39,108 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-16 19:24:40,478 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:24:45,602 - main - INFO - Loading existing FAISS index...
+2025-09-16 19:24:45,612 - main - INFO - Successfully loaded FAISS index with 1202 vectors
+2025-09-16 19:24:46,557 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-16 19:24:46,559 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:24:51,994 - main - INFO - Successfully loaded FAISS index
+2025-09-16 19:26:15,227 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-09-16 19:26:15,227 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-09-16 19:26:15,227 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-09-16 19:26:15,227 - main - INFO - [RAG Debug] FAISS index available: True
+2025-09-16 19:26:15,227 - main - INFO - [RAG Debug] Embeddings available: True
+2025-09-16 19:26:15,229 - main - INFO - [RAG Debug] Processing query: tell me about my fundamental rights 
+2025-09-16 19:26:15,229 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-09-16 19:26:15,467 - main - ERROR - [RAG Error] Document retrieval failed: 
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\main.py", line 1311, in chat
+    docs = await retriever.ainvoke(input)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\retrievers.py", line 326, in ainvoke
+    result = await self._aget_relevant_documents(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\vectorstores\base.py", line 1108, in _aget_relevant_documents
+    await self.vectorstore.asimilarity_search_with_relevance_scores(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\vectorstores\base.py", line 605, in asimilarity_search_with_relevance_scores
+    docs_and_similarities = await self._asimilarity_search_with_relevance_scores(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_community\vectorstores\faiss.py", line 1327, in _asimilarity_search_with_relevance_scores
+    docs_and_scores = await self.asimilarity_search_with_score(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_community\vectorstores\faiss.py", line 550, in asimilarity_search_with_score
+    docs = await self.asimilarity_search_with_score_by_vector(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_community\vectorstores\faiss.py", line 481, in asimilarity_search_with_score_by_vector
+    return await run_in_executor(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 617, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 608, in wrapper
+    return func(*args, **kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_community\vectorstores\faiss.py", line 417, in similarity_search_with_score_by_vector
+    scores, indices = self.index.search(vector, k if filter is None else fetch_k)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\faiss\class_wrappers.py", line 349, in replacement_search
+    assert d == self.d
+AssertionError
+2025-09-16 19:27:18,122 - main - INFO - HTTP client closed
+2025-09-16 19:27:21,662 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-16 19:27:21,663 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-16 19:27:23,062 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:27:27,836 - main - INFO - Expected embedding dimension: 768
+2025-09-16 19:27:27,837 - main - INFO - Loading existing FAISS index...
+2025-09-16 19:27:27,838 - main - WARNING - Dimension mismatch: Index has 384 dimensions, expected 768
+2025-09-16 19:27:27,839 - main - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-09-16 19:27:27,839 - main - INFO - Creating new FAISS index...
+2025-09-16 19:27:27,839 - main - INFO - Loading and processing constitution PDF...
+2025-09-16 19:27:27,839 - main - INFO - Extracting text from all pages of the constitution...
+2025-09-16 19:27:28,494 - main - INFO - Successfully loaded 402 pages from the constitution
+2025-09-16 19:27:28,494 - main - INFO - Splitting document into chunks...
+2025-09-16 19:27:28,529 - main - INFO - Split into 1183 chunks with average length of 842 chars
+2025-09-16 19:27:28,529 - main - INFO - Creating FAISS index...
+2025-09-16 19:29:54,626 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-16 19:29:54,626 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-16 19:29:57,654 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:30:03,806 - __main__ - INFO - Expected embedding dimension: 768
+2025-09-16 19:30:03,807 - __main__ - INFO - Loading existing FAISS index...
+2025-09-16 19:30:03,809 - __main__ - WARNING - Dimension mismatch: Index has 384 dimensions, expected 768
+2025-09-16 19:30:03,809 - __main__ - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-09-16 19:30:03,809 - __main__ - INFO - Creating new FAISS index...
+2025-09-16 19:30:03,809 - __main__ - INFO - Loading and processing constitution PDF...
+2025-09-16 19:30:03,809 - __main__ - INFO - Extracting text from all pages of the constitution...
+2025-09-16 19:30:04,886 - __main__ - INFO - Successfully loaded 402 pages from the constitution
+2025-09-16 19:30:04,886 - __main__ - INFO - Splitting document into chunks...
+2025-09-16 19:30:04,961 - __main__ - INFO - Split into 1183 chunks with average length of 842 chars
+2025-09-16 19:30:04,961 - __main__ - INFO - Creating FAISS index...
+2025-09-16 19:33:36,804 - __main__ - ERROR - Error creating FAISS index: [WinError 3] The system cannot find the path specified: ''
+2025-09-16 19:38:56,946 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-16 19:38:56,947 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-16 19:39:00,005 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:39:05,428 - __main__ - INFO - Expected embedding dimension: 768
+2025-09-16 19:39:05,430 - __main__ - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-09-16 19:39:05,430 - __main__ - INFO - Loading existing FAISS index...
+2025-09-16 19:39:05,431 - __main__ - ERROR - Error loading FAISS index: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\third-party\faiss\faiss\impl\io.cpp:70: Error: 'f' failed: could not open D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index\index.faiss for reading: No such file or directory
+2025-09-16 19:39:05,431 - __main__ - INFO - Creating new FAISS index...
+2025-09-16 19:39:05,432 - __main__ - INFO - Loading and processing constitution PDF...
+2025-09-16 19:39:05,432 - __main__ - INFO - Extracting text from all pages of the constitution...
+2025-09-16 19:39:06,531 - __main__ - INFO - Successfully loaded 402 pages from the constitution
+2025-09-16 19:39:06,532 - __main__ - INFO - Splitting document into chunks...
+2025-09-16 19:39:06,610 - __main__ - INFO - Split into 1183 chunks with average length of 842 chars
+2025-09-16 19:39:06,610 - __main__ - INFO - Creating FAISS index...
+2025-09-16 19:39:52,085 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:39:59,631 - __main__ - INFO - Expected embedding dimension: 768
+2025-09-16 19:39:59,632 - __main__ - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 19:39:59,632 - __main__ - INFO - Loading existing FAISS index...
+2025-09-16 19:39:59,638 - __main__ - ERROR - Error loading FAISS index: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\third-party\faiss\faiss\impl\io.cpp:70: Error: 'f' failed: could not open D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index\index.faiss for reading: No such file or directory
+2025-09-16 19:39:59,639 - __main__ - INFO - Creating new FAISS index...
+2025-09-16 19:39:59,640 - __main__ - INFO - Loading and processing constitution PDF...
+2025-09-16 19:39:59,640 - __main__ - INFO - Extracting text from all pages of the constitution...
+2025-09-16 19:40:01,963 - __main__ - INFO - Successfully loaded 402 pages from the constitution
+2025-09-16 19:40:01,964 - __main__ - INFO - Splitting document into chunks...
+2025-09-16 19:40:02,074 - __main__ - INFO - Split into 1183 chunks with average length of 842 chars
+2025-09-16 19:40:02,075 - __main__ - INFO - Creating FAISS index...
+2025-09-16 19:44:17,156 - __main__ - INFO - Saving FAISS index to D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index\index.faiss
+2025-09-16 19:44:17,162 - __main__ - INFO - Saving docstore to D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index\index.pkl
+2025-09-16 19:44:17,181 - __main__ - INFO - Successfully created and saved FAISS index with 1183 vectors
+2025-09-16 19:44:17,181 - __main__ - INFO - FAISS index saved to D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 19:44:17,181 - __main__ - INFO - Index dimension: 768, Number of vectors: 1183
+2025-09-16 19:44:17,182 - __main__ - INFO - Initialized retriever with 1183 vectors
+2025-09-16 19:45:30,856 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:45:36,676 - __main__ - INFO - Expected embedding dimension: 768
+2025-09-16 19:45:36,677 - __main__ - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 19:45:36,677 - __main__ - INFO - Loading existing FAISS index...
+2025-09-16 19:45:36,678 - __main__ - ERROR - Error loading FAISS index: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\third-party\faiss\faiss\impl\io.cpp:70: Error: 'f' failed: could not open D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index\index.faiss for reading: No such file or directory
+2025-09-16 19:45:36,678 - __main__ - INFO - Creating new FAISS index...
+2025-09-16 19:45:36,679 - __main__ - INFO - Loading and processing constitution PDF...
+2025-09-16 19:45:36,679 - __main__ - INFO - Extracting text from all pages of the constitution...
+2025-09-16 19:45:37,755 - __main__ - INFO - Successfully loaded 402 pages from the constitution
+2025-09-16 19:45:37,756 - __main__ - INFO - Splitting document into chunks...
+2025-09-16 19:45:37,814 - __main__ - INFO - Split into 1183 chunks with average length of 842 chars
+2025-09-16 19:45:37,814 - __main__ - INFO - Creating FAISS index...
+2025-09-16 19:48:56,526 - __main__ - ERROR - Error creating FAISS index: FAISS.__init__() got an unexpected keyword argument 'index_path'
+2025-09-16 19:49:29,397 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:49:35,118 - __main__ - INFO - Expected embedding dimension: 768
+2025-09-16 19:49:35,120 - __main__ - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 19:49:35,120 - __main__ - INFO - Loading existing FAISS index...
+2025-09-16 19:49:35,121 - __main__ - ERROR - Error loading FAISS index: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\third-party\faiss\faiss\impl\io.cpp:70: Error: 'f' failed: could not open D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index\index.faiss for reading: No such file or directory
+2025-09-16 19:49:35,121 - __main__ - INFO - Creating new FAISS index...
+2025-09-16 19:49:35,121 - __main__ - INFO - Loading and processing constitution PDF...
+2025-09-16 19:49:35,122 - __main__ - INFO - Extracting text from all pages of the constitution...
+2025-09-16 19:49:36,213 - __main__ - INFO - Successfully loaded 402 pages from the constitution
+2025-09-16 19:49:36,213 - __main__ - INFO - Splitting document into chunks...
+2025-09-16 19:49:36,272 - __main__ - INFO - Split into 1183 chunks with average length of 842 chars
+2025-09-16 19:49:36,272 - __main__ - INFO - Creating FAISS index...
+2025-09-16 19:52:41,882 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:52:47,997 - __main__ - INFO - Expected embedding dimension: 768
+2025-09-16 19:52:47,997 - __main__ - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 19:52:47,998 - __main__ - INFO - Loading existing FAISS index...
+2025-09-16 19:52:47,999 - __main__ - ERROR - Error loading FAISS index: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\third-party\faiss\faiss\impl\io.cpp:70: Error: 'f' failed: could not open D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index\index.faiss for reading: No such file or directory
+2025-09-16 19:52:47,999 - __main__ - INFO - Creating new FAISS index...
+2025-09-16 19:52:47,999 - __main__ - INFO - Loading and processing constitution PDF...
+2025-09-16 19:52:47,999 - __main__ - INFO - Extracting text from all pages of the constitution...
+2025-09-16 19:52:48,622 - __main__ - INFO - Saving FAISS index to D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 19:52:48,634 - __main__ - INFO - Successfully created D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index\index.faiss
+2025-09-16 19:52:48,634 - __main__ - INFO - Successfully created D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index\index.pkl
+2025-09-16 19:52:48,635 - __main__ - INFO - Successfully created and saved FAISS index with 1183 vectors
+2025-09-16 19:52:48,635 - __main__ - INFO - FAISS index saved to D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 19:52:48,635 - __main__ - INFO - Index dimension: 768, Number of vectors: 1183
+2025-09-16 19:52:48,636 - __main__ - INFO - Initialized retriever with 1183 vectors
+2025-09-16 19:52:49,266 - __main__ - INFO - Successfully loaded 402 pages from the constitution
+2025-09-16 19:52:49,268 - __main__ - INFO - Splitting document into chunks...
+2025-09-16 19:52:49,326 - __main__ - INFO - Split into 1183 chunks with average length of 842 chars
+2025-09-16 19:52:49,327 - __main__ - INFO - Creating FAISS index...
+2025-09-16 19:52:49,327 - __main__ - INFO - Number of documents to index: 1183
+2025-09-16 19:52:49,327 - __main__ - INFO - First document sample: £……Æi… B…E… ∫…∆… ¥…v……x… 
+[1
+, 2024
+]
+THE CONSTITUTION OF INDIA
+[As on 1st May, 2024] 
+2024
+GOVERNMENT OF INDIA
+MINISTRY OF LAW AND JUSTICE
+LEGISLATIVE DEPARTMENT, OFFICIAL LANGUAGES WING...
+2025-09-16 19:52:49,328 - __main__ - INFO - Created directory: D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 19:52:49,328 - __main__ - INFO - Importing FAISS from langchain_community.vectorstores...
+2025-09-16 19:52:49,328 - __main__ - INFO - Testing embeddings with a sample document...
+2025-09-16 19:52:49,429 - __main__ - INFO - Test embedding dimension: 768
+2025-09-16 19:52:49,430 - __main__ - INFO - Creating FAISS index with documents...
+2025-09-16 19:54:53,615 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 19:54:59,696 - __main__ - INFO - Expected embedding dimension: 768
+2025-09-16 19:54:59,696 - __main__ - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 19:54:59,697 - __main__ - INFO - Loading existing FAISS index...
+2025-09-16 19:54:59,697 - __main__ - ERROR - Error loading FAISS index: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\third-party\faiss\faiss\impl\io.cpp:70: Error: 'f' failed: could not open D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index\index.faiss for reading: No such file or directory
+2025-09-16 19:54:59,698 - __main__ - INFO - Creating new FAISS index...
+2025-09-16 19:54:59,698 - __main__ - INFO - Loading and processing constitution PDF...
+2025-09-16 19:54:59,699 - __main__ - INFO - Extracting text from all pages of the constitution...
+2025-09-16 19:55:01,313 - __main__ - INFO - Successfully extracted text from 402 pages of the constitution
+2025-09-16 19:55:01,314 - __main__ - INFO - Splitting document into chunks...
+2025-09-16 19:55:01,395 - __main__ - INFO - Split into 1184 chunks with average length of 841 chars
+2025-09-16 19:55:01,396 - __main__ - INFO - Creating FAISS index...
+2025-09-16 19:55:01,397 - __main__ - INFO - Number of documents to index: 1184
+2025-09-16 19:55:01,397 - __main__ - INFO - First document sample: £……Æi… B…E… ∫…∆… ¥…v……x… 
+[1
+, 2024
+]
+THE CONSTITUTION OF INDIA
+[As on 1st May, 2024] 
+2024
+GOVERNMENT OF INDIA
+MINISTRY OF LAW AND JUSTICE
+LEGISLATIVE DEPARTMENT, OFFICIAL LANGUAGES WING...
+2025-09-16 19:55:01,398 - __main__ - INFO - Created directory: D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 19:55:01,398 - __main__ - INFO - Importing FAISS from langchain_community.vectorstores...
+2025-09-16 19:55:01,399 - __main__ - INFO - Testing embeddings with a sample document...
+2025-09-16 19:55:01,521 - __main__ - INFO - Test embedding dimension: 768
+2025-09-16 19:55:01,522 - __main__ - INFO - Creating FAISS index with documents...
+2025-09-16 19:56:32,260 - __main__ - INFO - FAISS index created successfully
+2025-09-16 19:56:32,262 - __main__ - INFO - Index dimension: 768, Number of vectors: 1183
+2025-09-16 19:56:32,263 - __main__ - INFO - Saving FAISS index to D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 19:56:32,282 - __main__ - INFO - FAISS index saved successfully
+2025-09-16 19:56:32,283 - __main__ - INFO - Found index.faiss - Size: 3.47 MB
+2025-09-16 19:56:32,283 - __main__ - INFO - Found index.pkl - Size: 1.15 MB
+2025-09-16 19:56:32,284 - __main__ - INFO - Successfully created and saved FAISS index with 1183 vectors
+2025-09-16 19:56:32,284 - __main__ - INFO - Initialized retriever with 1183 vectors
+2025-09-16 19:58:46,491 - __main__ - INFO - FAISS index created successfully
+2025-09-16 19:58:46,491 - __main__ - INFO - Index dimension: 768, Number of vectors: 1184
+2025-09-16 19:58:46,492 - __main__ - INFO - Saving FAISS index to D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 19:58:46,498 - __main__ - INFO - FAISS index saved successfully
+2025-09-16 19:58:46,498 - __main__ - INFO - Found index.faiss - Size: 3.47 MB
+2025-09-16 19:58:46,499 - __main__ - INFO - Found index.pkl - Size: 1.09 MB
+2025-09-16 19:58:46,499 - __main__ - INFO - Successfully created and saved FAISS index with 1184 vectors
+2025-09-16 19:58:46,499 - __main__ - INFO - Initialized retriever with 1184 vectors
+2025-09-16 20:01:03,741 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 20:01:09,802 - __main__ - INFO - Expected embedding dimension: 768
+2025-09-16 20:01:09,803 - __main__ - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 20:01:09,803 - __main__ - INFO - Loading existing FAISS index...
+2025-09-16 20:01:09,803 - __main__ - ERROR - Error loading FAISS index: Error in __cdecl faiss::FileIOReader::FileIOReader(const char *) at D:\a\faiss-wheels\faiss-wheels\third-party\faiss\faiss\impl\io.cpp:70: Error: 'f' failed: could not open D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index\index.faiss for reading: No such file or directory
+2025-09-16 20:01:09,803 - __main__ - INFO - Creating new FAISS index...
+2025-09-16 20:01:09,803 - __main__ - INFO - Loading and processing constitution PDF...
+2025-09-16 20:01:09,803 - __main__ - INFO - Extracting text from all pages of the constitution...
+2025-09-16 20:01:10,235 - __main__ - INFO - Successfully extracted text from 402 pages of the constitution
+2025-09-16 20:01:10,235 - __main__ - INFO - Splitting document into chunks...
+2025-09-16 20:01:10,256 - __main__ - INFO - Split into 1184 chunks with average length of 841 chars
+2025-09-16 20:01:10,256 - __main__ - INFO - Creating FAISS index...
+2025-09-16 20:01:10,256 - __main__ - INFO - Number of documents to index: 1184
+2025-09-16 20:01:10,257 - __main__ - INFO - First document sample: £……Æi… B…E… ∫…∆… ¥…v……x… 
+[1
+, 2024
+]
+THE CONSTITUTION OF INDIA
+[As on 1st May, 2024] 
+2024
+GOVERNMENT OF INDIA
+MINISTRY OF LAW AND JUSTICE
+LEGISLATIVE DEPARTMENT, OFFICIAL LANGUAGES WING...
+2025-09-16 20:01:10,257 - __main__ - INFO - Created directory: D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 20:01:10,257 - __main__ - INFO - Processing batch 1/12 with 100 documents
+2025-09-16 20:01:19,907 - __main__ - INFO - Processing batch 2/12 with 100 documents
+2025-09-16 20:01:30,482 - __main__ - INFO - Processing batch 3/12 with 100 documents
+2025-09-16 20:01:42,772 - __main__ - INFO - Processing batch 4/12 with 100 documents
+2025-09-16 20:01:55,102 - __main__ - INFO - Processing batch 5/12 with 100 documents
+2025-09-16 20:02:05,919 - __main__ - INFO - Processing batch 6/12 with 100 documents
+2025-09-16 20:02:17,464 - __main__ - INFO - Processing batch 7/12 with 100 documents
+2025-09-16 20:02:29,441 - __main__ - INFO - Processing batch 8/12 with 100 documents
+2025-09-16 20:02:41,793 - __main__ - INFO - Processing batch 9/12 with 100 documents
+2025-09-16 20:02:58,804 - __main__ - INFO - Processing batch 10/12 with 100 documents
+2025-09-16 20:03:18,147 - __main__ - INFO - Processing batch 11/12 with 100 documents
+2025-09-16 20:03:30,734 - __main__ - INFO - Processing batch 12/12 with 84 documents
+2025-09-16 20:03:41,328 - __main__ - INFO - FAISS index created successfully
+2025-09-16 20:03:41,330 - __main__ - INFO - Index dimension: 768, Number of vectors: 1184
+2025-09-16 20:03:41,330 - __main__ - INFO - Saving FAISS index to D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 20:03:41,337 - __main__ - INFO - Created index.faiss - Size: 3.47 MB
+2025-09-16 20:03:41,337 - __main__ - INFO - Created index.pkl - Size: 1.09 MB
+2025-09-16 20:03:41,337 - __main__ - INFO - Successfully created and saved FAISS index with 1184 vectors
+2025-09-16 20:03:41,337 - __main__ - INFO - Initialized retriever with 1184 vectors
+2025-09-16 20:04:10,447 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 20:04:15,327 - __main__ - INFO - Expected embedding dimension: 768
+2025-09-16 20:04:15,327 - __main__ - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 20:04:15,327 - __main__ - INFO - Loading existing FAISS index...
+2025-09-16 20:04:15,336 - __main__ - INFO - Successfully loaded FAISS index with 1184 vectors
+2025-09-16 20:04:15,336 - __main__ - INFO - Initialized retriever with 1184 vectors
+2025-09-16 20:06:01,692 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-16 20:06:01,692 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-16 20:06:03,569 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 20:06:09,008 - main - INFO - Expected embedding dimension: 768
+2025-09-16 20:06:09,008 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-09-16 20:06:09,008 - main - INFO - Loading existing FAISS index...
+2025-09-16 20:06:09,016 - main - INFO - Successfully loaded FAISS index with 1184 vectors
+2025-09-16 20:06:09,016 - main - INFO - Initialized retriever with 1184 vectors
+2025-09-16 20:06:09,556 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-16 20:06:09,557 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 20:06:13,941 - main - INFO - Successfully loaded FAISS index
+2025-09-16 20:06:39,397 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-09-16 20:06:39,397 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-09-16 20:06:39,397 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-09-16 20:06:39,397 - main - INFO - [RAG Debug] FAISS index available: True
+2025-09-16 20:06:39,398 - main - INFO - [RAG Debug] Embeddings available: True
+2025-09-16 20:06:39,399 - main - INFO - [RAG Debug] Processing query: tell me about my fundamental rights 
+2025-09-16 20:06:39,399 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-09-16 20:06:39,457 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-09-16 20:06:39,457 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 5, 'total_pages': 402, 'start_index': 0}
+2025-09-16 20:06:39,458 - main - INFO - [RAG Debug] Doc 1 content preview: Contents
+ARTICLES
+(ii)
+PART III
+FUNDAMENTAL RIGHTS
+General 
+12.
+Definition.
+13. 
+Laws inconsistent with or in derogation of the fundamental 
+rights.
+ 
+Right to Equality
+14.
+Equality before law.
+15. 
+P...
+2025-09-16 20:06:39,458 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 37, 'total_pages': 402, 'start_index': 0}
+2025-09-16 20:06:39,458 - main - INFO - [RAG Debug] Doc 2 content preview: 6
+PART III 
+FUNDAMENTAL RIGHTS
+General
+12. Definition.óIn this Part, unless the context otherwise requires, ìthe 
+Stateî includes the Government and Parliament of India and the Government 
+and the Leg...
+2025-09-16 20:06:39,459 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 5, 'total_pages': 402, 'start_index': 833}
+2025-09-16 20:06:39,459 - main - INFO - [RAG Debug] Doc 3 content preview: Right to  Freedom of Religion
+25.
+Freedom of conscience and free profession, practice and 
+propagation of religion.
+26.
+Freedom to manage religious affairs.
+27.
+Freedom as to payment of taxes for prom...
+2025-09-16 20:06:39,467 - main - ERROR - Error in RAG pipeline: 'coroutine' object is not iterable
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\backend\main.py", line 1463, in chat
+    response = await document_chain.ainvoke(chain_input)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 5454, in ainvoke
+    return await self.bound.ainvoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3091, in ainvoke
+    input_ = await coro_with_context(part(), context, create_task=True)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 5454, in ainvoke
+    return await self.bound.ainvoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\passthrough.py", line 542, in ainvoke
+    return await self._acall_with_config(self._ainvoke, input, config, **kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 1989, in _acall_with_config
+    output: Output = await coro_with_context(coro, context)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\passthrough.py", line 528, in _ainvoke
+    **await self.mapper.ainvoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3820, in ainvoke
+    results = await asyncio.gather(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3812, in _ainvoke_step
+    return await coro_with_context(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 4807, in ainvoke
+    return await self._acall_with_config(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 1989, in _acall_with_config
+    output: Output = await coro_with_context(coro, context)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 4739, in _ainvoke
+    output = await acall_func_with_variable_args(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 4709, in f
+    return await run_in_executor(config, func, *args, **kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 617, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 608, in wrapper
+    return func(*args, **kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 4703, in func
+    return call_func_with_variable_args(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\config.py", line 429, in call_func_with_variable_args
+    return func(input, **kwargs)  # type: ignore[call-arg]
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain\chains\combine_documents\stuff.py", line 84, in format_docs
+    return document_separator.join(
+TypeError: 'coroutine' object is not iterable
+2025-09-16 20:07:54,541 - main - INFO - HTTP client closed
+2025-09-16 20:07:58,095 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-16 20:07:58,095 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-16 20:07:59,565 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 20:08:05,554 - main - INFO - Expected embedding dimension: 768
+2025-09-16 20:08:05,554 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-09-16 20:08:05,555 - main - INFO - Loading existing FAISS index...
+2025-09-16 20:08:05,562 - main - INFO - Successfully loaded FAISS index with 1184 vectors
+2025-09-16 20:08:05,562 - main - INFO - Initialized retriever with 1184 vectors
+2025-09-16 20:08:06,048 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-16 20:08:06,049 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 20:08:10,617 - main - INFO - Successfully loaded FAISS index
+2025-09-16 20:08:21,841 - main - INFO - HTTP client closed
+2025-09-16 20:08:36,656 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-16 20:08:36,657 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-16 20:08:38,081 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 20:08:43,082 - main - INFO - Expected embedding dimension: 768
+2025-09-16 20:08:43,082 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index
+2025-09-16 20:08:43,082 - main - INFO - Loading existing FAISS index...
+2025-09-16 20:08:43,089 - main - INFO - Successfully loaded FAISS index with 1184 vectors
+2025-09-16 20:08:43,089 - main - INFO - Initialized retriever with 1184 vectors
+2025-09-16 20:08:43,609 - main - INFO - Initialized HTTP client with connection pooling
+2025-09-16 20:08:43,610 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-16 20:08:47,839 - main - INFO - Successfully loaded FAISS index
+2025-09-16 20:09:21,016 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-09-16 20:09:21,016 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-09-16 20:09:21,016 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-09-16 20:09:21,017 - main - INFO - [RAG Debug] FAISS index available: True
+2025-09-16 20:09:21,017 - main - INFO - [RAG Debug] Embeddings available: True
+2025-09-16 20:09:21,017 - main - INFO - [RAG Debug] Processing query: tell me about the fundamental rights 
+2025-09-16 20:09:21,017 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-09-16 20:09:21,058 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-09-16 20:09:21,058 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 5, 'total_pages': 402, 'start_index': 0}
+2025-09-16 20:09:21,058 - main - INFO - [RAG Debug] Doc 1 content preview: Contents
+ARTICLES
+(ii)
+PART III
+FUNDAMENTAL RIGHTS
+General 
+12.
+Definition.
+13. 
+Laws inconsistent with or in derogation of the fundamental 
+rights.
+ 
+Right to Equality
+14.
+Equality before law.
+15. 
+P...
+2025-09-16 20:09:21,059 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 37, 'total_pages': 402, 'start_index': 0}
+2025-09-16 20:09:21,059 - main - INFO - [RAG Debug] Doc 2 content preview: 6
+PART III 
+FUNDAMENTAL RIGHTS
+General
+12. Definition.óIn this Part, unless the context otherwise requires, ìthe 
+Stateî includes the Government and Parliament of India and the Government 
+and the Leg...
+2025-09-16 20:09:21,059 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 5, 'total_pages': 402, 'start_index': 833}
+2025-09-16 20:09:21,060 - main - INFO - [RAG Debug] Doc 3 content preview: Right to  Freedom of Religion
+25.
+Freedom of conscience and free profession, practice and 
+propagation of religion.
+26.
+Freedom to manage religious affairs.
+27.
+Freedom as to payment of taxes for prom...
+2025-09-16 20:09:22,094 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-16 20:09:41,520 - main - INFO - HTTP client closed
