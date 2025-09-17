@@ -2682,3 +2682,534 @@ Freedom as to payment of taxes for prom...
 2025-09-17 16:30:26,853 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/133526986/ "HTTP/1.1 200 OK"
 2025-09-17 16:30:30,535 - app.services.rag - INFO - [RAG] Shutdown called
 2025-09-17 16:30:30,537 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 16:32:22,934 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 16:32:28,523 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 16:32:28,524 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 16:32:32,083 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 16:32:37,515 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 16:32:37,515 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 16:32:37,907 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 16:35:59,543 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 16:35:59,552 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 16:36:02,515 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 16:36:06,682 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 16:36:06,682 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 16:36:09,714 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 16:36:15,540 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 16:36:15,540 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 16:36:15,890 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 16:46:29,169 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22find+places+related+to+privacy+rights%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 16:47:22,017 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Rajesh+sharma+case%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 16:47:24,988 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/ "HTTP/1.1 200 OK"
+2025-09-17 16:48:01,480 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22criminal+and+civil+case+a+single+case+having+both+this+categories%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 16:48:55,328 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22article+21+unlawful+search+mobile+phone+2023+law%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 16:49:00,909 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22article+21+unlawful+search+mobile+phone+2023+law+law%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 16:49:24,197 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22find+cases+related+to+rape+and+murder%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 16:50:18,385 - app.services.cases - WARNING - [CASES] Scrape failed: 
+2025-09-17 16:51:28,687 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Show+me+my+bookmarked+cases+107759594%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 16:51:35,993 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Show+me+my+bookmarked+cases+107759594+case%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 16:52:32,830 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 16:52:32,832 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 16:52:36,176 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 16:52:40,535 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 16:52:40,537 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 16:52:43,651 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 16:52:49,052 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 16:52:49,053 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 16:52:49,416 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 16:53:01,175 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 16:53:01,181 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 16:53:08,691 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 16:53:12,783 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 16:53:12,783 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 16:53:15,805 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 16:53:21,812 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 16:53:21,812 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 16:53:22,182 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 16:53:33,796 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 16:53:34,284 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 16:53:34,716 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 16:53:37,962 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=Article+21+right+to+privacy&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 16:53:41,802 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 16:53:46,596 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 16:53:48,820 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/ "HTTP/1.1 200 OK"
+2025-09-17 16:55:25,763 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 16:55:26,691 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/144183758/ "HTTP/1.1 200 OK"
+2025-09-17 16:55:31,483 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 16:56:39,492 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 16:56:39,493 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 16:56:42,357 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 16:56:46,462 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 16:56:46,463 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 16:56:49,464 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 16:56:55,437 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 16:56:55,437 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 16:56:55,784 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 16:57:30,911 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 16:57:30,917 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 16:57:33,781 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 16:57:37,881 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 16:57:37,881 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 16:57:40,934 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 16:57:46,949 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 16:57:46,949 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 16:57:47,302 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:00:03,517 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:00:03,525 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:00:06,337 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:00:10,524 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:00:10,524 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:00:13,614 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:00:19,775 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:00:19,776 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:00:20,136 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:00:49,036 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 17:00:50,722 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:00:51,676 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/ "HTTP/1.1 200 OK"
+2025-09-17 17:01:44,348 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:01:44,349 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:01:54,284 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:01:58,502 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:01:58,502 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:02:02,367 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:02:09,265 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:02:09,265 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:02:09,904 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:02:18,056 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:02:18,515 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:02:18,883 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:02:19,298 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=Article+21+right+to+privacy&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:02:23,435 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:04:00,814 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:04:01,634 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Rajesh+sharma+case%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:04:19,360 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/167295957/ "HTTP/1.1 200 OK"
+2025-09-17 17:04:19,410 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/ "HTTP/1.1 200 OK"
+2025-09-17 17:04:33,610 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:04:33,611 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:04:36,821 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:04:40,906 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:04:40,906 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:04:44,603 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:04:50,596 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:04:50,596 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:04:51,113 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:05:28,966 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:05:28,976 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:05:32,170 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:05:36,286 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:05:36,287 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:05:40,297 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:05:47,620 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:05:47,621 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:05:48,006 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:08:19,182 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:08:19,190 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:08:34,255 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:08:38,316 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:08:38,316 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:08:41,328 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:08:47,270 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:08:47,270 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:08:47,622 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:09:30,831 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:09:31,326 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:09:32,244 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:09:32,719 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=Article+21+right+to+privacy&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:09:33,150 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:09:33,589 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/ "HTTP/1.1 200 OK"
+2025-09-17 17:09:33,797 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 17:09:34,206 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 17:09:34,309 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/144183758/ "HTTP/1.1 200 OK"
+2025-09-17 17:09:38,284 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:09:41,447 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 17:09:42,489 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/144183758/ "HTTP/1.1 200 OK"
+2025-09-17 17:09:46,148 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/ "HTTP/1.1 200 OK"
+2025-09-17 17:11:53,358 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:11:55,398 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/144183758/ "HTTP/1.1 200 OK"
+2025-09-17 17:12:23,088 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/ "HTTP/1.1 200 OK"
+2025-09-17 17:13:12,719 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:13:12,719 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:13:15,677 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:13:19,798 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:13:19,799 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:13:22,785 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:13:28,978 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:13:28,979 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:13:29,323 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:13:29,325 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:13:29,331 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:13:32,159 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:13:36,337 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:13:36,337 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:13:39,415 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:13:44,652 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:13:44,652 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:13:45,001 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:13:45,003 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:13:45,009 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:13:48,128 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:13:52,386 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:13:52,387 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:13:55,387 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:14:01,704 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:14:01,705 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:14:02,273 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:17:24,999 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:17:25,006 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:17:27,981 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:17:32,140 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:17:32,140 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:17:35,098 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:17:41,259 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:17:41,260 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:17:41,610 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:19:44,534 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:19:44,541 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:19:57,208 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:20:01,391 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:20:01,391 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:20:04,373 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:20:12,251 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:20:12,253 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:20:12,598 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:20:37,862 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:20:42,560 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:20:43,102 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:20:43,781 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:20:45,360 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=Article+21+right+to+privacy&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:20:46,355 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/144183758/ "HTTP/1.1 200 OK"
+2025-09-17 17:20:46,502 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 17:20:46,590 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 17:20:46,633 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:20:50,246 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/ "HTTP/1.1 200 OK"
+2025-09-17 17:21:36,583 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:49:43,924 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:49:49,984 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:49:55,167 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:49:55,932 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:49:56,403 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:49:57,683 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=Article+21+right+to+privacy&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:49:58,321 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:49:58,803 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/144183758/ "HTTP/1.1 200 OK"
+2025-09-17 17:49:58,843 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 17:49:58,924 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/ "HTTP/1.1 200 OK"
+2025-09-17 17:49:59,004 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 17:50:05,062 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 17:50:10,352 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:50:10,353 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:51:49,942 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:51:54,224 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:51:54,225 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:51:57,266 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:52:31,058 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:52:35,332 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:52:35,332 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:52:38,406 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:52:44,856 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:52:44,856 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:52:45,230 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:53:13,472 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Rajesh+sharma+case%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 17:53:13,917 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/ "HTTP/1.1 200 OK"
+2025-09-17 17:53:14,400 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/133526986/ "HTTP/1.1 200 OK"
+2025-09-17 17:53:14,857 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/132299907/ "HTTP/1.1 200 OK"
+2025-09-17 17:53:15,575 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/167295957/ "HTTP/1.1 200 OK"
+2025-09-17 17:53:16,189 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/150500913/ "HTTP/1.1 200 OK"
+2025-09-17 17:53:18,118 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/ "HTTP/1.1 200 OK"
+2025-09-17 17:53:19,847 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/167295957/ "HTTP/1.1 200 OK"
+2025-09-17 17:53:30,611 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/132299907/ "HTTP/1.1 200 OK"
+2025-09-17 17:53:30,812 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/167295957/ "HTTP/1.1 200 OK"
+2025-09-17 17:53:35,770 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/ "HTTP/1.1 200 OK"
+2025-09-17 17:55:13,434 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:55:13,435 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:55:17,204 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:55:21,749 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:55:21,749 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:55:26,484 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:55:33,321 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:55:33,323 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:55:34,182 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:57:29,747 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:57:29,754 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 17:57:32,849 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 17:57:37,207 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 17:57:37,207 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 17:57:40,357 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 17:57:46,833 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 17:57:46,834 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 17:57:47,230 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 17:57:47,232 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 17:57:47,237 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 18:01:20,354 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 18:01:24,567 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 18:01:24,567 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 18:01:27,563 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 18:01:33,806 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 18:01:33,807 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 18:01:34,192 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 18:02:12,178 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:02:12,913 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:02:13,537 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:02:14,161 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=Article+21+right+to+privacy&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:02:14,965 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:15,875 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/144183758/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:16,465 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:16,467 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:17,555 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:21,208 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:22,776 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:22,860 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:29,945 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:30,714 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:31,443 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:31,889 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:37,488 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:38,430 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:38,956 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 18:02:49,401 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 18:03:10,464 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:03:11,928 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:04:37,916 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 18:04:37,917 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 18:04:41,113 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 18:04:45,542 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 18:04:45,543 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 18:04:48,656 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 18:04:54,958 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 18:04:54,958 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 18:04:55,342 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 18:16:11,883 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Rajesh+sharma+case%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:16:12,555 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/150500913/ "HTTP/1.1 200 OK"
+2025-09-17 18:16:12,647 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/132299907/ "HTTP/1.1 200 OK"
+2025-09-17 18:16:12,826 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/133526986/ "HTTP/1.1 200 OK"
+2025-09-17 18:16:12,875 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/150500913/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:16:13,115 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/132299907/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:16:13,160 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/ "HTTP/1.1 200 OK"
+2025-09-17 18:16:13,850 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:16:14,244 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/133526986/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:16:14,605 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/167295957/ "HTTP/1.1 200 OK"
+2025-09-17 18:16:15,065 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/167295957/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:16:19,923 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/ "HTTP/1.1 200 OK"
+2025-09-17 18:16:20,158 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/167295957/ "HTTP/1.1 200 OK"
+2025-09-17 18:16:20,361 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:16:20,666 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/167295957/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:24:48,176 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/ "HTTP/1.1 200 OK"
+2025-09-17 18:24:48,498 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:24:48,815 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/ "HTTP/1.1 200 OK"
+2025-09-17 18:24:49,272 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:24:50,567 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/ "HTTP/1.1 200 OK"
+2025-09-17 18:24:51,031 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:25:35,366 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/ "HTTP/1.1 200 OK"
+2025-09-17 18:25:36,208 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/169929780/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:25:54,446 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 18:25:54,447 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 18:26:03,909 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 18:26:08,140 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 18:26:08,141 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 18:26:11,174 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 18:26:18,678 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 18:26:18,679 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 18:26:19,048 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 18:26:32,018 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22criminal+and+civil+case+a+single+case+having+both+this+categories%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:26:35,251 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22criminal+and+civil+case+a+single+case+having+both+this+categories%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:26:38,325 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22criminal+and+civil+case+a+single+case+having+both+this+categories%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:26:42,420 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=criminal+and+civil+case+a+single+case+having+both+this+categories&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:26:43,446 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:26:43,633 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/34436597/ "HTTP/1.1 200 OK"
+2025-09-17 18:26:43,719 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/126252818/ "HTTP/1.1 200 OK"
+2025-09-17 18:26:44,039 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/ "HTTP/1.1 200 OK"
+2025-09-17 18:26:46,720 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:26:46,722 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:26:47,737 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/667073/ "HTTP/1.1 200 OK"
+2025-09-17 18:26:52,714 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:26:53,601 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:26:54,856 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:26:56,217 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:26:57,719 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:26:59,340 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:27:09,030 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:09,496 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/667073/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:10,508 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/667073/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:10,516 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/667073/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:10,964 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:27:24,742 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/34436597/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:25,020 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/34436597/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:25,290 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/34436597/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:29,624 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:30,651 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:27:31,058 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:31,101 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:33,982 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:27:35,080 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:27:47,749 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:47,790 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:49,319 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:51,138 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:27:51,490 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 429 Too Many Requests"
+2025-09-17 18:27:51,740 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 429 Too Many Requests"
+2025-09-17 18:27:54,981 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/667073/ "HTTP/1.1 429 Too Many Requests"
+2025-09-17 18:27:54,984 - app.services.cases - ERROR - [CASES] get_case_details_async failed: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/667073/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\app\services\cases.py", line 284, in get_case_details_async
+    resp.raise_for_status()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/667073/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2025-09-17 18:27:57,171 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/667073/ "HTTP/1.1 200 OK"
+2025-09-17 18:27:58,831 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/667073/ "HTTP/1.1 429 Too Many Requests"
+2025-09-17 18:27:58,836 - app.services.cases - ERROR - [CASES] get_case_details_async failed: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/667073/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\app\services\cases.py", line 284, in get_case_details_async
+    resp.raise_for_status()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/667073/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2025-09-17 18:27:59,222 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/667073/ "HTTP/1.1 429 Too Many Requests"
+2025-09-17 18:27:59,224 - app.services.cases - ERROR - [CASES] get_case_details_async failed: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/667073/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\app\services\cases.py", line 284, in get_case_details_async
+    resp.raise_for_status()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/667073/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2025-09-17 18:28:02,288 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:28:03,928 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 429 Too Many Requests"
+2025-09-17 18:28:58,132 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 18:28:58,132 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 18:29:01,300 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 18:29:05,690 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 18:29:05,690 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 18:29:08,862 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 18:29:14,280 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 18:29:14,281 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 18:29:14,651 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 18:30:04,327 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/34436597/ "HTTP/1.1 200 OK"
+2025-09-17 18:30:05,265 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/126252818/ "HTTP/1.1 200 OK"
+2025-09-17 18:30:20,135 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:30:23,772 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:30:33,914 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/667073/ "HTTP/1.1 200 OK"
+2025-09-17 18:30:34,252 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/34436597/ "HTTP/1.1 200 OK"
+2025-09-17 18:30:44,798 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:30:47,477 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:30:47,506 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/126252818/ "HTTP/1.1 200 OK"
+2025-09-17 18:30:48,654 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/ "HTTP/1.1 200 OK"
+2025-09-17 18:30:48,959 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/ "HTTP/1.1 200 OK"
+2025-09-17 18:30:49,474 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:30:49,871 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:30:52,420 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/ "HTTP/1.1 200 OK"
+2025-09-17 18:30:54,700 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:31:09,477 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/ "HTTP/1.1 200 OK"
+2025-09-17 18:31:09,481 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/ "HTTP/1.1 200 OK"
+2025-09-17 18:31:09,574 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/ "HTTP/1.1 200 OK"
+2025-09-17 18:31:10,909 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:31:11,004 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:31:11,923 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/145204303/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:31:17,992 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/ "HTTP/1.1 200 OK"
+2025-09-17 18:31:19,451 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/667073/ "HTTP/1.1 200 OK"
+2025-09-17 18:31:19,909 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/34436597/ "HTTP/1.1 429 Too Many Requests"
+2025-09-17 18:31:19,924 - app.services.cases - ERROR - [CASES] get_case_details_async failed: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/34436597/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\app\services\cases.py", line 284, in get_case_details_async
+    resp.raise_for_status()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/34436597/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2025-09-17 18:31:20,065 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/34436597/ "HTTP/1.1 200 OK"
+2025-09-17 18:31:20,087 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/137819821/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:31:20,478 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/34436597/ "HTTP/1.1 200 OK"
+2025-09-17 18:34:56,604 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 18:34:56,605 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 18:34:59,739 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 18:35:04,143 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 18:35:04,143 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 18:35:07,341 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 18:35:13,308 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 18:35:13,308 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 18:35:13,680 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 18:35:13,681 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 18:35:13,688 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 18:35:16,844 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 18:35:21,276 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 18:35:21,277 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 18:35:24,544 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 18:35:30,672 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 18:35:30,673 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 18:35:31,039 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 18:36:44,108 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:36:45,552 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:36:45,859 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+right+to+privacy%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:36:46,203 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=Article+21+right+to+privacy&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=17-09-2025 "HTTP/1.1 200 OK"
+2025-09-17 18:36:46,563 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:36:47,270 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 18:36:47,338 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 18:36:47,415 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:36:48,524 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/144183758/ "HTTP/1.1 200 OK"
+2025-09-17 18:36:48,530 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:36:52,331 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/ "HTTP/1.1 200 OK"
+2025-09-17 18:36:53,848 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/232602/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:36:57,141 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:36:57,534 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:36:58,455 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:36:58,762 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:37:00,195 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:37:02,550 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:38:15,151 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 18:38:15,536 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 18:38:16,237 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:38:17,508 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 18:38:17,713 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:38:18,532 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:38:45,420 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 18:38:45,421 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 18:38:48,830 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 18:38:53,205 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 18:38:53,206 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 18:38:57,402 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 18:39:03,686 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 18:39:03,688 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 18:39:04,277 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 18:39:05,329 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:39:05,395 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:39:05,431 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 18:39:05,648 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 18:39:05,820 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:39:06,660 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:39:06,937 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:39:07,008 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:39:07,279 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:39:07,580 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/ "HTTP/1.1 200 OK"
+2025-09-17 18:39:08,604 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:39:08,696 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/107953018/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:39:30,673 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 18:39:31,134 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 18:39:31,136 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 18:41:21,311 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 18:41:21,312 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-17 18:41:24,485 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-17 18:41:29,047 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-17 18:41:29,048 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-17 18:41:32,174 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-17 18:42:52,775 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-17 18:42:52,776 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-17 18:42:53,213 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-17 18:43:40,281 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 18:43:40,289 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 18:43:41,129 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/ "HTTP/1.1 200 OK"
+2025-09-17 18:43:41,169 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:43:41,226 - app.services.cases - INFO - [CASES] Content lengths -> normal: 5645, print: 5645
+2025-09-17 18:43:41,516 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:43:41,739 - app.services.cases - INFO - [CASES] Content lengths -> normal: 5645, print: 5645
+2025-09-17 18:43:42,730 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/174513855/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:43:43,176 - app.services.cases - INFO - [CASES] Content lengths -> normal: 5645, print: 5645
+2025-09-17 18:43:50,310 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/ "HTTP/1.1 200 OK"
+2025-09-17 18:43:51,842 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/74403661/?type=print "HTTP/1.1 200 OK"
+2025-09-17 18:43:52,428 - app.services.cases - INFO - [CASES] Content lengths -> normal: 2225, print: 2225
+2025-09-17 18:43:52,430 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-17 18:43:52,430 - app.services.cases - INFO - [CASES] HTTP client closed

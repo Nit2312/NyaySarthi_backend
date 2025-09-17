@@ -13,6 +13,7 @@ from .core.middleware import RateLimitMiddleware
 from .routers.chat import router as chat_router
 from .routers.cases import router as cases_router
 from .routers.health import router as health_router
+from .routers.upload import router as upload_router
 from .services.rag import init_rag_service, shutdown_rag_service
 from .services.cases import init_cases_service, shutdown_cases_service
 
@@ -57,13 +58,23 @@ app.add_middleware(
 app.include_router(health_router, tags=["health"])  # basic health first
 app.include_router(chat_router, tags=["chat"])      # /chat
 app.include_router(cases_router, tags=["cases"])    # /cases/search
+app.include_router(upload_router, tags=["upload"])  # /api/analyze-document
 
 # Startup / Shutdown
 @app.on_event("startup")
 async def on_startup():
     # Initialize services
-    await init_rag_service()
-    await init_cases_service()
+    # RAG can fail if models/embeddings cannot be downloaded. Do not block the app.
+    try:
+        await init_rag_service()
+    except Exception as e:
+        logging.warning(f"[STARTUP] RAG init failed, continuing without RAG: {e}")
+    # Cases service should be light; still guard to avoid full crash
+    try:
+        await init_cases_service()
+    except Exception as e:
+        logging.error(f"[STARTUP] Cases service init failed: {e}")
+        # Do not raise here to keep the server alive for other routes
 
 @app.on_event("shutdown")
 async def on_shutdown():
