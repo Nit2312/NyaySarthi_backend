@@ -15,6 +15,11 @@ HTTP_CLIENT: Optional[httpx.AsyncClient] = None
 IK_API_KEY = os.getenv("INDIAN_KANOON_API_KEY", "")
 IK_EMAIL = os.getenv("INDIAN_KANOON_EMAIL", "")
 
+# Simple in-memory cache for search results to speed up repeated queries
+# Key: (query, limit) -> (timestamp_ms, List[CaseDoc])
+_SEARCH_CACHE: Dict[Tuple[str, int], Tuple[int, List["CaseDoc"]]] = {}
+_SEARCH_CACHE_TTL_MS = int(os.getenv("CASE_SEARCH_CACHE_TTL_MS", "120000"))  # default 2 minutes
+
 class CaseDoc(BaseModel):
     id: str
     title: str
@@ -156,25 +161,45 @@ async def scrape_indian_kanoon_search_async(query: str, limit: int = 5) -> List[
         for qv in query_variants:
             if len(results) >= limit:
                 break
-            # Try first 3 pages or until we have enough
-            for page in range(0, 3):
-                if len(results) >= limit:
-                    break
-                params = {
-                    "formInput": qv,
-                    "pagenum": page,
-                    "sortby": "mostrecent" if page == 0 else "relevance",
-                    "type": "judgments",
-                    "fromdate": "01-01-1950",
-                    "from": "01-01-1950",
-                    "to": datetime.now().strftime("%d-%m-%Y"),
-                }
-                resp = await HTTP_CLIENT.get(base_url, params=params, follow_redirects=True)
-                # If a page fetch fails, try next strategy/page rather than bailing out
-                if resp.status_code != 200:
-                    continue
-                soup = BeautifulSoup(resp.text, 'html.parser')
-                extract_results(soup, results, seen_ids, limit)
+            # Always try page 0 (most recent) first synchronously for quick win
+            params0 = {
+                "formInput": qv,
+                "pagenum": 0,
+                "sortby": "mostrecent",
+                "type": "judgments",
+                "fromdate": "01-01-1950",
+                "from": "01-01-1950",
+                "to": datetime.now().strftime("%d-%m-%Y"),
+            }
+            resp0 = await HTTP_CLIENT.get(base_url, params=params0, follow_redirects=True)
+            if resp0.status_code == 200:
+                soup0 = BeautifulSoup(resp0.text, 'html.parser')
+                extract_results(soup0, results, seen_ids, limit)
+            # If still need more, concurrently fetch page 1 and 2
+            if len(results) < limit:
+                async def fetch_page(pagenum: int):
+                    p = {
+                        "formInput": qv,
+                        "pagenum": pagenum,
+                        "sortby": "relevance",
+                        "type": "judgments",
+                        "fromdate": "01-01-1950",
+                        "from": "01-01-1950",
+                        "to": datetime.now().strftime("%d-%m-%Y"),
+                    }
+                    try:
+                        r = await HTTP_CLIENT.get(base_url, params=p, follow_redirects=True)
+                        if r.status_code == 200:
+                            return BeautifulSoup(r.text, 'html.parser')
+                    except Exception:
+                        return None
+                    return None
+
+                soups = await asyncio.gather(fetch_page(1), fetch_page(2))
+                for s in soups:
+                    if s is None or len(results) >= limit:
+                        continue
+                    extract_results(s, results, seen_ids, limit)
 
         return results[:limit]
     except Exception as e:
@@ -186,27 +211,24 @@ async def search_indian_kanoon_async(query: str, limit: int = 5) -> Tuple[List[C
     if not query:
         return [], "empty_query"
 
-    # Try scraping first (no credentials needed)
+    # Check cache
+    try:
+        now_ms = int(datetime.now().timestamp() * 1000)
+        cache_key = (query, int(limit))
+        cached = _SEARCH_CACHE.get(cache_key)
+        if cached and (now_ms - cached[0] < _SEARCH_CACHE_TTL_MS):
+            return cached[1][:limit], None
+    except Exception:
+        pass
+
+    # Try scraping first (no credentials needed) — keep it lean, no enrichment here for speed.
     scraped = await scrape_indian_kanoon_search_async(query, min(limit, 5))
     if scraped:
-        # Enrich by visiting the case page to extract precise title/court/date/citation
+        # Populate cache
         try:
-            sem = asyncio.Semaphore(5)
-            async def enrich(c: CaseDoc) -> CaseDoc:
-                async with sem:
-                    details = await get_case_details_async(c.id)
-                    if details.get("success"):
-                        # Only overwrite when missing or generic
-                        title = (details.get("title") or "").strip()
-                        if title and (not c.title or c.title.lower().startswith("full document") or c.title.lower().startswith("case ")):
-                            c.title = title
-                        c.court = c.court or details.get("court")
-                        c.date = c.date or details.get("date")
-                        c.citation = c.citation or details.get("citation")
-                return c
-            scraped = await asyncio.gather(*(enrich(c) for c in scraped))
-        except Exception as e:
-            logger.warning(f"[CASES] Enrichment failed: {e}")
+            _SEARCH_CACHE[(query, int(limit))] = (int(datetime.now().timestamp() * 1000), scraped[:])
+        except Exception:
+            pass
         return scraped, None
 
     # Fallback to API if configured
@@ -331,44 +353,55 @@ async def get_case_details_async(doc_id: str, description: Optional[str] = None)
         full_text = None
         full_text_html = None
         try:
-            # 1) Prefer pre#pre_1 or any element with id='pre_1'
-            pre_main = soup.select_one('pre#pre_1') or soup.select_one('#pre_1')
-            if pre_main:
-                full_text_html = str(pre_main)
-                full_text = pre_main.get_text('\n', strip=True)
+            # 0) Strong preference: container with class="judgments" (US spelling) when available
+            judgments_el = soup.select_one('.judgments')
+            if judgments_el:
+                # Include EVERYTHING inside as requested (no filtering/decomposition)
+                full_text_html = str(judgments_el)
+                full_text = judgments_el.get_text('\n', strip=True)
             else:
-                pre_tags = soup.find_all('pre')
-                if pre_tags:
-                    # Concatenate ALL <pre> blocks in DOM order
-                    texts = []
-                    htmls = []
-                    for el in pre_tags:
-                        texts.append(el.get_text('\n', strip=True))
-                        htmls.append(str(el))
-                    full_text = '\n\n'.join([t for t in texts if t])
-                    full_text_html = '\n'.join(htmls) if htmls else None
+                # 0b) Secondary preference: container with class="judgements" (UK spelling)
+                judgements_el = soup.select_one('.judgements')
+                if judgements_el:
+                    full_text_html = str(judgements_el)
+                    full_text = judgements_el.get_text('\n', strip=True)
                 else:
-                    # 2) Fallback: specific containers first (avoid entire body which brings boilerplate)
-                    content_selectors = [
-                        '.judgments', '.judgment', '.doc_content', '.doc', '#content', '.content'
-                    ]
-                    content_el = None
-                    for sel in content_selectors:
-                        content_el = soup.select_one(sel)
-                        if content_el:
-                            break
-                    if content_el:
-                        for el in content_el.select('script, style, noscript, .noprint, .ad, .ad-container, .disclaimer, .hidden-print, header, footer, nav'):
-                            el.decompose()
-                        full_text_html = str(content_el)
-                        paragraphs = []
-                        for p in content_el.find_all(['p', 'div', 'span', 'li'], recursive=True):
-                            txt = p.get_text(' ', strip=True)
-                            if txt and len(txt) > 10:
-                                paragraphs.append(txt)
-                        if not paragraphs:
-                            paragraphs = [content_el.get_text(' ', strip=True)]
-                        full_text = '\n\n'.join(paragraphs)
+                    # 1) Prefer pre#pre_1 or any element with id='pre_1'
+                    pre_main = soup.select_one('pre#pre_1') or soup.select_one('#pre_1')
+                    if pre_main:
+                        full_text_html = str(pre_main)
+                        full_text = pre_main.get_text('\n', strip=True)
+                    else:
+                        pre_tags = soup.find_all('pre')
+                        if pre_tags:
+                            # Concatenate ALL <pre> blocks in DOM order
+                            texts = []
+                            htmls = []
+                            for el in pre_tags:
+                                texts.append(el.get_text('\n', strip=True))
+                                htmls.append(str(el))
+                            full_text = '\n\n'.join([t for t in texts if t])
+                            full_text_html = '\n'.join(htmls) if htmls else None
+                        else:
+                            # 2) Fallback: specific containers first (avoid entire body which brings boilerplate)
+                            content_selectors = [
+                                '.judgments', '.judgements', '.judgment', '.doc_content', '.doc', '#content', '.content'
+                            ]
+                            content_el = None
+                            for sel in content_selectors:
+                                content_el = soup.select_one(sel)
+                                if content_el:
+                                    break
+                            if content_el:
+                                full_text_html = str(content_el)
+                                paragraphs = []
+                                for p in content_el.find_all(['p', 'div', 'span', 'li'], recursive=True):
+                                    txt = p.get_text(' ', strip=True)
+                                    if txt and len(txt) > 10:
+                                        paragraphs.append(txt)
+                                if not paragraphs:
+                                    paragraphs = [content_el.get_text(' ', strip=True)]
+                                full_text = '\n\n'.join(paragraphs)
         except Exception as ex:
             logger.warning(f"[CASES] Content extraction warning for {doc_id}: {ex}")
 
@@ -390,22 +423,34 @@ async def get_case_details_async(doc_id: str, description: Optional[str] = None)
             resp2 = await HTTP_CLIENT.get(print_url, follow_redirects=True)
             if resp2.status_code == 200:
                 soup2 = BeautifulSoup(resp2.text, 'html.parser')
-                pre_main2 = soup2.select_one('pre#pre_1') or soup2.select_one('#pre_1')
+                # Prefer judgments container in print view as well
+                pre_main2 = None
                 ft_text = None
                 ft_html = None
-                if pre_main2:
-                    ft_html = str(pre_main2)
-                    ft_text = pre_main2.get_text('\n', strip=True)
+                judgments2 = soup2.select_one('.judgments')
+                if judgments2:
+                    ft_html = str(judgments2)
+                    ft_text = judgments2.get_text('\n', strip=True)
                 else:
-                    pre_tags2 = soup2.find_all('pre')
-                    if pre_tags2:
-                        texts2 = []
-                        htmls2 = []
-                        for el in pre_tags2:
-                            texts2.append(el.get_text('\n', strip=True))
-                            htmls2.append(str(el))
-                        ft_text = '\n\n'.join([t for t in texts2 if t])
-                        ft_html = '\n'.join(htmls2) if htmls2 else None
+                    judgements2 = soup2.select_one('.judgements')
+                    if judgements2:
+                        ft_html = str(judgements2)
+                        ft_text = judgements2.get_text('\n', strip=True)
+                    else:
+                        pre_main2 = soup2.select_one('pre#pre_1') or soup2.select_one('#pre_1')
+                        if pre_main2:
+                            ft_html = str(pre_main2)
+                            ft_text = pre_main2.get_text('\n', strip=True)
+                        else:
+                            pre_tags2 = soup2.find_all('pre')
+                            if pre_tags2:
+                                texts2 = []
+                                htmls2 = []
+                                for el in pre_tags2:
+                                    texts2.append(el.get_text('\n', strip=True))
+                                    htmls2.append(str(el))
+                                ft_text = '\n\n'.join([t for t in texts2 if t])
+                                ft_html = '\n'.join(htmls2) if htmls2 else None
                 # Prefer print view if it yields equal or more content
                 if ft_text and (not full_text or len(ft_text) >= len(full_text)):
                     full_text = ft_text
