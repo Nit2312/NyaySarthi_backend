@@ -3635,3 +3635,217 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2025-09-21 14:36:20,551 - app.services.cases - INFO - [CASES] Content lengths -> normal: 96113, print: 95848
 2025-09-21 14:38:33,874 - app.services.rag - INFO - [RAG] Shutdown called
 2025-09-21 14:38:33,875 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-21 14:47:53,043 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-21 14:47:57,288 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-21 14:47:57,288 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-21 14:48:00,256 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-21 14:48:06,470 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-21 14:48:06,471 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-21 14:48:06,838 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-21 14:48:26,288 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22bail+application+related+case%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=21-09-2025 "HTTP/1.1 200 OK"
+2025-09-21 14:48:28,791 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22bail+application+related+case%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=21-09-2025 "HTTP/1.1 200 OK"
+2025-09-21 14:48:29,378 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22bail+application+related+case%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=21-09-2025 "HTTP/1.1 200 OK"
+2025-09-21 14:48:31,511 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=bail+application+related+case&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=21-09-2025 "HTTP/1.1 200 OK"
+2025-09-21 14:48:34,088 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/162425487/ "HTTP/1.1 200 OK"
+2025-09-21 14:48:34,120 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/ "HTTP/1.1 200 OK"
+2025-09-21 14:48:34,559 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/89266397/ "HTTP/1.1 200 OK"
+2025-09-21 14:48:34,731 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:48:34,734 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/50555730/ "HTTP/1.1 200 OK"
+2025-09-21 14:48:34,826 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/162425487/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:48:34,829 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/27760662/ "HTTP/1.1 200 OK"
+2025-09-21 14:48:35,050 - app.services.cases - INFO - [CASES] Content lengths -> normal: 96113, print: 95848
+2025-09-21 14:48:35,056 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/89266397/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:48:35,085 - app.services.cases - INFO - [CASES] Content lengths -> normal: 43661, print: 43396
+2025-09-21 14:48:35,184 - app.services.cases - INFO - [CASES] Content lengths -> normal: 52029, print: 51764
+2025-09-21 14:48:35,252 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/50555730/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:48:35,338 - app.services.cases - INFO - [CASES] Content lengths -> normal: 69705, print: 69444
+2025-09-21 14:48:35,670 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/27760662/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:48:36,204 - app.services.cases - INFO - [CASES] Content lengths -> normal: 112180, print: 111899
+2025-09-21 14:48:47,216 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/ "HTTP/1.1 200 OK"
+2025-09-21 14:48:47,440 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/ "HTTP/1.1 200 OK"
+2025-09-21 14:48:47,856 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:48:47,983 - app.services.cases - INFO - [CASES] Content lengths -> normal: 96113, print: 95848
+2025-09-21 14:48:47,988 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:48:48,106 - app.services.cases - INFO - [CASES] Content lengths -> normal: 96113, print: 95848
+2025-09-21 14:48:50,644 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 14:51:40,278 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-21 14:51:40,279 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-21 14:51:43,303 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-21 14:51:47,416 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-21 14:51:47,417 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-21 14:51:50,375 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-21 14:51:55,684 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-21 14:51:55,685 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-21 14:51:56,025 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-21 14:52:38,371 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/ "HTTP/1.1 200 OK"
+2025-09-21 14:52:38,375 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/ "HTTP/1.1 200 OK"
+2025-09-21 14:52:39,188 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:52:39,407 - app.services.cases - INFO - [CASES] Content lengths -> normal: 96113, print: 95848
+2025-09-21 14:52:39,505 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:52:39,963 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/ "HTTP/1.1 200 OK"
+2025-09-21 14:52:41,079 - app.services.cases - INFO - [CASES] Content lengths -> normal: 96113, print: 95848
+2025-09-21 14:52:55,429 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:52:56,532 - app.services.cases - INFO - [CASES] Content lengths -> normal: 96113, print: 95848
+2025-09-21 14:53:09,171 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-21 14:53:09,172 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-21 14:53:12,107 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-21 14:53:16,304 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-21 14:53:16,304 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-21 14:53:19,852 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-21 14:53:25,446 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-21 14:53:25,447 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-21 14:53:26,014 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-21 14:53:26,680 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/162425487/ "HTTP/1.1 200 OK"
+2025-09-21 14:53:27,030 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/ "HTTP/1.1 200 OK"
+2025-09-21 14:53:27,169 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/ "HTTP/1.1 200 OK"
+2025-09-21 14:53:27,172 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/162425487/ "HTTP/1.1 200 OK"
+2025-09-21 14:53:27,626 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/162425487/ "HTTP/1.1 200 OK"
+2025-09-21 14:53:27,628 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:53:27,629 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/162425487/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:53:27,663 - app.services.cases - INFO - [CASES] Content lengths -> normal: 52029, print: 51764
+2025-09-21 14:53:27,777 - app.services.cases - INFO - [CASES] Content lengths -> normal: 96113, print: 95848
+2025-09-21 14:53:28,755 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/162425487/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:53:28,800 - app.services.cases - INFO - [CASES] Content lengths -> normal: 52029, print: 51764
+2025-09-21 14:53:28,858 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/76942728/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:53:28,975 - app.services.cases - INFO - [CASES] Content lengths -> normal: 96113, print: 95848
+2025-09-21 14:53:29,388 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/162425487/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:53:30,546 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 14:53:30,886 - app.services.cases - INFO - [CASES] Content lengths -> normal: 52029, print: 51764
+2025-09-21 14:53:52,156 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/27760662/ "HTTP/1.1 200 OK"
+2025-09-21 14:53:52,602 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/27760662/ "HTTP/1.1 200 OK"
+2025-09-21 14:53:52,604 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/27760662/ "HTTP/1.1 200 OK"
+2025-09-21 14:53:52,779 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/27760662/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:53:52,989 - app.services.cases - INFO - [CASES] Content lengths -> normal: 112180, print: 111899
+2025-09-21 14:53:53,267 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/27760662/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:53:53,337 - app.services.cases - INFO - [CASES] Content lengths -> normal: 112180, print: 111899
+2025-09-21 14:53:54,372 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/27760662/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:53:54,463 - app.services.cases - INFO - [CASES] Content lengths -> normal: 112180, print: 111899
+2025-09-21 14:53:55,573 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 14:55:07,902 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/27760662/ "HTTP/1.1 200 OK"
+2025-09-21 14:55:08,046 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/27760662/ "HTTP/1.1 200 OK"
+2025-09-21 14:55:08,578 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/27760662/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:55:09,060 - app.services.cases - INFO - [CASES] Content lengths -> normal: 112180, print: 111899
+2025-09-21 14:55:09,464 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/27760662/?type=print "HTTP/1.1 200 OK"
+2025-09-21 14:55:11,388 - app.services.cases - INFO - [CASES] Content lengths -> normal: 112180, print: 111899
+2025-09-21 14:58:09,530 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-21 14:58:09,531 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-21 14:58:12,611 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-21 14:58:16,743 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-21 14:58:16,743 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-21 14:58:19,663 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-21 14:58:25,759 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-21 14:58:25,759 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-21 14:58:26,109 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-21 14:58:42,289 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-21 14:58:42,296 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-09-21 14:59:04,220 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-09-21 14:59:08,288 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-09-21 14:59:08,288 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-09-21 14:59:11,152 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-09-21 14:59:16,988 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-09-21 14:59:16,988 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-09-21 14:59:17,342 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-09-21 15:00:28,959 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22criminal+and+civil+related+cases%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=21-09-2025 "HTTP/1.1 200 OK"
+2025-09-21 15:00:31,780 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22criminal+and+civil+related+cases%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=21-09-2025 "HTTP/1.1 200 OK"
+2025-09-21 15:00:32,781 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22criminal+and+civil+related+cases%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=21-09-2025 "HTTP/1.1 200 OK"
+2025-09-21 15:00:33,203 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=criminal+and+civil+related+cases&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=21-09-2025 "HTTP/1.1 200 OK"
+2025-09-21 15:00:33,783 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/192448759/ "HTTP/1.1 200 OK"
+2025-09-21 15:00:34,221 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/ "HTTP/1.1 200 OK"
+2025-09-21 15:00:34,540 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/181712544/ "HTTP/1.1 200 OK"
+2025-09-21 15:00:34,830 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/161392481/ "HTTP/1.1 200 OK"
+2025-09-21 15:00:35,534 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/161392481/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:00:35,535 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/192448759/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:00:35,613 - app.services.cases - INFO - [CASES] Content lengths -> normal: 136787, print: 136517
+2025-09-21 15:00:35,764 - app.services.cases - INFO - [CASES] Content lengths -> normal: 155819, print: 155558
+2025-09-21 15:00:36,009 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/181712544/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:00:36,282 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/95472186/ "HTTP/1.1 200 OK"
+2025-09-21 15:00:36,925 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/95472186/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:00:37,031 - app.services.cases - INFO - [CASES] Content lengths -> normal: 64076, print: 63809
+2025-09-21 15:00:38,541 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:00:39,957 - app.services.cases - INFO - [CASES] Content lengths -> normal: 161775, print: 161510
+2025-09-21 15:00:43,643 - app.services.cases - INFO - [CASES] Content lengths -> normal: 235152, print: 234885
+2025-09-21 15:00:47,822 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/ "HTTP/1.1 200 OK"
+2025-09-21 15:00:49,323 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:00:49,891 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/ "HTTP/1.1 200 OK"
+2025-09-21 15:00:50,253 - app.services.cases - INFO - [CASES] Content lengths -> normal: 161775, print: 161510
+2025-09-21 15:00:50,929 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:00:52,229 - app.services.cases - INFO - [CASES] Content lengths -> normal: 161775, print: 161510
+2025-09-21 15:00:53,742 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 15:06:27,549 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/ "HTTP/1.1 200 OK"
+2025-09-21 15:06:28,590 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:06:29,851 - app.services.cases - INFO - [CASES] Content lengths -> normal: 161775, print: 161510
+2025-09-21 15:07:15,887 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/ "HTTP/1.1 200 OK"
+2025-09-21 15:07:16,958 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:07:17,142 - app.services.cases - INFO - [CASES] Content lengths -> normal: 161775, print: 161510
+2025-09-21 15:09:41,925 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/ "HTTP/1.1 200 OK"
+2025-09-21 15:09:43,530 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:09:44,571 - app.services.cases - INFO - [CASES] Content lengths -> normal: 161775, print: 161510
+2025-09-21 15:11:20,134 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/ "HTTP/1.1 200 OK"
+2025-09-21 15:11:21,278 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/181712544/ "HTTP/1.1 200 OK"
+2025-09-21 15:11:21,322 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/181712544/ "HTTP/1.1 200 OK"
+2025-09-21 15:11:21,749 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/181712544/ "HTTP/1.1 200 OK"
+2025-09-21 15:11:22,762 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:11:24,114 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/181712544/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:11:24,243 - app.services.cases - INFO - [CASES] Content lengths -> normal: 235152, print: 234885
+2025-09-21 15:11:24,932 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/181712544/?type=print "HTTP/1.1 200 OK"
+2025-09-21 15:11:25,052 - app.services.cases - INFO - [CASES] Content lengths -> normal: 235152, print: 234885
+2025-09-21 15:11:27,299 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-21 15:11:52,340 - app.services.cases - ERROR - [CASES] get_case_details_async failed: 
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_transports\default.py", line 271, in __aiter__
+    async for part in self._httpcore_stream:
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpcore\_async\connection_pool.py", line 407, in __aiter__
+    raise exc from None
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpcore\_async\connection_pool.py", line 403, in __aiter__
+    async for part in self._stream:
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpcore\_async\http11.py", line 342, in __aiter__
+    raise exc
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpcore\_async\http11.py", line 334, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpcore\_async\http11.py", line 203, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\app\services\cases.py", line 303, in get_case_details_async
+    resp = await HTTP_CLIENT.get(url, follow_redirects=True)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_client.py", line 1768, in get
+    return await self.request(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_client.py", line 1643, in send
+    raise exc
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_client.py", line 1637, in send
+    await response.aread()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 979, in aread
+    self._content = b"".join([part async for part in self.aiter_bytes()])
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 979, in <listcomp>
+    self._content = b"".join([part async for part in self.aiter_bytes()])
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 997, in aiter_bytes
+    async for raw_bytes in self.aiter_raw():
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 1055, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_client.py", line 176, in __aiter__
+    async for chunk in self._stream:
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_transports\default.py", line 270, in __aiter__
+    with map_httpcore_exceptions():
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+2025-09-21 15:12:00,516 - app.services.cases - WARNING - [CASES] Print-view extraction warning for 35272859: 
+2025-09-21 15:12:00,611 - app.services.rag - INFO - [RAG] Shutdown called
+2025-09-21 15:12:00,611 - app.services.cases - INFO - [CASES] HTTP client closed
