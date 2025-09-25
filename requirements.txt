@@ -12,6 +12,8 @@ langchain-groq>=0.1.0
 langchain_huggingface>=0.0.2
 sentence_transformers>=2.2.2
 faiss-cpu>=1.7.4
+langgraph>=0.2.30
+tavily-python>=0.4.0
 
 # Document processing
 pymupdf>=1.23.0

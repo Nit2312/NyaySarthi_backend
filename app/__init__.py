@@ -14,6 +14,7 @@ from .routers.chat import router as chat_router
 from .routers.cases import router as cases_router
 from .routers.health import router as health_router
 from .routers.upload import router as upload_router
+from .routers.agentic_chat import router as agentic_router
 from .services.rag import init_rag_service, shutdown_rag_service
 from .services.cases import init_cases_service, shutdown_cases_service
 
@@ -59,6 +60,7 @@ app.include_router(health_router, tags=["health"])  # basic health first
 app.include_router(chat_router, tags=["chat"])      # /chat
 app.include_router(cases_router, tags=["cases"])    # /cases/search
 app.include_router(upload_router, tags=["upload"])  # /api/analyze-document
+app.include_router(agentic_router, tags=["agentic"])  # /agentic/chat
 
 # Startup / Shutdown
 @app.on_event("startup")
