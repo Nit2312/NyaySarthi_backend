@@ -33,12 +33,15 @@ INDEX_PATH = str((Path(__file__).resolve().parent.parent.parent / "faiss_index")
 PROMPT = ChatPromptTemplate.from_template(
     (
         """
-        You are a legal expert. Use ONLY the provided context from the Indian Constitution and Indian case law excerpts to answer.
+        You are a legal expert on the Constitution of India and Indian case law.
+        Use the provided context as your primary grounding and produce a complete, user-facing answer.
         Requirements:
-        - Be concise and precise. If something is not in the context, say so.
+        - Be concise, precise, and authoritative. Prefer to answer directly rather than refusing.
+        - If context is partial, still synthesize the best answer using the provided material and settled constitutional principles.
         - When you rely on a case, cite the case title and include its URL in parentheses.
         - Where helpful, include 1-2 short quotations (within double quotes) from the context.
-        - Structure the answer with short paragraphs or bullet points when appropriate.
+        - Structure clearly with headings or short bullet points (e.g., Scope, Clauses, Application, Key Cases, Takeaways).
+        - If the user asks about a specific Article (e.g., "Article 15"), include: heading, clauses (if identifiable), scope, prohibitions/rights, permissible classifications/limitations, and notable precedents.
 
         Chat history (may be empty):
         {chat_history}
@@ -146,6 +149,11 @@ async def chat_handler(input_text: str, conversation_id: Optional[str]) -> Dict:
     history_text = "\n".join([f"{r}: {c}" for r, c in history])
 
     try:
+        # Detect specific Article intent early
+        import re as _re
+        m_article = _re.search(r"\b(?:article|अनुच्छेद)\s*(\d+)\b", input_text, flags=_re.IGNORECASE)
+        article_num: Optional[str] = m_article.group(1) if m_article else None
+
         # Retrieve docs (handle different retriever interfaces)
         if hasattr(RETRIEVER, 'ainvoke'):
             docs: List[Document] = await RETRIEVER.ainvoke(input_text)
@@ -158,7 +166,58 @@ async def chat_handler(input_text: str, conversation_id: Optional[str]) -> Dict:
             d.metadata = (d.metadata or {})
             d.metadata.setdefault("source", "constitution")
 
-        ranked_docs = await _rerank_documents(input_text, docs, top_k=5)
+        # Article-aware targeted retrieval: craft focused queries and try another pass
+        extra_docs: List[Document] = []
+        if article_num:
+            q_variants = [
+                f"Article {article_num}",
+                f"अनुच्छेद {article_num}",
+                f"Article {article_num} Constitution of India",
+            ]
+            try:
+                for qv in q_variants:
+                    if hasattr(RETRIEVER, 'ainvoke'):
+                        extra = await RETRIEVER.ainvoke(qv)
+                    elif hasattr(RETRIEVER, 'aget_relevant_documents'):
+                        extra = await RETRIEVER.aget_relevant_documents(qv)
+                    else:
+                        extra = RETRIEVER.get_relevant_documents(qv)
+                    for d in extra or []:
+                        d.metadata = (d.metadata or {})
+                        d.metadata.setdefault("source", "constitution")
+                    extra_docs.extend(extra or [])
+            except Exception:
+                pass
+
+        merged_docs = docs + extra_docs
+
+        # Try to extract a precise Article snippet from merged documents
+        def _extract_article_snippet(text: str, art_no: str) -> Optional[str]:
+            if not text or not art_no:
+                return None
+            try:
+                # Look for heading like "Article 15" and capture until next "Article <number>" or end
+                import re as __re
+                pattern = __re.compile(rf"(Article\s*{art_no}\b[\s\S]*?)(?=\n\s*Article\s*\d+\b|\Z)", __re.IGNORECASE)
+                m = pattern.search(text)
+                if m:
+                    return m.group(1).strip()
+            except Exception:
+                return None
+            return None
+
+        article_doc: Optional[Document] = None
+        if article_num:
+            for d in merged_docs:
+                snippet = _extract_article_snippet(d.page_content or "", article_num)
+                if snippet and len(snippet) > 50:
+                    article_doc = Document(page_content=snippet, metadata={"source": "constitution", "match": f"Article {article_num}"})
+                    break
+
+        # Rerank and cap
+        ranked_docs = await _rerank_documents(input_text, merged_docs, top_k=8)
+        if article_doc:
+            ranked_docs = [article_doc] + [x for x in ranked_docs if x is not article_doc]
 
         # Lazy create the LLM + document chain on first call
         if DOCUMENT_CHAIN is None:
@@ -189,8 +248,13 @@ async def chat_handler(input_text: str, conversation_id: Optional[str]) -> Dict:
         CHAT_HISTORIES[conv_id].append(("user", input_text))
         CHAT_HISTORIES[conv_id].append(("assistant", answer))
 
+        # Guarantee authoritative, user-friendly tone by removing boilerplate refusal phrases
+        import re as _re_cleanup
+        cleaned = _re_cleanup.sub(r"\b(not in the (?:provided )?context|cannot provide|insufficient context|do not have sufficient context)\b.*", "", answer, flags=_re_cleanup.IGNORECASE)
+        cleaned = cleaned.strip() or answer
+
         return {
-            "response": answer,
+            "response": cleaned,
             "conversation_id": conv_id,
             "source": "constitution",
             "sources": [],

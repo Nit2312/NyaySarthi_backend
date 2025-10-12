@@ -220,8 +220,36 @@ async def run_agentic_chat(input_text: str, prefer: Optional[str] = None, conver
 
     prefer_cases = _looks_like_case_query(question)
 
-    # If user preference is 'cases' or heuristic strongly indicates a case query,
-    # run the deterministic cases pipeline directly to guarantee full judgment usage.
+    # Lightweight normalization for common misspellings and noisy inputs
+    def _normalize_query(txt: str) -> str:
+        t = (txt or "").strip()
+        low = t.lower()
+        replacements = {
+            # Maneka Gandhi common misspellings
+            "maheka gnadhi": "maneka gandhi",
+            "maheka gandhi": "maneka gandhi",
+            "meheka gandhi": "maneka gandhi",
+            "maneka ghandi": "maneka gandhi",
+            "menaka gandhi": "maneka gandhi",
+            # v./vs normalization spacing
+            " v s ": " v. ",
+            " vs ": " v. ",
+        }
+        for k, v in replacements.items():
+            if k in low:
+                low = low.replace(k, v)
+        # Restore basic capitalization for prominent case name if present
+        if "maneka gandhi" in low and "union of india" not in low:
+            low += " v. Union of India"
+        # Try to standardize 'article' token spacing
+        low = low.replace("art. ", "article ")
+        return low
+
+    question = _normalize_query(question)
+
+    # Deprecated: deterministic direct pipeline. We keep it as an internal helper but
+    # we will NOT short-circuit to it when LangGraph is available. Tool outputs must
+    # be routed back into the LLM which composes the final answer.
     async def _run_cases_pipeline(q: str) -> Dict[str, Any]:
         try:
             import re as _re
@@ -323,8 +351,12 @@ async def run_agentic_chat(input_text: str, prefer: Optional[str] = None, conver
             logger.error("[AGENTIC] _run_cases_pipeline error: %s", e, exc_info=True)
             return {"response": "Agent is unavailable", "route": "cases", "graph": False}
 
-    if (prefer and prefer.strip().lower() == 'cases') or prefer_cases:
-        return await _run_cases_pipeline(question)
+    # Do not bypass the graph. We will pass a hint to the tool-calling LLM instead.
+    prefer_hint = None
+    if prefer:
+        prefer_hint = prefer.strip().lower()
+    elif prefer_cases:
+        prefer_hint = 'cases'
 
     # Fallback path if graph not available
     if not LANGGRAPH_AVAILABLE:
@@ -357,16 +389,23 @@ async def run_agentic_chat(input_text: str, prefer: Optional[str] = None, conver
         app = build_agent_app()
         sys_instructions = (
             "You are a legal agent with tools.\n"
-            "- If the user asks about a specific CASE (e.g., contains 'v.'/'vs', asks to describe a case, mentions 'facts', 'holding', 'ratio', or gives a citation), you MUST call the 'find_cases_and_answer' tool first.\n"
-            "- If the user asks about CONSTITUTIONAL provisions generally, use 'constitution_answer'.\n"
-            "- If the user asks for latest/current events or recent updates, use 'tavily_web_search'.\n"
+            "- If the user asks about a specific CASE (e.g., contains 'v.'/'vs', asks to describe a case, mentions 'facts', 'holding', 'ratio', or gives a citation), you MUST call the 'find_cases_and_answer' tool first. Then, using the tool outputs, compose the final answer yourself.\n"
+            "- If the user asks about CONSTITUTIONAL provisions generally (e.g., 'Article 8/15/21'), use 'constitution_answer'. Use the tool output as context and write the final answer yourself.\n"
+            "- If the user asks for latest/current events or recent updates, use 'tavily_web_search' and then summarize results.\n"
+            "- Never return raw tool output directly; always produce a coherent, user-facing answer.\n"
+            "- Spelling/normalization: correct obvious misspellings (e.g., 'maheka gnadhi' -> 'Maneka Gandhi v. Union of India').\n"
+            "- Fidelity: If the user names a specific Article number (e.g., 'Article 8'), center your answer on that article and do not switch to another (e.g., 'Article 13') unless asked to compare.\n"
+            "- If both an Article and a Case are mentioned, use BOTH tools as needed and integrate outputs into one focused answer (Article scope + applicability to the case).\n"
         )
         messages: List[Any] = [SystemMessage(content=sys_instructions), HumanMessage(content=question)]
-        # Prefer hints
-        if prefer:
-            messages.insert(1, HumanMessage(content=f"HINT: Prefer tool {prefer.strip().lower()}"))
-        elif prefer_cases:
-            messages.insert(1, HumanMessage(content="HINT: Prefer tool cases"))
+        # Prefer hints (non-binding). If query contains both article and case cues, hint to combine.
+        import re as _re
+        has_article = bool(_re.search(r"\barticle\s*\d+\b|\bअनुच्छेद\s*\d+\b", question, _re.IGNORECASE))
+        has_case = bool(_re.search(r"\bv\.?s?\.?\b| vs |citation|holding|ratio|judgment", question, _re.IGNORECASE))
+        if has_article and has_case:
+            messages.insert(1, HumanMessage(content="HINT: Prefer tools constitution + cases (combine)"))
+        elif prefer_hint:
+            messages.insert(1, HumanMessage(content=f"HINT: Prefer tool {prefer_hint}"))
         result = await app.ainvoke({"messages": messages}) if hasattr(app, 'ainvoke') else app.invoke({"messages": messages})
         msgs = result.get("messages", []) if isinstance(result, dict) else []
         final_text = None
@@ -374,20 +413,9 @@ async def run_agentic_chat(input_text: str, prefer: Optional[str] = None, conver
             if isinstance(m, AIMessage) and getattr(m, "content", None):
                 final_text = m.content
                 break
-        # If the model returned empty or trivial, fall back to cases path when heuristic says so
-        if (not final_text or len(final_text.strip()) < 10) and prefer_cases:
-            # Minimal direct case flow
-            docs = await search_indian_kanoon_async(question, limit=2)
-            if docs:
-                det = await get_case_details_async(docs[0].id)
-                if det and det.get("success"):
-                    title = det.get("title") or det.get("doc_id")
-                    url = det.get("url", "")
-                    court = det.get("court") or ""
-                    date = det.get("date") or ""
-                    citation = det.get("citation") or ""
-                    excerpt = (det.get("full_text") or "")[:1500]
-                    final_text = f"{title} — {court} ({date}) {citation}\nSource: {url}\n\n{excerpt}"
+        # If the model returned empty or trivial, provide a graceful message rather than raw tool output
+        if not final_text or len(final_text.strip()) < 10:
+            final_text = "I couldn't generate a complete answer at the moment. Please try rephrasing your question or ask for specific constitutional provisions or case details."
         return {"response": final_text or "", "route": "agentic", "graph": True}
     except Exception as e:
         logger.error("[AGENTIC] graph error: %s", e, exc_info=True)
