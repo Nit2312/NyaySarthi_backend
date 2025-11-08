@@ -5456,3 +5456,26 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2025-11-08 17:23:46,018 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2025-11-08 17:25:21,028 - app.services.rag - INFO - [RAG] Shutdown called
 2025-11-08 17:25:21,030 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-08 17:51:25,950 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-08 17:51:30,165 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-08 17:51:30,166 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-08 17:51:33,165 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-08 17:51:37,828 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-08 17:51:37,828 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-08 17:51:38,195 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-08 17:55:45,939 - app.services.rag - INFO - [RAG] Creating LLM and document chain (lazy)
+2025-11-08 17:55:48,259 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-08 17:57:13,307 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-08 18:11:38,586 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-08 18:12:11,525 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22what+can+you+tell+about+kesavanada+bhaarati+case%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=08-11-2025 "HTTP/1.1 200 OK"
+2025-11-08 18:12:11,907 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22what+can+you+tell+about+kesavanada+bhaarati+case%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=08-11-2025 "HTTP/1.1 200 OK"
+2025-11-08 18:12:15,074 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-08 19:06:44,228 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-08 19:06:51,848 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-08 19:06:51,848 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-08 19:06:55,829 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-08 19:07:02,091 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-08 19:07:02,091 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-08 19:07:02,507 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-08 19:07:02,508 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-08 19:07:02,514 - app.services.cases - INFO - [CASES] HTTP client closed
