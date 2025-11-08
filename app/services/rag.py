@@ -5,6 +5,7 @@ from typing import List, Tuple, Optional, Dict, Deque
 from collections import defaultdict, deque
 
 from fastapi.responses import JSONResponse
+import asyncio
 
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
@@ -15,6 +16,10 @@ from langchain_core.documents import Document
 from langchain_groq import ChatGroq
 import faiss
 import pickle
+from app.services.cases import (
+    search_indian_kanoon_async,
+    get_case_details_async,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +30,16 @@ RETRIEVER = None
 DOCUMENT_CHAIN = None  # Lazy init for speed
 CHAT_HISTORIES: Dict[str, Deque[Tuple[str, str]]] = defaultdict(lambda: deque(maxlen=20))
 
+# Performance tuning knobs (env-overridable)
+IK_TIMEOUT_SEC = float(os.getenv("IK_TIMEOUT_SEC", "2.0"))  # case fetch deadline per query
+IK_MAX_CASES = int(os.getenv("IK_MAX_CASES", "2"))          # limit number of cases fetched
+IK_DETAILS_CONCURRENCY = int(os.getenv("IK_DETAILS_CONCURRENCY", "3"))
+IK_CASE_TTL_SEC = int(os.getenv("IK_CASE_TTL_SEC", "900"))  # 15 minutes cache
+
+# Simple in-memory cache: query -> (timestamp, [Document])
+_CASE_CACHE: Dict[str, Tuple[float, List[Document]]] = {}
+_CASE_DETAILS_SEM = asyncio.Semaphore(IK_DETAILS_CONCURRENCY)
+
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
@@ -33,15 +48,18 @@ INDEX_PATH = str((Path(__file__).resolve().parent.parent.parent / "faiss_index")
 PROMPT = ChatPromptTemplate.from_template(
     (
         """
-        You are a legal expert on the Constitution of India and Indian case law.
-        Use the provided context as your primary grounding and produce a complete, user-facing answer.
-        Requirements:
-        - Be concise, precise, and authoritative. Prefer to answer directly rather than refusing.
-        - If context is partial, still synthesize the best answer using the provided material and settled constitutional principles.
-        - When you rely on a case, cite the case title and include its URL in parentheses.
-        - Where helpful, include 1-2 short quotations (within double quotes) from the context.
-        - Structure clearly with headings or short bullet points (e.g., Scope, Clauses, Application, Key Cases, Takeaways).
-        - If the user asks about a specific Article (e.g., "Article 15"), include: heading, clauses (if identifiable), scope, prohibitions/rights, permissible classifications/limitations, and notable precedents.
+        You are a senior Indian legal expert. Your data sources are:
+        - Indian Constitution content from a local FAISS index ("constitution").
+        - Indian case law fetched from Indian Kanoon at query-time ("indian_kanoon").
+
+        Use ONLY the provided context. Deliver a complete, user-facing answer with the following:
+        - Be concise, precise, and authoritative. Answer directly.
+        - If relying on a case, cite the case title and include its URL in parentheses.
+        - Include up to 1–2 short quotations in double quotes when they add value.
+        - Use clear structure with short sections (e.g., Scope, Clauses, Application, Key Cases, Takeaways).
+        - If asked about a specific Article (e.g., "Article 15"), include: heading, clauses (if identifiable), scope, prohibitions/rights, permissible classifications/limitations, and notable precedents.
+        - If the question contains an incorrect legal premise (e.g., references a non-existent Article or a clearly wrong rule), politely correct the user and provide the correct framing.
+        - If the context does not support a definitive answer, state the limitation and provide the best-supported view from the context.
 
         Chat history (may be empty):
         {chat_history}
@@ -114,6 +132,89 @@ async def init_rag_service():
 async def shutdown_rag_service():
     logger.info("[RAG] Shutdown called")
 
+async def _build_case_documents_async(user_query: str, limit_cases: int = IK_MAX_CASES) -> List[Document]:
+    """Fetch Indian Kanoon cases for the query and return chunked Documents with metadata.
+    - Uses strict timeouts and low limits for responsiveness
+    - Parallel detail fetch with a semaphore
+    - TTL cache to avoid repeated scraping/API calls
+    """
+    try:
+        key = (user_query or "").strip()
+        loop = asyncio.get_event_loop()
+        now = loop.time()
+        cached = _CASE_CACHE.get(key)
+        if cached and (now - cached[0] <= IK_CASE_TTL_SEC):
+            return cached[1]
+
+        async def _search():
+            return await search_indian_kanoon_async(key, limit=limit_cases)
+
+        try:
+            cases, _ = await asyncio.wait_for(_search(), timeout=IK_TIMEOUT_SEC)
+        except Exception:
+            cases = []
+        if not cases:
+            _CASE_CACHE[key] = (now, [])
+            return []
+
+        splitter = RecursiveCharacterTextSplitter(chunk_size=700, chunk_overlap=120)
+
+        async def _fetch_details(case):
+            try:
+                async with _CASE_DETAILS_SEM:
+                    details = await get_case_details_async(case.id)
+                full_text = (details.get("full_text") or "")
+                if not full_text:
+                    return []
+                full_text = full_text[:8000]
+                chunks = splitter.split_text(full_text)[:6]  # cap chunks per case
+                meta = {
+                    "source": "indian_kanoon",
+                    "case_id": details.get("doc_id") or case.id,
+                    "title": details.get("title") or case.title,
+                    "url": details.get("url") or getattr(case, "url", None),
+                    "court": details.get("court") or getattr(case, "court", None),
+                    "date": details.get("date") or getattr(case, "date", None),
+                }
+                return [Document(page_content=ch, metadata=meta) for ch in chunks]
+            except Exception:
+                return []
+
+        out: List[Document] = []
+        try:
+            docs_lists = await asyncio.wait_for(
+                asyncio.gather(*[_fetch_details(c) for c in cases[:limit_cases]]),
+                timeout=max(1.0, IK_TIMEOUT_SEC + 1.0),
+            )
+            for lst in docs_lists:
+                out.extend(lst)
+        except Exception:
+            pass
+
+        _CASE_CACHE[key] = (now, out)
+        return out
+    except Exception:
+        return []
+
+def _extract_sources(docs: List[Document]) -> List[Dict[str, str]]:
+    """Deduplicate and return list of source dicts with title and URL from provided Documents."""
+    uniq: Dict[str, Dict[str, str]] = {}
+    for d in docs or []:
+        meta = d.metadata or {}
+        if meta.get("source") == "indian_kanoon":
+            key = str(meta.get("case_id") or meta.get("url") or meta.get("title") or "")
+            if key and key not in uniq:
+                uniq[key] = {
+                    "title": str(meta.get("title") or "Case"),
+                    "url": str(meta.get("url") or ""),
+                    "court": str(meta.get("court") or ""),
+                    "date": str(meta.get("date") or ""),
+                }
+        elif meta.get("source") == "constitution":
+            if "constitution" not in uniq:
+                uniq["constitution"] = {"title": "Indian Constitution context", "url": ""}
+    return list(uniq.values())
+
 
 async def _rerank_documents(question: str, docs: List[Document], top_k: int = 5) -> List[Document]:
     if not docs:
@@ -154,7 +255,7 @@ async def chat_handler(input_text: str, conversation_id: Optional[str]) -> Dict:
         m_article = _re.search(r"\b(?:article|अनुच्छेद)\s*(\d+)\b", input_text, flags=_re.IGNORECASE)
         article_num: Optional[str] = m_article.group(1) if m_article else None
 
-        # Retrieve docs (handle different retriever interfaces)
+        # Retrieve docs from Constitution index (handle different retriever interfaces)
         if hasattr(RETRIEVER, 'ainvoke'):
             docs: List[Document] = await RETRIEVER.ainvoke(input_text)
         elif hasattr(RETRIEVER, 'aget_relevant_documents'):
@@ -190,6 +291,18 @@ async def chat_handler(input_text: str, conversation_id: Optional[str]) -> Dict:
                 pass
 
         merged_docs = docs + extra_docs
+
+        # Decide if we need case law (speeds up simple constitutional Qs)
+        low = (input_text or "").lower()
+        need_cases = any(k in low for k in [
+            "precedent", "precedents", "case", "cases", " v.", " vs ",
+            "landmark", "judgment", "judgements", "supreme court", "high court"
+        ])
+
+        if need_cases:
+            case_docs: List[Document] = await _build_case_documents_async(input_text)
+            if case_docs:
+                merged_docs.extend(case_docs)
 
         # Try to extract a precise Article snippet from merged documents
         def _extract_article_snippet(text: str, art_no: str) -> Optional[str]:
@@ -253,11 +366,23 @@ async def chat_handler(input_text: str, conversation_id: Optional[str]) -> Dict:
         cleaned = _re_cleanup.sub(r"\b(not in the (?:provided )?context|cannot provide|insufficient context|do not have sufficient context)\b.*", "", answer, flags=_re_cleanup.IGNORECASE)
         cleaned = cleaned.strip() or answer
 
+        sources_list = _extract_sources(ranked_docs)
+        # If user referenced a specific Article but no snippet was found, add a gentle correction
+        if article_num and not article_doc:
+            cleaned = (
+                "Note: The referenced Article might be mis-specified or not present in the provided context. "
+                + cleaned
+            )
+
+        used_source = (
+            "constitution+indian_kanoon" if any((d.metadata or {}).get("source") == "indian_kanoon" for d in ranked_docs) else "constitution"
+        )
+
         return {
             "response": cleaned,
             "conversation_id": conv_id,
-            "source": "constitution",
-            "sources": [],
+            "source": used_source,
+            "sources": sources_list,
         }
     except Exception as e:
         logger.error(f"[RAG] chat_handler error: {e}", exc_info=True)

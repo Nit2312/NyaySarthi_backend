@@ -64,8 +64,25 @@ async def scrape_indian_kanoon_search_async(query: str, limit: int = 5) -> List[
 
     base_url = "https://indiankanoon.org/search/"
 
-    # Two query strategies: exact phrase, then broad
-    query_variants = [f'"{query}"', query]
+    # Normalize case-like queries: remove dates and trailing filler (e.g., "on 12 September, 2019")
+    def _normalize_case_query(q: str) -> str:
+        import re as _re
+        q = (q or "").strip()
+        # Remove common date phrases like "on 12 September, 2019" or dd-mm-yyyy, dd/mm/yyyy etc.
+        q = _re.sub(r"\bon\s+\d{1,2}\s+[A-Za-z]{3,9},?\s+\d{4}\b", "", q, flags=_re.IGNORECASE)
+        q = _re.sub(r"\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b", "", q)
+        # Remove standalone years if appended at end
+        q = _re.sub(r"\b(19|20)\d{2}\b", "", q)
+        # Collapse whitespace
+        q = _re.sub(r"\s+", " ", q).strip()
+        return q
+
+    norm_query = _normalize_case_query(query)
+
+    # Query strategies: exact phrase on normalized, broad normalized, fallback original
+    query_variants = [f'"{norm_query}"', norm_query]
+    if norm_query != query:
+        query_variants.append(query)
 
     import re
 
@@ -221,7 +238,7 @@ async def search_indian_kanoon_async(query: str, limit: int = 5) -> Tuple[List[C
     except Exception:
         pass
 
-    # Try scraping first (no credentials needed) — keep it lean, no enrichment here for speed.
+    # Try scraping first with normalization (no credentials needed) — lean and fast.
     scraped = await scrape_indian_kanoon_search_async(query, min(limit, 5))
     if scraped:
         # Populate cache
@@ -237,6 +254,7 @@ async def search_indian_kanoon_async(query: str, limit: int = 5) -> Tuple[List[C
 
     try:
         params = {
+            # Apply same normalization for API calls (slightly broader than exact quoted)
             "formInput": query,
             "pagenum": 0,
             "sort_by": "relevance",

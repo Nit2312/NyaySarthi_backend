@@ -97,6 +97,11 @@ else:
     cors_allow_origins = [o.strip() for o in origins_env.split(",") if o.strip()]
     cors_allow_credentials = True
 
+# Ensure Vercel frontend origin is included
+vercel_origin = "https://nyay-sarthi-frontend.vercel.app"
+if cors_allow_origins != ["*"] and vercel_origin not in cors_allow_origins:
+    cors_allow_origins.append(vercel_origin)
+
 # CORS middleware configuration
 app.add_middleware(
     CORSMiddleware,
@@ -121,7 +126,11 @@ app.add_middleware(
 async def add_cors_headers(request: Request, call_next):
     # Get the origin from the request
     origin = request.headers.get("origin")
-    allowed_origins = ["http://localhost:3000", "http://127.0.0.1:3000"]
+    allowed_origins = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "https://nyay-sarthi-frontend.vercel.app",
+    ]
     
     # Default headers
     cors_headers = {
