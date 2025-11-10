@@ -25,6 +25,7 @@ except Exception as e:  # pragma: no cover
 if LANGGRAPH_AVAILABLE:
     @tool("constitution_answer")
     async def constitution_tool(question: str, conversation_id: Optional[str] = None) -> str:
+        """Answer constitutional questions using the constitution RAG pipeline."""
         try:
             resp = await constitution_answer(question, conversation_id)
             if isinstance(resp, dict):
@@ -36,6 +37,7 @@ if LANGGRAPH_AVAILABLE:
 
     @tool("find_cases_and_answer")
     async def cases_tool(question: str, description: Optional[str] = None) -> str:
+        """Find relevant cases (via Indian Kanoon) and compose a concise case-based answer."""
         try:
             # Build a focused search query if a case name pattern is present
             import re as _re
@@ -152,6 +154,7 @@ if LANGGRAPH_AVAILABLE:
 
     @tool("tavily_web_search")
     async def tavily_tool(query: str) -> str:
+        """Use Tavily to fetch recent web results when latest/current info is needed."""
         try:
             tavily_key = os.getenv("TAVILY_API_KEY")
             if not tavily_key:
