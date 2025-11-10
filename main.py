@@ -26,7 +26,6 @@ try:
     from langchain_text_splitters import RecursiveCharacterTextSplitter
     from langchain.chains.combine_documents import create_stuff_documents_chain
     from langchain_core.prompts import ChatPromptTemplate
-    from langchain.chains import create_retrieval_chain
     from langchain_core.documents import Document
     from langchain_community.vectorstores import FAISS
     from langchain_community.document_loaders import PyMuPDFLoader
@@ -182,7 +181,7 @@ SCRAPE_FALLBACK = os.getenv("SCRAPE_INDIAN_KANOON", "false").lower() in {"1", "t
 
 # Initialize embeddings with better configuration
 embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-mpnet-base-v2",
+    model_name=os.getenv("EMBEDDING_MODEL_NAME", "sentence-transformers/all-MiniLM-L6-v2"),
     model_kwargs={'device': 'cpu'},
     encode_kwargs={'normalize_embeddings': True}
 )
@@ -228,7 +227,7 @@ if os.path.exists(index_path) and os.path.isdir(index_path):
         vector_store = None
 
 # If no valid index was loaded, create a new one
-if vector_store is None:
+if vector_store is None and os.getenv("ALLOW_INDEX_BUILD", "0").lower() in {"1", "true", "yes"}:
     try:
         logger.info("Loading and processing constitution PDF...")
         pdf_path = os.path.join("data", "constitution.pdf")
@@ -349,21 +348,21 @@ if vector_store is None:
     except Exception as e:
         logger.error(f"Error creating FAISS index: {str(e)}")
         raise RuntimeError("Failed to initialize document vector store") from e
+elif vector_store is None:
+    logger.warning("FAISS index not loaded and index build disabled (ALLOW_INDEX_BUILD=0). Some features may be unavailable.")
 
 # Initialize the retriever with a simple similarity search first
-retriever = vector_store.as_retriever(
-    search_type="similarity",  # Use basic similarity search
-    search_kwargs={
-        'k': 5,  # Number of documents to retrieve
-        'fetch_k': 20  # Number of documents to consider during search
-    }
-)
-
-logger.info(f"Initialized retriever with {vector_store.index.ntotal} vectors")
-
-# Store global references for debugging
-FAISS_INDEX = vector_store
-EMBEDDINGS = embeddings
+if vector_store is not None:
+    retriever = vector_store.as_retriever(
+        search_type="similarity",
+        search_kwargs={'k': 5, 'fetch_k': 20}
+    )
+    logger.info(f"Initialized retriever with {vector_store.index.ntotal} vectors")
+    # Store global references for debugging
+    FAISS_INDEX = vector_store
+    EMBEDDINGS = embeddings
+else:
+    retriever = None
 
 llm = ChatGroq(groq_api_key=groq_api_key, model_name=groq_model)
 
@@ -393,7 +392,6 @@ prompt = ChatPromptTemplate.from_template(
         """.strip()
     )
 document_chain = create_stuff_documents_chain(llm, prompt)
-retrieval_chain = create_retrieval_chain(retriever, document_chain)
 
 
 # ===== Cache utility functions =====
