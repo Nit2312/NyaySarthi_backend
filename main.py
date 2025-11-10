@@ -8,6 +8,7 @@ import html
 from datetime import datetime, timedelta
 from typing import List, Optional, Dict, Any, Tuple, Deque
 from collections import defaultdict, deque
+from dotenv import load_dotenv
 
 # FastAPI imports
 from fastapi import FastAPI, Form, Request, Response, HTTPException, status
@@ -22,7 +23,7 @@ from uuid import uuid4
 try:
     from langchain_groq import ChatGroq
     from langchain_huggingface import HuggingFaceEmbeddings
-    from langchain.text_splitter import RecursiveCharacterTextSplitter
+    from langchain_text_splitters import RecursiveCharacterTextSplitter
     from langchain.chains.combine_documents import create_stuff_documents_chain
     from langchain_core.prompts import ChatPromptTemplate
     from langchain.chains import create_retrieval_chain
@@ -31,7 +32,6 @@ try:
     from langchain_community.document_loaders import PyMuPDFLoader
     from bs4 import BeautifulSoup
     from pydantic import BaseModel
-    from dotenv import load_dotenv
     import requests
     import httpx
     import asyncio
