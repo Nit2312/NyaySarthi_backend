@@ -5769,3 +5769,193 @@ httpx.ConnectTimeout
 2025-11-12 13:07:44,674 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2025-11-12 13:24:18,883 - app.services.rag - INFO - [RAG] Shutdown called
 2025-11-12 13:24:18,903 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 20:30:54,549 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 20:30:55,362 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 20:31:01,877 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 20:31:01,878 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-12 20:31:02,291 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 20:32:35,504 - app.services.rag - INFO - [RAG] Creating local LLM and document chain (lazy)
+2025-11-12 20:32:38,166 - huggingface_hub.file_download - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-11-12 20:32:41,377 - huggingface_hub.file_download - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-11-12 20:32:50,764 - huggingface_hub.file_download - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-11-12 20:32:50,800 - huggingface_hub.file_download - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-11-12 20:36:14,924 - app.services.rag - ERROR - [RAG] chat_handler error: 'method' object is not iterable
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\app\services\rag.py", line 348, in chat_handler
+    response = await DOCUMENT_CHAIN.ainvoke(chain_input)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 5454, in ainvoke
+    return await self.bound.ainvoke(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\runnables\base.py", line 3091, in ainvoke
+    input_ = await coro_with_context(part(), context, create_task=True)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\language_models\chat_models.py", line 405, in ainvoke
+    llm_result = await self.agenerate_prompt(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\language_models\chat_models.py", line 1017, in agenerate_prompt
+    return await self.agenerate(
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\language_models\chat_models.py", line 904, in agenerate
+    params = self._get_invocation_params(stop=stop, **kwargs)
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\language_models\chat_models.py", line 687, in _get_invocation_params
+    params = self.dict()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\langchain_core\language_models\chat_models.py", line 1364, in dict
+    starter_dict = dict(self._identifying_params)
+TypeError: 'method' object is not iterable
+2025-11-12 20:36:58,101 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 20:36:58,159 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 20:37:19,491 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 20:37:20,262 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 20:38:04,317 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 20:38:04,825 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 20:38:10,768 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 20:38:10,770 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-12 20:38:11,158 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 20:38:52,083 - app.services.rag - INFO - [RAG] Creating local LLM and document chain (lazy)
+2025-11-12 20:42:23,826 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 20:42:23,948 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 20:42:55,457 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 20:42:56,571 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 20:43:05,004 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 20:43:05,005 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-12 20:43:05,668 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 20:44:16,723 - app.services.rag - INFO - [RAG] Creating local LLM and document chain (lazy)
+2025-11-12 20:47:22,329 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 20:47:22,515 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 20:47:49,929 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 20:47:51,041 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 20:47:55,992 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 20:47:55,992 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded by default)
+2025-11-12 20:47:56,553 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 20:48:26,682 - app.services.rag - INFO - [RAG] Creating local LLM and document chain (lazy)
+2025-11-12 20:51:15,602 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 20:51:15,727 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 20:51:37,250 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 20:51:38,003 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 20:51:42,368 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 20:51:42,368 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded by default)
+2025-11-12 20:51:42,756 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 20:55:25,701 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 20:55:25,709 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 20:55:37,469 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 20:55:38,043 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 20:55:42,199 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 20:55:42,200 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded by default)
+2025-11-12 20:55:42,588 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 20:55:42,589 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 20:55:42,596 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 20:55:53,960 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 20:55:54,490 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 20:55:58,760 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 20:55:58,761 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded by default)
+2025-11-12 20:55:59,153 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 20:55:59,155 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 20:55:59,161 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 20:56:10,243 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 20:56:10,752 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 20:56:15,495 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 20:56:15,495 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded by default)
+2025-11-12 20:56:15,860 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 20:56:15,862 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 20:56:15,868 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 20:56:26,704 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 20:56:27,221 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 20:56:32,115 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 20:56:32,115 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded by default)
+2025-11-12 20:56:32,475 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 20:57:09,108 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 20:57:09,115 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 20:57:13,880 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 20:57:21,583 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-12 20:57:21,584 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-12 20:57:26,128 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 20:57:30,844 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 20:57:30,845 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-12 20:57:31,412 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 20:57:31,414 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 20:57:31,421 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 20:57:37,621 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 20:57:44,964 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-12 20:57:44,966 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-12 20:57:51,045 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 20:57:56,134 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 20:57:56,135 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-12 20:57:56,749 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 21:06:11,492 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 21:06:11,502 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 21:06:15,518 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 21:06:19,674 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-12 21:06:19,675 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-12 21:06:22,995 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 21:06:27,231 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 21:06:27,232 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-12 21:06:27,588 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 21:55:08,826 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 21:58:19,783 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 22:04:32,434 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 22:07:59,224 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 22:11:47,014 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 22:14:14,370 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 22:14:14,376 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 22:14:21,198 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 22:14:30,695 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-12 22:14:30,696 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-12 22:14:37,341 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 22:14:41,971 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 22:14:41,972 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-12 22:14:42,635 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 22:16:09,113 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 22:24:24,153 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 22:24:24,160 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 22:24:32,393 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 22:24:37,087 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-12 22:24:37,088 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-12 22:24:42,124 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 22:24:46,754 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 22:24:46,755 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-12 22:24:47,385 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 22:24:57,159 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 22:26:40,892 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 22:26:40,897 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 22:26:45,923 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 22:26:50,803 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-12 22:26:50,803 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-12 22:26:54,175 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 22:26:58,789 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 22:26:58,792 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-12 22:26:59,149 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 22:28:05,012 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 22:28:05,020 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-12 22:28:09,405 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-12 22:28:13,903 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-12 22:28:13,905 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-12 22:28:17,542 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-12 22:28:21,691 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-12 22:28:21,692 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-12 22:28:22,070 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-12 22:28:46,272 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 22:30:40,743 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 22:33:07,876 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Hate+speech+vs+free+speech+related+cases%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=12-11-2025 "HTTP/1.1 200 OK"
+2025-11-12 22:33:08,525 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Hate+speech+vs+free+speech+related+cases%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=12-11-2025 "HTTP/1.1 200 OK"
+2025-11-12 22:33:09,276 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Hate+speech+vs+free+speech+related+cases%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=12-11-2025 "HTTP/1.1 200 OK"
+2025-11-12 22:33:11,367 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=Hate+speech+vs+free+speech+related+cases&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=12-11-2025 "HTTP/1.1 200 OK"
+2025-11-12 22:33:12,418 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/ "HTTP/1.1 200 OK"
+2025-11-12 22:33:12,470 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/ "HTTP/1.1 200 OK"
+2025-11-12 22:33:12,801 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/103640961/ "HTTP/1.1 200 OK"
+2025-11-12 22:33:13,807 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/?type=print "HTTP/1.1 200 OK"
+2025-11-12 22:33:14,343 - app.services.cases - INFO - [CASES] Content lengths -> normal: 161775, print: 161510
+2025-11-12 22:33:15,117 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/681409/ "HTTP/1.1 200 OK"
+2025-11-12 22:33:15,125 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-12 22:33:15,715 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/?type=print "HTTP/1.1 200 OK"
+2025-11-12 22:33:17,274 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/103640961/?type=print "HTTP/1.1 200 OK"
+2025-11-12 22:33:18,454 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-12 22:33:20,124 - app.services.cases - INFO - [CASES] Content lengths -> normal: 542704, print: 542439
+2025-11-12 22:33:22,233 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/681409/?type=print "HTTP/1.1 200 OK"
+2025-11-12 22:33:22,916 - app.services.cases - INFO - [CASES] Content lengths -> normal: 489660, print: 489393
+2025-11-12 22:33:23,246 - app.services.cases - INFO - [CASES] Content lengths -> normal: 527580, print: 527310
+2025-11-12 22:33:26,004 - app.services.cases - INFO - [CASES] Content lengths -> normal: 540067, print: 539805
+2025-11-12 22:33:30,989 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/ "HTTP/1.1 200 OK"
+2025-11-12 22:33:31,516 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/ "HTTP/1.1 200 OK"
+2025-11-12 22:33:33,176 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/?type=print "HTTP/1.1 200 OK"
+2025-11-12 22:33:35,931 - app.services.cases - INFO - [CASES] Content lengths -> normal: 542704, print: 542439
+2025-11-12 22:33:35,979 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/?type=print "HTTP/1.1 200 OK"
+2025-11-12 22:33:38,387 - app.services.cases - INFO - [CASES] Content lengths -> normal: 542704, print: 542439
+2025-11-12 22:33:39,603 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 22:37:51,559 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-12 22:37:51,560 - app.services.cases - INFO - [CASES] HTTP client closed
