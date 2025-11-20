@@ -18,6 +18,7 @@ from fastapi.requests import Request as FastAPIRequest
 from fastapi.routing import APIRoute
 from starlette.middleware.base import BaseHTTPMiddleware
 from uuid import uuid4
+from app.routers.upload import router as upload_router
 
 # Lazy imports for heavy libraries
 try:
@@ -52,7 +53,7 @@ logger = logging.getLogger(__name__)
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)    
 
 class RateLimitMiddleware:
     def __init__(self, app, max_requests=100, window=60):
@@ -86,6 +87,17 @@ app = FastAPI()
 
 # Rate limiting
 app.add_middleware(RateLimitMiddleware, max_requests=100, window=60)
+
+# Normalize duplicate slashes in paths (e.g., //cases/search -> /cases/search)
+@app.middleware("http")
+async def normalize_path_middleware(request: Request, call_next):
+    scope = request.scope
+    path = scope.get("path", "")
+    if "//" in path:
+        while "//" in path:
+            path = path.replace("//", "/")
+        scope["path"] = path
+    return await call_next(request)
 
 # CORS configuration
 origins_env = os.getenv("FRONTEND_ORIGINS", "http://localhost:3000").strip()
@@ -160,6 +172,25 @@ async def add_cors_headers(request: Request, call_next):
         response.headers[key] = value
         
     return response
+
+# Health endpoint
+@app.get("/health")
+async def health():
+    try:
+        vs = globals().get("FAISS_INDEX") or globals().get("vector_store")
+        vectors = int(getattr(getattr(vs, 'index', None), 'ntotal', 0)) if vs is not None else 0
+    except Exception:
+        vectors = 0
+    llm_initialized = globals().get("document_chain") is not None
+    api_key_present = bool(globals().get("groq_api_key"))
+    return {
+        "status": "ok",
+        "faiss": {"loaded": vs is not None, "vectors": vectors},
+        "llm": {"api_key_present": api_key_present, "initialized": llm_initialized},
+    }
+
+# Mount routers from modular packages (e.g., upload endpoints)
+app.include_router(upload_router, tags=["upload"])  # exposes /api/analyze-document
 
 # Simple in-memory cache for API responses
 # Format: {cache_key: {"data": response_data, "timestamp": datetime, "ttl": seconds}}
@@ -453,7 +484,7 @@ REQUEST_METRICS = {
 # Initialize FAISS index and embeddings at startup
 @app.on_event("startup")
 async def startup_event():
-    global FAISS_INDEX, EMBEDDINGS, HTTP_CLIENT
+    global FAISS_INDEX, EMBEDDINGS, HTTP_CLIENT, retriever
     try:
         # Initialize async HTTP client with connection pooling
         HTTP_CLIENT = httpx.AsyncClient(
@@ -479,6 +510,14 @@ async def startup_event():
                 allow_dangerous_deserialization=True
             )
             logger.info("Successfully loaded FAISS index")
+            try:
+                retriever = FAISS_INDEX.as_retriever(
+                    search_type="similarity",
+                    search_kwargs={'k': 5, 'fetch_k': 20}
+                )
+                logger.info("Initialized retriever from FAISS index in startup")
+            except Exception as e:
+                logger.warning(f"Failed to initialize retriever at startup: {e}")
         else:
             logger.warning(f"FAISS index not found at {faiss_index_path}")
             
@@ -1387,10 +1426,21 @@ async def chat(input: str = Form(...), conversation_id: Optional[str] = Form(Non
     logger.info(f"[RAG Debug] FAISS index available: {FAISS_INDEX is not None}")
     logger.info(f"[RAG Debug] Embeddings available: {EMBEDDINGS is not None}")
     
+    # Ensure retriever exists if FAISS index is present
+    if (not retriever) and (FAISS_INDEX is not None):
+        try:
+            retriever = FAISS_INDEX.as_retriever(
+                search_type="similarity",
+                search_kwargs={'k': 5, 'fetch_k': 20}
+            )
+            logger.info("[RAG Debug] Lazily initialized retriever from FAISS index")
+        except Exception as e:
+            logger.error(f"[RAG Error] Failed to lazily initialize retriever: {e}")
+
     if not retriever or not document_chain:
         error_msg = "Vector store or document chain not initialized"
         logger.error(f"[RAG Error] {error_msg}")
-        return JSONResponse(status_code=500, content={"error": error_msg})
+        raise HTTPException(status_code=500, detail=error_msg)
 
     # Determine conversation id
     conv_id = conversation_id or str(uuid4())

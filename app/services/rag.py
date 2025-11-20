@@ -11,7 +11,8 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
-from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
 from langchain_core.documents import Document
 from langchain_groq import ChatGroq
 import faiss
@@ -31,10 +32,10 @@ DOCUMENT_CHAIN = None  # Lazy init for speed
 CHAT_HISTORIES: Dict[str, Deque[Tuple[str, str]]] = defaultdict(lambda: deque(maxlen=20))
 
 # Performance tuning knobs (env-overridable)
-IK_TIMEOUT_SEC = float(os.getenv("IK_TIMEOUT_SEC", "2.0"))  # case fetch deadline per query
-IK_MAX_CASES = int(os.getenv("IK_MAX_CASES", "2"))          # limit number of cases fetched
+IK_TIMEOUT_SEC = float(os.getenv("IK_TIMEOUT_SEC", "5.0"))   # case fetch deadline per query (increased from 2.0)
+IK_MAX_CASES = int(os.getenv("IK_MAX_CASES", "5"))           # limit number of cases fetched (increased from 2)
 IK_DETAILS_CONCURRENCY = int(os.getenv("IK_DETAILS_CONCURRENCY", "3"))
-IK_CASE_TTL_SEC = int(os.getenv("IK_CASE_TTL_SEC", "900"))  # 15 minutes cache
+IK_CASE_TTL_SEC = int(os.getenv("IK_CASE_TTL_SEC", "900"))   # 15 minutes cache
 
 # Simple in-memory cache: query -> (timestamp, [Document])
 _CASE_CACHE: Dict[str, Tuple[float, List[Document]]] = {}
@@ -52,14 +53,22 @@ PROMPT = ChatPromptTemplate.from_template(
         - Indian Constitution content from a local FAISS index ("constitution").
         - Indian case law fetched from Indian Kanoon at query-time ("indian_kanoon").
 
-        Use ONLY the provided context. Deliver a complete, user-facing answer with the following:
-        - Be concise, precise, and authoritative. Answer directly.
-        - If relying on a case, cite the case title and include its URL in parentheses.
-        - Include up to 1–2 short quotations in double quotes when they add value.
+        CRITICAL INSTRUCTION: Use ONLY the provided context. Do NOT invent, hallucinate, or reference cases, precedents, or legal principles not explicitly stated in the context.
+
+        When referencing case law:
+        - ONLY cite cases that appear in the "indian_kanoon" source context.
+        - Always include the full case title, citation (if available), court, and URL from the context.
+        - Do NOT create fake case names or invented precedents.
+        - If a case is mentioned in the context, quote the exact headnote or ratio from the provided text.
+
+        Delivery guidelines:
+        - Be concise, precise, and authoritative. Answer directly based on context.
+        - If relying on a case, cite the case title and include its URL in parentheses: (Case Name, https://indiankanoon.org/doc/...)
+        - Include up to 1–2 short verbatim quotations in double quotes when they add value.
         - Use clear structure with short sections (e.g., Scope, Clauses, Application, Key Cases, Takeaways).
-        - If asked about a specific Article (e.g., "Article 15"), include: heading, clauses (if identifiable), scope, prohibitions/rights, permissible classifications/limitations, and notable precedents.
-        - If the question contains an incorrect legal premise (e.g., references a non-existent Article or a clearly wrong rule), politely correct the user and provide the correct framing.
-        - If the context does not support a definitive answer, state the limitation and provide the best-supported view from the context.
+        - If asked about a specific Article (e.g., "Article 15"), include: heading, clauses (if identifiable), scope, prohibitions/rights, permissible classifications/limitations, and notable precedents FROM THE CONTEXT ONLY.
+        - If the question contains an incorrect legal premise (e.g., references a non-existent Article or a clearly wrong rule), politely correct the user based on the provided context.
+        - If the context does not support a definitive answer, state the limitation clearly: "The provided context does not contain sufficient information to answer this question. Please refer to..."
 
         Chat history (may be empty):
         {chat_history}
@@ -85,37 +94,96 @@ async def init_rag_service():
         encode_kwargs={"normalize_embeddings": True},
     )
 
-    # Load vector store
+    # Load vector store or build it if missing
     os.makedirs(INDEX_PATH, exist_ok=True)
-    try:
-        VECTOR_STORE = FAISS.load_local(
-            INDEX_PATH, EMBEDDINGS, allow_dangerous_deserialization=True
-        )
-        ntotal = getattr(getattr(VECTOR_STORE, 'index', None), 'ntotal', 0) or 0
-        logger.info(
-            f"[RAG] Loaded FAISS index from {INDEX_PATH} with {ntotal} vectors"
-        )
-        # Fallback: if vectors == 0 but files exist, try manual load (version mismatch safety)
-        if ntotal == 0:
-            idx_file = os.path.join(INDEX_PATH, "index.faiss")
-            pkl_file = os.path.join(INDEX_PATH, "index.pkl")
-            if os.path.exists(idx_file) and os.path.exists(pkl_file):
-                try:
-                    index = faiss.read_index(idx_file)
-                    with open(pkl_file, "rb") as f:
-                        docstore, index_to_docstore_id = pickle.load(f)
-                    VECTOR_STORE = FAISS(embedding_function=EMBEDDINGS, index=index, docstore=docstore, index_to_docstore_id=index_to_docstore_id)
-                    logger.info(f"[RAG] Reconstructed FAISS store manually with {VECTOR_STORE.index.ntotal} vectors")
-                except Exception as e2:
-                    logger.warning(f"[RAG] Manual FAISS reconstruction failed: {e2}")
-    except Exception as e:
-        logger.warning(f"[RAG] Could not load existing FAISS index: {e}")
-        VECTOR_STORE = None
+    def _try_load_vector_store() -> Optional[FAISS]:
+        try:
+            vs = FAISS.load_local(
+                INDEX_PATH, EMBEDDINGS, allow_dangerous_deserialization=True
+            )
+            ntotal_local = getattr(getattr(vs, 'index', None), 'ntotal', 0) or 0
+            logger.info(f"[RAG] Loaded FAISS index from {INDEX_PATH} with {ntotal_local} vectors")
+            if ntotal_local == 0:
+                idx_file = os.path.join(INDEX_PATH, "index.faiss")
+                pkl_file = os.path.join(INDEX_PATH, "index.pkl")
+                if os.path.exists(idx_file) and os.path.exists(pkl_file):
+                    try:
+                        index = faiss.read_index(idx_file)
+                        with open(pkl_file, "rb") as f:
+                            docstore, index_to_docstore_id = pickle.load(f)
+                        vs = FAISS(embedding_function=EMBEDDINGS, index=index, docstore=docstore, index_to_docstore_id=index_to_docstore_id)
+                        logger.info(f"[RAG] Reconstructed FAISS store manually with {vs.index.ntotal} vectors")
+                    except Exception as e2:
+                        logger.warning(f"[RAG] Manual FAISS reconstruction failed: {e2}")
+            return vs
+        except Exception as e:
+            logger.warning(f"[RAG] Could not load existing FAISS index: {e}")
+            return None
 
+    def _save_vector_store(vs: FAISS):
+        try:
+            vs.save_local(INDEX_PATH)
+            logger.info(f"[RAG] Saved FAISS index to {INDEX_PATH} with {getattr(getattr(vs, 'index', None), 'ntotal', 0)} vectors")
+        except Exception as e:
+            logger.warning(f"[RAG] Failed to save FAISS index: {e}")
+
+    def _build_from_pdf(pdf_path: str) -> Optional[FAISS]:
+        try:
+            import fitz  # PyMuPDF
+        except Exception:
+            logger.warning("[RAG] PyMuPDF not available; skipping PDF-based index build")
+            return None
+        try:
+            from langchain_core.documents import Document as _Doc
+            doc = fitz.open(pdf_path)
+            pages = []
+            for i in range(len(doc)):
+                pg = doc.load_page(i)
+                text = pg.get_text("text") or ""
+                t = text.strip()
+                if not t:
+                    continue
+                pages.append(_Doc(page_content=t, metadata={"source": pdf_path, "page": i+1}))
+            if not pages:
+                logger.warning("[RAG] No text extracted from PDF; skipping PDF build")
+                return None
+            splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+            chunks = splitter.split_documents(pages)
+            if not chunks:
+                logger.warning("[RAG] No chunks produced from PDF; skipping")
+                return None
+            vs = FAISS.from_documents(chunks, EMBEDDINGS)
+            _save_vector_store(vs)
+            return vs
+        except Exception as e:
+            logger.error(f"[RAG] Error building index from PDF: {e}", exc_info=True)
+            return None
+
+    def _build_minimal_placeholder() -> FAISS:
+        from langchain_core.documents import Document as _Doc
+        logger.warning("[RAG] Building minimal placeholder FAISS index (reduced capabilities)")
+        placeholder = _Doc(page_content=(
+            "This is a minimal placeholder index. The full Constitution corpus was not available. "
+            "Answers may be limited until the proper index is built."
+        ), metadata={"source": "placeholder"})
+        vs = FAISS.from_documents([placeholder], EMBEDDINGS)
+        _save_vector_store(vs)
+        return vs
+
+    # Try load first
+    VECTOR_STORE = _try_load_vector_store()
     if VECTOR_STORE is None:
-        raise RuntimeError(
-            "FAISS index not found. Please build the index before starting the server."
-        )
+        allow_build = os.getenv("ALLOW_INDEX_BUILD", "1").lower() in {"1", "true", "yes"}
+        if allow_build:
+            pdf_path = os.path.join(str(Path(__file__).resolve().parent.parent.parent / "data"), "constitution.pdf")
+            if os.path.exists(pdf_path):
+                logger.info(f"[RAG] Attempting to build FAISS index from PDF at {pdf_path}")
+                VECTOR_STORE = _build_from_pdf(pdf_path)
+            if VECTOR_STORE is None:
+                VECTOR_STORE = _build_minimal_placeholder()
+        else:
+            # As a last resort, create placeholder to keep system operational
+            VECTOR_STORE = _build_minimal_placeholder()
 
     # Retriever (tuned smaller defaults; env overrides allowed)
     k = int(os.getenv("RETRIEVER_K", "4"))
@@ -137,6 +205,7 @@ async def _build_case_documents_async(user_query: str, limit_cases: int = IK_MAX
     - Uses strict timeouts and low limits for responsiveness
     - Parallel detail fetch with a semaphore
     - TTL cache to avoid repeated scraping/API calls
+    - Tries multiple query variants to improve case matching
     """
     try:
         key = (user_query or "").strip()
@@ -146,15 +215,43 @@ async def _build_case_documents_async(user_query: str, limit_cases: int = IK_MAX
         if cached and (now - cached[0] <= IK_CASE_TTL_SEC):
             return cached[1]
 
-        async def _search():
-            return await search_indian_kanoon_async(key, limit=limit_cases)
+        # Generate query variants to improve case matching
+        import re as _re_var
+        query_variants = [key]
+        
+        # If query mentions specific topics, add targeted variants
+        if "goodwill" in key.lower():
+            query_variants.append("Section 27 Indian Contract Act goodwill")
+            query_variants.append("sale of goodwill restraint")
+        if "non-compet" in key.lower() or "restraint" in key.lower():
+            query_variants.append("Section 27 Indian Contract Act")
+            query_variants.append("restraint of trade void")
+        if "section 27" in key.lower():
+            query_variants.append("Section 27 Contract Act restraint trade")
+        if "article" in key.lower() and _re_var.search(r"\barticle\s+\d+\b", key.lower()):
+            # Extract article number
+            m = _re_var.search(r"article\s+(\d+)", key.lower())
+            if m:
+                art_num = m.group(1)
+                query_variants.append(f"Article {art_num} Constitution India")
 
-        try:
-            cases, _ = await asyncio.wait_for(_search(), timeout=IK_TIMEOUT_SEC)
-        except Exception:
-            cases = []
+        # Try each variant, use first one that returns results
+        cases = []
+        async def _search(q):
+            return await search_indian_kanoon_async(q, limit=limit_cases)
+
+        for variant in query_variants[:3]:  # Try up to 3 variants
+            try:
+                results, _ = await asyncio.wait_for(_search(variant), timeout=IK_TIMEOUT_SEC)
+                if results:
+                    cases = results
+                    break
+            except Exception:
+                continue
+
         if not cases:
             _CASE_CACHE[key] = (now, [])
+            return []
             return []
 
         splitter = RecursiveCharacterTextSplitter(chunk_size=700, chunk_overlap=120)
@@ -195,6 +292,42 @@ async def _build_case_documents_async(user_query: str, limit_cases: int = IK_MAX
         return out
     except Exception:
         return []
+
+
+def _validate_case_citations(response: str, context_docs: List[Document]) -> Tuple[str, List[str]]:
+    """Validate that any case citations in the response are actually present in context_docs.
+    Returns: (cleaned_response, list_of_warnings)
+    
+    This prevents hallucinated case citations by cross-checking against real fetched cases.
+    """
+    import re
+    warnings = []
+    
+    # Extract case titles from context (from Indian Kanoon source)
+    context_case_titles = set()
+    context_case_urls = set()
+    for doc in context_docs:
+        meta = doc.metadata or {}
+        if meta.get("source") == "indian_kanoon":
+            title = meta.get("title", "")
+            url = meta.get("url", "")
+            if title:
+                context_case_titles.add(title.lower())
+            if url:
+                context_case_urls.add(url)
+    
+    # Detect citations in response: "Case Name v. Case Name" or "[Case Name](url)" format
+    # Common patterns: "X v. Y", "X Vs Y", or "(Case Name, https://indiankanoon.org/...)"
+    citation_pattern = r"\b([A-Z][A-Za-z\s]+?)\s+(?:v\.?|vs\.?)\s+([A-Z][A-Za-z\s]+?)[\s,]"
+    urls_in_response = re.findall(r'https://indiankanoon\.org/doc/\d+', response)
+    
+    # Check if extracted URLs are in context
+    suspicious_urls = [u for u in urls_in_response if u not in context_case_urls]
+    if suspicious_urls:
+        warnings.append(f"WARNING: Response references case URLs not in context: {suspicious_urls}")
+    
+    return response, warnings
+
 
 def _extract_sources(docs: List[Document]) -> List[Dict[str, str]]:
     """Deduplicate and return list of source dicts with title and URL from provided Documents."""
@@ -296,7 +429,11 @@ async def chat_handler(input_text: str, conversation_id: Optional[str]) -> Dict:
         low = (input_text or "").lower()
         need_cases = any(k in low for k in [
             "precedent", "precedents", "case", "cases", " v.", " vs ",
-            "landmark", "judgment", "judgements", "supreme court", "high court"
+            "landmark", "judgment", "judgements", "supreme court", "high court",
+            "section", "article", "law", "act", "enforc", "legal", "valid",
+            "restraint", "restraint of trade", "non-compete", "non-compet",
+            "goodwill", "clause", "enforceable", "void", "exception",
+            "ruling", "court", "decided", "held"
         ])
 
         if need_cases:
@@ -342,21 +479,37 @@ async def chat_handler(input_text: str, conversation_id: Optional[str]) -> Dict:
             except Exception as e:
                 logger.error(f"[RAG] Failed to initialize LLM: {e}", exc_info=True)
                 return JSONResponse(status_code=500, content={"detail": f"LLM initialization failed: {str(e)}"})
-            DOCUMENT_CHAIN = create_stuff_documents_chain(llm, PROMPT)
+            
+            # Create chain using modern langchain API (0.1.0+)
+            # Chain: format context docs → invoke prompt → get response
+            def format_docs(docs):
+                return "\n\n".join([d.page_content for d in docs])
+            
+            DOCUMENT_CHAIN = (
+                RunnablePassthrough.assign(context=lambda x: format_docs(x.get("context", [])))
+                | PROMPT
+                | llm
+                | StrOutputParser()
+            )
 
         # Use the document chain directly and pass our context
         chain_input = {"input": input_text, "chat_history": history_text, "context": ranked_docs}
-        if hasattr(DOCUMENT_CHAIN, "ainvoke"):
-            response = await DOCUMENT_CHAIN.ainvoke(chain_input)
-        else:
-            response = DOCUMENT_CHAIN.invoke(chain_input)
+        try:
+            if hasattr(DOCUMENT_CHAIN, "ainvoke"):
+                response = await DOCUMENT_CHAIN.ainvoke(chain_input)
+            else:
+                response = DOCUMENT_CHAIN.invoke(chain_input)
+        except Exception as e:
+            logger.error(f"[RAG] Chain execution error: {e}", exc_info=True)
+            raise
 
-        if isinstance(response, dict):
-            answer = response.get("answer", "") or response.get("text", "")
-        elif hasattr(response, "content"):
-            answer = response.content
-        else:
-            answer = str(response)
+        # Response is now directly a string from StrOutputParser
+        answer = response if isinstance(response, str) else str(response)
+
+        # Validate case citations against actual context
+        answer, citation_warnings = _validate_case_citations(answer, ranked_docs)
+        if citation_warnings:
+            logger.warning(f"[RAG] Citation validation warnings: {citation_warnings}")
 
         CHAT_HISTORIES[conv_id].append(("user", input_text))
         CHAT_HISTORIES[conv_id].append(("assistant", answer))

@@ -84,9 +84,11 @@ async def scrape_indian_kanoon_search_async(query: str, limit: int = 5) -> List[
     if norm_query != query:
         query_variants.append(query)
 
+    logger.info(f"[SCRAPE] Query: '{query}' | variants: {query_variants}, limit: {limit}")
+
     import re
 
-    def extract_results(soup: BeautifulSoup, acc: List[CaseDoc], seen: set, needed: int) -> None:
+    def extract_results(soup: BeautifulSoup, acc: List[CaseDoc], seen: set, needed: int, query_variant: str = "") -> None:
         # Prefer structured result titles if present
         # Many results are within elements with class result_title containing anchors to /doc/<id>/
         for blk in soup.select('.result_title a[href^="/doc/"]'):
@@ -188,10 +190,17 @@ async def scrape_indian_kanoon_search_async(query: str, limit: int = 5) -> List[
                 "from": "01-01-1950",
                 "to": datetime.now().strftime("%d-%m-%Y"),
             }
+            logger.info(f"[SCRAPE] Trying variant: '{qv}'")
             resp0 = await HTTP_CLIENT.get(base_url, params=params0, follow_redirects=True)
             if resp0.status_code == 200:
                 soup0 = BeautifulSoup(resp0.text, 'html.parser')
-                extract_results(soup0, results, seen_ids, limit)
+                count_before = len(results)
+                extract_results(soup0, results, seen_ids, limit, qv)
+                count_after = len(results)
+                logger.info(f"[SCRAPE] Variant '{qv}' page 0: +{count_after - count_before} cases (total: {count_after})")
+            else:
+                logger.warning(f"[SCRAPE] Page 0 status {resp0.status_code} for variant '{qv}'")
+            
             # If still need more, concurrently fetch page 1 and 2
             if len(results) < limit:
                 async def fetch_page(pagenum: int):
@@ -208,19 +217,26 @@ async def scrape_indian_kanoon_search_async(query: str, limit: int = 5) -> List[
                         r = await HTTP_CLIENT.get(base_url, params=p, follow_redirects=True)
                         if r.status_code == 200:
                             return BeautifulSoup(r.text, 'html.parser')
-                    except Exception:
+                    except Exception as e:
+                        logger.warning(f"[SCRAPE] Error fetching page {pagenum}: {e}")
                         return None
                     return None
 
                 soups = await asyncio.gather(fetch_page(1), fetch_page(2))
-                for s in soups:
+                for pnum, s in enumerate(soups, 1):
                     if s is None or len(results) >= limit:
                         continue
-                    extract_results(s, results, seen_ids, limit)
+                    count_before = len(results)
+                    extract_results(s, results, seen_ids, limit, qv)
+                    count_after = len(results)
+                    logger.info(f"[SCRAPE] Variant '{qv}' page {pnum}: +{count_after - count_before} cases (total: {count_after})")
 
+        logger.info(f"[SCRAPE] Final result: {len(results)} cases returned")
         return results[:limit]
     except Exception as e:
         logger.warning(f"[CASES] Scrape failed: {e}")
+        import traceback
+        logger.warning(f"[CASES] Traceback: {traceback.format_exc()}")
         return []
 
 async def search_indian_kanoon_async(query: str, limit: int = 5) -> Tuple[List[CaseDoc], Optional[str]]:
@@ -473,7 +489,7 @@ async def get_case_details_async(doc_id: str, description: Optional[str] = None)
                 if ft_text and (not full_text or len(ft_text) >= len(full_text)):
                     full_text = ft_text
                     full_text_html = ft_html or full_text_html
-            logger.info(f"[CASES] Content lengths -> normal: {len(full_text) if full_text else 0}, print: {len(ft_text) if 'ft_text' in locals() and ft_text else 0}")
+            logger.info(f"[CASES] Content lengths - normal: {len(full_text) if full_text else 0}, print: {len(ft_text) if 'ft_text' in locals() and ft_text else 0}")
         except Exception as ex:
             logger.warning(f"[CASES] Print-view extraction warning for {doc_id}: {ex}")
 
