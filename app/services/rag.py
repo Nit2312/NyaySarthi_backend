@@ -94,96 +94,37 @@ async def init_rag_service():
         encode_kwargs={"normalize_embeddings": True},
     )
 
-    # Load vector store or build it if missing
+    # Load vector store
     os.makedirs(INDEX_PATH, exist_ok=True)
-    def _try_load_vector_store() -> Optional[FAISS]:
-        try:
-            vs = FAISS.load_local(
-                INDEX_PATH, EMBEDDINGS, allow_dangerous_deserialization=True
-            )
-            ntotal_local = getattr(getattr(vs, 'index', None), 'ntotal', 0) or 0
-            logger.info(f"[RAG] Loaded FAISS index from {INDEX_PATH} with {ntotal_local} vectors")
-            if ntotal_local == 0:
-                idx_file = os.path.join(INDEX_PATH, "index.faiss")
-                pkl_file = os.path.join(INDEX_PATH, "index.pkl")
-                if os.path.exists(idx_file) and os.path.exists(pkl_file):
-                    try:
-                        index = faiss.read_index(idx_file)
-                        with open(pkl_file, "rb") as f:
-                            docstore, index_to_docstore_id = pickle.load(f)
-                        vs = FAISS(embedding_function=EMBEDDINGS, index=index, docstore=docstore, index_to_docstore_id=index_to_docstore_id)
-                        logger.info(f"[RAG] Reconstructed FAISS store manually with {vs.index.ntotal} vectors")
-                    except Exception as e2:
-                        logger.warning(f"[RAG] Manual FAISS reconstruction failed: {e2}")
-            return vs
-        except Exception as e:
-            logger.warning(f"[RAG] Could not load existing FAISS index: {e}")
-            return None
+    try:
+        VECTOR_STORE = FAISS.load_local(
+            INDEX_PATH, EMBEDDINGS, allow_dangerous_deserialization=True
+        )
+        ntotal = getattr(getattr(VECTOR_STORE, 'index', None), 'ntotal', 0) or 0
+        logger.info(
+            f"[RAG] Loaded FAISS index from {INDEX_PATH} with {ntotal} vectors"
+        )
+        # Fallback: if vectors == 0 but files exist, try manual load (version mismatch safety)
+        if ntotal == 0:
+            idx_file = os.path.join(INDEX_PATH, "index.faiss")
+            pkl_file = os.path.join(INDEX_PATH, "index.pkl")
+            if os.path.exists(idx_file) and os.path.exists(pkl_file):
+                try:
+                    index = faiss.read_index(idx_file)
+                    with open(pkl_file, "rb") as f:
+                        docstore, index_to_docstore_id = pickle.load(f)
+                    VECTOR_STORE = FAISS(embedding_function=EMBEDDINGS, index=index, docstore=docstore, index_to_docstore_id=index_to_docstore_id)
+                    logger.info(f"[RAG] Reconstructed FAISS store manually with {VECTOR_STORE.index.ntotal} vectors")
+                except Exception as e2:
+                    logger.warning(f"[RAG] Manual FAISS reconstruction failed: {e2}")
+    except Exception as e:
+        logger.warning(f"[RAG] Could not load existing FAISS index: {e}")
+        VECTOR_STORE = None
 
-    def _save_vector_store(vs: FAISS):
-        try:
-            vs.save_local(INDEX_PATH)
-            logger.info(f"[RAG] Saved FAISS index to {INDEX_PATH} with {getattr(getattr(vs, 'index', None), 'ntotal', 0)} vectors")
-        except Exception as e:
-            logger.warning(f"[RAG] Failed to save FAISS index: {e}")
-
-    def _build_from_pdf(pdf_path: str) -> Optional[FAISS]:
-        try:
-            import fitz  # PyMuPDF
-        except Exception:
-            logger.warning("[RAG] PyMuPDF not available; skipping PDF-based index build")
-            return None
-        try:
-            from langchain_core.documents import Document as _Doc
-            doc = fitz.open(pdf_path)
-            pages = []
-            for i in range(len(doc)):
-                pg = doc.load_page(i)
-                text = pg.get_text("text") or ""
-                t = text.strip()
-                if not t:
-                    continue
-                pages.append(_Doc(page_content=t, metadata={"source": pdf_path, "page": i+1}))
-            if not pages:
-                logger.warning("[RAG] No text extracted from PDF; skipping PDF build")
-                return None
-            splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-            chunks = splitter.split_documents(pages)
-            if not chunks:
-                logger.warning("[RAG] No chunks produced from PDF; skipping")
-                return None
-            vs = FAISS.from_documents(chunks, EMBEDDINGS)
-            _save_vector_store(vs)
-            return vs
-        except Exception as e:
-            logger.error(f"[RAG] Error building index from PDF: {e}", exc_info=True)
-            return None
-
-    def _build_minimal_placeholder() -> FAISS:
-        from langchain_core.documents import Document as _Doc
-        logger.warning("[RAG] Building minimal placeholder FAISS index (reduced capabilities)")
-        placeholder = _Doc(page_content=(
-            "This is a minimal placeholder index. The full Constitution corpus was not available. "
-            "Answers may be limited until the proper index is built."
-        ), metadata={"source": "placeholder"})
-        vs = FAISS.from_documents([placeholder], EMBEDDINGS)
-        _save_vector_store(vs)
-        return vs
-
-    # Try load first
-    VECTOR_STORE = _try_load_vector_store()
     if VECTOR_STORE is None:
-        allow_build = os.getenv("ALLOW_INDEX_BUILD", "1").lower() in {"1", "true", "yes"}
-        if allow_build:
-            pdf_path = os.path.join(str(Path(__file__).resolve().parent.parent.parent / "data"), "constitution.pdf")
-            if os.path.exists(pdf_path):
-                logger.info(f"[RAG] Attempting to build FAISS index from PDF at {pdf_path}")
-                VECTOR_STORE = _build_from_pdf(pdf_path)
-            if VECTOR_STORE is None:
-                VECTOR_STORE = _build_minimal_placeholder()
-        else:
-            # As a last resort, create placeholder to keep system operational
-            VECTOR_STORE = _build_minimal_placeholder()
+        raise RuntimeError(
+            "FAISS index not found. Please build the index before starting the server."
+        )
 
     # Retriever (tuned smaller defaults; env overrides allowed)
     k = int(os.getenv("RETRIEVER_K", "4"))

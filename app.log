@@ -336,3 +336,1487 @@ article 368 as per majority opinion in Kihoto H...
 2025-11-20 12:28:47,271 - main - INFO - Cache set: cases_search:d9d99d16c3fa134f
 2025-11-20 12:28:47,272 - main - INFO - Cases search completed in 2.363s, found 1 cases
 2025-11-20 12:30:03,539 - main - INFO - HTTP client closed
+2025-11-20 12:30:56,100 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-20 12:30:56,100 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-20 12:30:59,458 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-11-20 12:31:04,743 - main - INFO - Expected embedding dimension: 384
+2025-11-20 12:31:04,744 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-11-20 12:31:04,744 - main - INFO - Loading existing FAISS index...
+2025-11-20 12:31:04,747 - main - WARNING - Dimension mismatch: Index has 768 dimensions, expected 384
+2025-11-20 12:31:04,747 - main - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-11-20 12:31:04,747 - main - INFO - Creating new FAISS index...
+2025-11-20 12:31:04,747 - main - WARNING - FAISS index not loaded and index build disabled (ALLOW_INDEX_BUILD=0). Some features may be unavailable.
+2025-11-20 12:31:05,805 - main - INFO - Initialized HTTP client with connection pooling
+2025-11-20 12:31:05,810 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-20 12:31:10,233 - main - INFO - Successfully loaded FAISS index
+2025-11-20 12:31:10,234 - main - INFO - Initialized retriever from FAISS index in startup
+2025-11-20 12:32:50,623 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:33:08,864 - main - INFO - Processing cases search request: 'Hate speech vs free speech related cases...' (limit: 5)
+2025-11-20 12:33:09,539 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:33:09,541 - main - INFO - Searching Indian Kanoon for: "Hate speech vs free speech cases, IPC Article 153A, 295, 505, Section 66A IT Act, Indian Penal Code...
+2025-11-20 12:33:09,542 - main - INFO - Attempting to scrape Indian Kanoon...
+2025-11-20 12:33:11,441 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22%22Hate+speech+vs+free+speech+cases%2C+IPC+Article+153A%2C+295%2C+505%2C+Section+66A+IT+Act%2C+Indian+Penal+Code%22%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 12:33:12,483 - main - INFO - Successfully scraped 2 cases from Indian Kanoon
+2025-11-20 12:33:12,484 - main - INFO - Cache set: ik_search:b07ceeef569c38de
+2025-11-20 12:33:12,842 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:33:13,042 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:33:13,045 - main - INFO - Cache set: cases_search:9955f4fc294f20a3
+2025-11-20 12:33:13,045 - main - INFO - Cases search completed in 4.180s, found 2 cases
+2025-11-20 12:37:35,389 - main - INFO - HTTP client closed
+2025-11-20 12:37:43,731 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-20 12:37:43,732 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-20 12:37:47,063 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-11-20 12:37:51,968 - main - INFO - Expected embedding dimension: 384
+2025-11-20 12:37:51,968 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-11-20 12:37:51,969 - main - INFO - Loading existing FAISS index...
+2025-11-20 12:37:51,972 - main - WARNING - Dimension mismatch: Index has 768 dimensions, expected 384
+2025-11-20 12:37:51,972 - main - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-11-20 12:37:51,972 - main - INFO - Creating new FAISS index...
+2025-11-20 12:37:51,973 - main - WARNING - FAISS index not loaded and index build disabled (ALLOW_INDEX_BUILD=0). Some features may be unavailable.
+2025-11-20 12:37:53,019 - main - INFO - Initialized HTTP client with connection pooling
+2025-11-20 12:37:53,023 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-20 12:37:56,989 - main - INFO - Successfully loaded FAISS index
+2025-11-20 12:37:56,989 - main - INFO - Initialized retriever from FAISS index in startup
+2025-11-20 12:40:44,189 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-20 12:40:44,688 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/179868451/ "HTTP/1.1 200 OK"
+2025-11-20 12:40:44,973 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1036814/ "HTTP/1.1 200 OK"
+2025-11-20 12:40:45,891 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1036814/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:40:46,448 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/179868451/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:40:46,757 - app.services.cases - INFO - [CASES] Content lengths - normal: 228205, print: 227938
+2025-11-20 12:40:47,481 - app.services.cases - INFO - [CASES] Content lengths - normal: 165800, print: 165539
+2025-11-20 12:40:48,468 - app.services.cases - INFO - [SCRAPE] Query: 'Hardam Singh vs State Of Punjab on 12 September 2019' | variants: ['"Hardam Singh vs State Of Punjab"', 'Hardam Singh vs State Of Punjab', 'Hardam Singh vs State Of Punjab on 12 September 2019'], limit: 5
+2025-11-20 12:40:48,469 - app.services.cases - INFO - [SCRAPE] Trying variant: '"Hardam Singh vs State Of Punjab"'
+2025-11-20 12:40:49,565 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Hardam+Singh+vs+State+Of+Punjab%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 12:40:49,625 - app.services.cases - INFO - [SCRAPE] Variant '"Hardam Singh vs State Of Punjab"' page 0: +5 cases (total: 5)
+2025-11-20 12:40:49,625 - app.services.cases - INFO - [SCRAPE] Final result: 5 cases returned
+2025-11-20 12:40:49,912 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/140753276/ "HTTP/1.1 200 OK"
+2025-11-20 12:40:49,968 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-20 12:40:50,299 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/53363170/ "HTTP/1.1 200 OK"
+2025-11-20 12:40:50,486 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/65957531/ "HTTP/1.1 200 OK"
+2025-11-20 12:40:50,538 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/140753276/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:40:50,545 - app.services.cases - INFO - [CASES] Content lengths - normal: 3359, print: 3089
+2025-11-20 12:40:50,753 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/65957531/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:40:50,768 - app.services.cases - INFO - [CASES] Content lengths - normal: 5003, print: 4733
+2025-11-20 12:40:51,778 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/123814702/ "HTTP/1.1 200 OK"
+2025-11-20 12:40:51,852 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/53363170/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:40:51,859 - app.services.cases - INFO - [CASES] Content lengths - normal: 4469, print: 4199
+2025-11-20 12:40:52,053 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:40:53,692 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-20 12:40:53,716 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/123814702/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:40:53,721 - app.services.cases - INFO - [CASES] Content lengths - normal: 2484, print: 2214
+2025-11-20 12:40:57,584 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-20 12:40:57,770 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-20 12:41:00,394 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:41:01,056 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:41:02,417 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-20 12:41:03,062 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-20 12:41:07,005 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:41:18,139 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/65957531/ "HTTP/1.1 200 OK"
+2025-11-20 12:41:18,434 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/65957531/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:41:18,444 - app.services.cases - INFO - [CASES] Content lengths - normal: 5003, print: 4733
+2025-11-20 12:41:19,167 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-20 12:41:21,607 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:41:22,097 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-20 12:54:06,620 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 12:54:06,621 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 12:54:06,621 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 12:54:06,621 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 12:54:06,622 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 12:54:06,622 - main - INFO - [RAG Debug] Processing query: afticle 32 4
+2025-11-20 12:54:06,623 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 12:54:06,911 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 12:54:06,913 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 356, 'total_pages': 402, 'start_index': 793}
+2025-11-20 12:54:06,913 - main - INFO - [RAG Debug] Doc 1 content preview: 2003, s. 2 (w.e.f. 7-1-2004).
+6. Entries 9 to 14 renumbered as entries 12 to 17 by s. 2, ibid. (w.e.f. 7-1-2004).
+7. Subs. by the Constitution (Ninety-sixth Amendment) Act, 2011, s. 2, for "Oriya" 
+(w...
+2025-11-20 12:54:06,913 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 391, 'total_pages': 402, 'start_index': 798}
+2025-11-20 12:54:06,913 - main - INFO - [RAG Debug] Doc 2 content preview: Haldibari
+122.8
+27.
+Daikhata Chhat
+38
+Boda
+Haldibari
+499.21
+28.
+Salbari
+37
+Boda
+Haldibari
+1188.93
+29.
+Kajal Dighi
+36
+Boda
+Haldibari
+771.44
+30.
+Nataktoka
+32
+Boda
+Haldibari
+162.26
+31.
+Nataktoka
+33
+Boda
+...
+2025-11-20 12:54:06,915 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 29, 'total_pages': 402, 'start_index': 805}
+2025-11-20 12:54:06,916 - main - INFO - [RAG Debug] Doc 3 content preview: Omitted.]
+[382.
+Provisions as to provisional Legislatures for States in Part A of 
+the First Schedule.
+Omitted.]
+[383.
+Provision as to Governors of Provinces. 
+Omitted.]
+[384.
+Council of Ministers of ...
+2025-11-20 12:54:07,551 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:54:28,896 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 12:54:28,896 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 12:54:28,897 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 12:54:28,897 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 12:54:28,897 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 12:54:28,897 - main - INFO - [RAG Debug] Processing query: what is article 32 
+2025-11-20 12:54:28,899 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 12:54:28,987 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 12:54:28,988 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 219, 'total_pages': 402, 'start_index': 1605}
+2025-11-20 12:54:28,988 - main - INFO - [RAG Debug] Doc 1 content preview: (w.e.f. 10-8-1975).
+2. The words, figures and letter "but subject to the provisions of article 329A" omitted by 
+the Constitution (Forty-fourth Amendment) Act, 1978, s. 35 (w.e.f. 20-6-1979).
+3. Ins. ...
+2025-11-20 12:54:28,989 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 12:54:28,989 - main - INFO - [RAG Debug] Doc 2 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 12:54:28,990 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 34, 'total_pages': 402, 'start_index': 1604}
+2025-11-20 12:54:28,990 - main - INFO - [RAG Debug] Doc 3 content preview: (2) No such law as aforesaid shall be deemed to be an 
+amendment of this Constitution for the purposes of article 368.  
+______________________________________________
+1. Subs. by the Constitution (Fi...
+2025-11-20 12:54:29,563 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:54:46,663 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 12:54:46,663 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 12:54:46,663 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 12:54:46,663 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 12:54:46,664 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 12:54:46,664 - main - INFO - [RAG Debug] Processing query: yes
+2025-11-20 12:54:46,664 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 12:54:46,740 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 12:54:46,740 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 356, 'total_pages': 402, 'start_index': 793}
+2025-11-20 12:54:46,741 - main - INFO - [RAG Debug] Doc 1 content preview: 2003, s. 2 (w.e.f. 7-1-2004).
+6. Entries 9 to 14 renumbered as entries 12 to 17 by s. 2, ibid. (w.e.f. 7-1-2004).
+7. Subs. by the Constitution (Ninety-sixth Amendment) Act, 2011, s. 2, for "Oriya" 
+(w...
+2025-11-20 12:54:46,741 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 388, 'total_pages': 402, 'start_index': 803}
+2025-11-20 12:54:46,741 - main - INFO - [RAG Debug] Doc 2 content preview: nallah in the east-west direction, thereafter it 
+shall run along the northern edge of the nallah in 
+east till it meets the existing International 
+Boundary 
+north 
+of 
+Reference 
+Pillar 
+Nos.1267/4-...
+2025-11-20 12:54:46,742 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 390, 'total_pages': 402, 'start_index': 800}
+2025-11-20 12:54:46,742 - main - INFO - [RAG Debug] Doc 3 content preview: No.
+Chhit No.
+Lying within 
+Police station 
+Bangladesh
+Lying within 
+Police station 
+W. Bengal
+Area 
+in 
+acres
+1
+2
+3
+4
+5
+6
+A. Enclaves with independent chhits
+1.
+Garati
+75
+Pochagar
+Haldibari
+58.23
+2.
+...
+2025-11-20 12:54:47,636 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:55:13,810 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 12:55:13,811 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 12:55:13,811 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 12:55:13,812 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 12:55:13,812 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 12:55:13,812 - main - INFO - [RAG Debug] Processing query: article 32 
+2025-11-20 12:55:13,813 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 12:55:13,881 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 12:55:13,881 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 12:55:13,881 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 12:55:13,882 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 219, 'total_pages': 402, 'start_index': 1605}
+2025-11-20 12:55:13,882 - main - INFO - [RAG Debug] Doc 2 content preview: (w.e.f. 10-8-1975).
+2. The words, figures and letter "but subject to the provisions of article 329A" omitted by 
+the Constitution (Forty-fourth Amendment) Act, 1978, s. 35 (w.e.f. 20-6-1979).
+3. Ins. ...
+2025-11-20 12:55:13,882 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 379, 'total_pages': 402, 'start_index': 2472}
+2025-11-20 12:55:13,883 - main - INFO - [RAG Debug] Doc 3 content preview: ______________________________________________
+* Paragraph 7 declared  invalid for want of ratification in accordance with the proviso to clause (2) of 
+article 368 as per majority opinion in Kihoto H...
+2025-11-20 12:55:14,676 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:56:58,510 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 12:56:58,511 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 12:56:58,511 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 12:56:58,511 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 12:56:58,512 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 12:56:58,512 - main - INFO - [RAG Debug] Processing query: tell me everything about afticle 41
+2025-11-20 12:56:58,512 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 12:56:58,591 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 12:56:58,592 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 97, 'total_pages': 402, 'start_index': 1578}
+2025-11-20 12:56:58,592 - main - INFO - [RAG Debug] Doc 1 content preview: interpretation of this Constitution or for the purpose of hearing any reference 
+under article 143 shall be five:
+______________________________________________
+1. Ins. by the Constitution (Forty-seco...
+2025-11-20 12:56:58,592 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 49, 'total_pages': 402, 'start_index': 2377}
+2025-11-20 12:56:58,593 - main - INFO - [RAG Debug] Doc 2 content preview: specified in clause (b) or clause (c) of article 39” (w.e.f. 3-1-1977). Section 4 has been 
+declared invalid by  the Supreme Court in Minerva Mills Ltd. and Others Vs Union of India 
+and Others, AIR 1...
+2025-11-20 12:56:58,593 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 353, 'total_pages': 402, 'start_index': 793}
+2025-11-20 12:56:58,594 - main - INFO - [RAG Debug] Doc 3 content preview: courts, except the Supreme Court and the High Courts.] 
+12. Evidence and oaths; recognition of laws, public acts and records, and 
+judicial proceedings.
+13. Civil procedure, including all matters incl...
+2025-11-20 12:56:59,618 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:57:39,572 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 12:57:39,572 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 12:57:39,572 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 12:57:39,572 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 12:57:39,573 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 12:57:39,573 - main - INFO - [RAG Debug] Processing query: Article 41 — Right to Work, to Education, and to Public Assistance  Article 41 says that:  The State shall, within the limits of its economic capacity and development, make effective provision for:  Right to work  Right to education  Right to public assistance  in cases of unemployment,  old age,  sickness,  and disablement,  and in other cases of undeserved want.
+2025-11-20 12:57:39,573 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 12:57:39,742 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 12:57:39,744 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 52, 'total_pages': 402, 'start_index': 0}
+2025-11-20 12:57:39,744 - main - INFO - [RAG Debug] Doc 1 content preview: 21
+PART IV
+DIRECTIVE PRINCIPLES OF STATE POLICY 
+36. Definition.—In this Part, unless the context otherwise requires, “the 
+State” has the same meaning as in Part III. 
+37. Application of the principl...
+2025-11-20 12:57:39,745 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 52, 'total_pages': 402, 'start_index': 811}
+2025-11-20 12:57:39,745 - main - INFO - [RAG Debug] Doc 2 content preview: 2[(2) The State shall, in particular, strive to minimise the inequalities in 
+income, and endeavour to eliminate inequalities in status, facilities and 
+opportunities, not only amongst individuals but...
+2025-11-20 12:57:39,745 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 52, 'total_pages': 402, 'start_index': 1604}
+2025-11-20 12:57:39,745 - main - INFO - [RAG Debug] Doc 3 content preview: detriment;
+(d) that there is equal pay for equal work for both men and women;
+(e) that the health and strength of workers, men and women, and 
+the tender age of children are not abused and that citize...
+2025-11-20 12:57:40,760 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:59:03,888 - app.services.cases - INFO - [SCRAPE] Query: 'Hardam Singh vs State Of Punjab on 12 September 2019' | variants: ['"Hardam Singh vs State Of Punjab"', 'Hardam Singh vs State Of Punjab', 'Hardam Singh vs State Of Punjab on 12 September 2019'], limit: 5
+2025-11-20 12:59:03,889 - app.services.cases - INFO - [SCRAPE] Trying variant: '"Hardam Singh vs State Of Punjab"'
+2025-11-20 12:59:04,914 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Hardam+Singh+vs+State+Of+Punjab%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 12:59:04,957 - app.services.cases - INFO - [SCRAPE] Variant '"Hardam Singh vs State Of Punjab"' page 0: +5 cases (total: 5)
+2025-11-20 12:59:04,958 - app.services.cases - INFO - [SCRAPE] Final result: 5 cases returned
+2025-11-20 12:59:06,160 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/53363170/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:06,397 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/53363170/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:06,404 - app.services.cases - INFO - [CASES] Content lengths - normal: 4469, print: 4199
+2025-11-20 12:59:07,996 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/65957531/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:08,429 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/140753276/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:08,470 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/65957531/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:08,485 - app.services.cases - INFO - [CASES] Content lengths - normal: 5003, print: 4733
+2025-11-20 12:59:08,993 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:09,157 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/123814702/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:09,606 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/123814702/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:09,613 - app.services.cases - INFO - [CASES] Content lengths - normal: 2484, print: 2214
+2025-11-20 12:59:10,459 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/140753276/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:10,467 - app.services.cases - INFO - [CASES] Content lengths - normal: 3359, print: 3089
+2025-11-20 12:59:17,571 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:21,059 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-20 12:59:24,923 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:25,682 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:25,965 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:26,544 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-20 12:59:29,891 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:32,596 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/140753276/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:32,773 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/140753276/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:32,784 - app.services.cases - INFO - [CASES] Content lengths - normal: 3359, print: 3089
+2025-11-20 12:59:33,386 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/140753276/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:33,529 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/140753276/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:33,691 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/140753276/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:33,701 - app.services.cases - INFO - [CASES] Content lengths - normal: 3359, print: 3089
+2025-11-20 12:59:33,720 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/140753276/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:33,732 - app.services.cases - INFO - [CASES] Content lengths - normal: 3359, print: 3089
+2025-11-20 12:59:34,334 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-20 12:59:36,515 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:59:41,155 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/65957531/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:41,386 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/65957531/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:41,395 - app.services.cases - INFO - [CASES] Content lengths - normal: 5003, print: 4733
+2025-11-20 12:59:41,472 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/65957531/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:41,750 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/65957531/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:41,764 - app.services.cases - INFO - [CASES] Content lengths - normal: 5003, print: 4733
+2025-11-20 12:59:41,766 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/65957531/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:42,797 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/65957531/?type=print "HTTP/1.1 429 Too Many Requests"
+2025-11-20 12:59:42,803 - app.services.cases - INFO - [CASES] Content lengths - normal: 5003, print: 0
+2025-11-20 12:59:43,819 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 12:59:50,251 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 429 Too Many Requests"
+2025-11-20 12:59:50,254 - app.services.cases - ERROR - [CASES] get_case_details_async failed: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/90020753/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\backend\app\services\cases.py", line 340, in get_case_details_async
+    resp.raise_for_status()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/90020753/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2025-11-20 12:59:52,862 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/53363170/ "HTTP/1.1 429 Too Many Requests"
+2025-11-20 12:59:52,863 - app.services.cases - ERROR - [CASES] get_case_details_async failed: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/53363170/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\backend\app\services\cases.py", line 340, in get_case_details_async
+    resp.raise_for_status()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/53363170/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2025-11-20 12:59:53,641 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/123814702/ "HTTP/1.1 429 Too Many Requests"
+2025-11-20 12:59:53,643 - app.services.cases - ERROR - [CASES] get_case_details_async failed: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/123814702/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\backend\app\services\cases.py", line 340, in get_case_details_async
+    resp.raise_for_status()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/123814702/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2025-11-20 12:59:53,760 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/123814702/ "HTTP/1.1 429 Too Many Requests"
+2025-11-20 12:59:53,763 - app.services.cases - ERROR - [CASES] get_case_details_async failed: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/123814702/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\backend\app\services\cases.py", line 340, in get_case_details_async
+    resp.raise_for_status()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/123814702/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2025-11-20 12:59:53,977 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/123814702/ "HTTP/1.1 200 OK"
+2025-11-20 12:59:54,988 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/123814702/?type=print "HTTP/1.1 200 OK"
+2025-11-20 12:59:56,238 - app.services.cases - INFO - [CASES] Content lengths - normal: 2484, print: 2214
+2025-11-20 13:00:03,199 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/123814702/ "HTTP/1.1 429 Too Many Requests"
+2025-11-20 13:00:03,203 - app.services.cases - ERROR - [CASES] get_case_details_async failed: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/123814702/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\backend\app\services\cases.py", line 340, in get_case_details_async
+    resp.raise_for_status()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/123814702/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2025-11-20 13:00:03,216 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/123814702/ "HTTP/1.1 429 Too Many Requests"
+2025-11-20 13:00:03,218 - app.services.cases - ERROR - [CASES] get_case_details_async failed: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/123814702/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+Traceback (most recent call last):
+  File "D:\Coding\NyaySarthi\nyay-sarthi\backend\app\services\cases.py", line 340, in get_case_details_async
+    resp.raise_for_status()
+  File "D:\Coding\NyaySarthi\nyay-sarthi\Backend\venv\lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '429 Too Many Requests' for url 'https://indiankanoon.org/doc/123814702/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+2025-11-20 13:05:03,148 - main - INFO - HTTP client closed
+2025-11-20 13:05:11,656 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-20 13:05:11,656 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-20 13:05:14,979 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-11-20 13:05:19,212 - main - INFO - Expected embedding dimension: 384
+2025-11-20 13:05:19,212 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-11-20 13:05:19,212 - main - INFO - Loading existing FAISS index...
+2025-11-20 13:05:19,215 - main - WARNING - Dimension mismatch: Index has 768 dimensions, expected 384
+2025-11-20 13:05:19,216 - main - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-11-20 13:05:19,216 - main - INFO - Creating new FAISS index...
+2025-11-20 13:05:19,216 - main - WARNING - FAISS index not loaded and index build disabled (ALLOW_INDEX_BUILD=0). Some features may be unavailable.
+2025-11-20 13:05:20,282 - main - INFO - Initialized HTTP client with connection pooling
+2025-11-20 13:05:20,287 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-20 13:05:23,992 - main - INFO - Successfully loaded FAISS index
+2025-11-20 13:05:23,992 - main - INFO - Initialized retriever from FAISS index in startup
+2025-11-20 13:22:03,051 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 13:22:03,052 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 13:22:03,052 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 13:22:03,054 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 13:22:03,054 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 13:22:03,055 - main - INFO - [RAG Debug] Processing query: what does article 32 say 
+2025-11-20 13:22:03,056 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 13:22:03,280 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 13:22:03,281 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 219, 'total_pages': 402, 'start_index': 1605}
+2025-11-20 13:22:03,281 - main - INFO - [RAG Debug] Doc 1 content preview: (w.e.f. 10-8-1975).
+2. The words, figures and letter "but subject to the provisions of article 329A" omitted by 
+the Constitution (Forty-fourth Amendment) Act, 1978, s. 35 (w.e.f. 20-6-1979).
+3. Ins. ...
+2025-11-20 13:22:03,281 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 13:22:03,283 - main - INFO - [RAG Debug] Doc 2 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 13:22:03,283 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 34, 'total_pages': 402, 'start_index': 1604}
+2025-11-20 13:22:03,283 - main - INFO - [RAG Debug] Doc 3 content preview: (2) No such law as aforesaid shall be deemed to be an 
+amendment of this Constitution for the purposes of article 368.  
+______________________________________________
+1. Subs. by the Constitution (Fi...
+2025-11-20 13:22:04,589 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 13:24:59,627 - main - INFO - HTTP client closed
+2025-11-20 13:25:08,292 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-20 13:25:08,294 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-20 13:25:11,724 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-11-20 13:25:16,097 - main - INFO - Expected embedding dimension: 384
+2025-11-20 13:25:16,097 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-11-20 13:25:16,098 - main - INFO - Loading existing FAISS index...
+2025-11-20 13:25:16,099 - main - WARNING - Dimension mismatch: Index has 768 dimensions, expected 384
+2025-11-20 13:25:16,101 - main - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-11-20 13:25:16,101 - main - INFO - Creating new FAISS index...
+2025-11-20 13:25:16,101 - main - WARNING - FAISS index not loaded and index build disabled (ALLOW_INDEX_BUILD=0). Some features may be unavailable.
+2025-11-20 13:25:17,203 - main - INFO - Initialized HTTP client with connection pooling
+2025-11-20 13:25:17,208 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-20 13:25:20,890 - main - INFO - Successfully loaded FAISS index
+2025-11-20 13:25:20,890 - main - INFO - Initialized retriever from FAISS index in startup
+2025-11-20 13:25:23,614 - main - INFO - HTTP client closed
+2025-11-20 13:25:31,887 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-20 13:25:31,887 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-20 13:25:35,271 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-11-20 13:25:39,424 - main - INFO - Expected embedding dimension: 384
+2025-11-20 13:25:39,425 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-11-20 13:25:39,425 - main - INFO - Loading existing FAISS index...
+2025-11-20 13:25:39,427 - main - WARNING - Dimension mismatch: Index has 768 dimensions, expected 384
+2025-11-20 13:25:39,428 - main - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-11-20 13:25:39,429 - main - INFO - Creating new FAISS index...
+2025-11-20 13:25:39,429 - main - WARNING - FAISS index not loaded and index build disabled (ALLOW_INDEX_BUILD=0). Some features may be unavailable.
+2025-11-20 13:25:40,474 - main - INFO - Initialized HTTP client with connection pooling
+2025-11-20 13:25:40,479 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-20 13:25:43,999 - main - INFO - Successfully loaded FAISS index
+2025-11-20 13:25:44,001 - main - INFO - Initialized retriever from FAISS index in startup
+2025-11-20 13:26:32,305 - main - INFO - HTTP client closed
+2025-11-20 13:26:41,994 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-20 13:26:41,994 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-20 13:26:46,184 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-11-20 13:26:50,663 - main - INFO - Expected embedding dimension: 384
+2025-11-20 13:26:50,663 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-11-20 13:26:50,665 - main - INFO - Loading existing FAISS index...
+2025-11-20 13:26:50,669 - main - WARNING - Dimension mismatch: Index has 768 dimensions, expected 384
+2025-11-20 13:26:50,670 - main - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-11-20 13:26:50,670 - main - INFO - Creating new FAISS index...
+2025-11-20 13:26:50,671 - main - WARNING - FAISS index not loaded and index build disabled (ALLOW_INDEX_BUILD=0). Some features may be unavailable.
+2025-11-20 13:26:52,352 - main - INFO - Initialized HTTP client with connection pooling
+2025-11-20 13:26:52,357 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-20 13:26:56,099 - main - INFO - Successfully loaded FAISS index
+2025-11-20 13:26:56,099 - main - INFO - Initialized retriever from FAISS index in startup
+2025-11-20 13:27:05,869 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 13:27:05,871 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 13:27:05,871 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 13:27:05,872 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 13:27:05,872 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 13:27:05,872 - main - INFO - [RAG Debug] Processing query: what does article 32 say 
+2025-11-20 13:27:05,873 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 13:27:06,092 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 13:27:06,092 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 219, 'total_pages': 402, 'start_index': 1605}
+2025-11-20 13:27:06,092 - main - INFO - [RAG Debug] Doc 1 content preview: (w.e.f. 10-8-1975).
+2. The words, figures and letter "but subject to the provisions of article 329A" omitted by 
+the Constitution (Forty-fourth Amendment) Act, 1978, s. 35 (w.e.f. 20-6-1979).
+3. Ins. ...
+2025-11-20 13:27:06,094 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 13:27:06,094 - main - INFO - [RAG Debug] Doc 2 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 13:27:06,094 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 34, 'total_pages': 402, 'start_index': 1604}
+2025-11-20 13:27:06,094 - main - INFO - [RAG Debug] Doc 3 content preview: (2) No such law as aforesaid shall be deemed to be an 
+amendment of this Constitution for the purposes of article 368.  
+______________________________________________
+1. Subs. by the Constitution (Fi...
+2025-11-20 13:27:07,139 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 13:27:23,541 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 13:27:23,542 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 13:27:23,542 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 13:27:23,542 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 13:27:23,543 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 13:27:23,544 - main - INFO - [RAG Debug] Processing query: what does article 21 say ?
+2025-11-20 13:27:23,544 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 13:27:23,622 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 13:27:23,622 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 13:27:23,623 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 13:27:23,623 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 42, 'total_pages': 402, 'start_index': 827}
+2025-11-20 13:27:23,623 - main - INFO - [RAG Debug] Doc 2 content preview: whether to the exclusion, complete or partial, of citizens or otherwise.]
+20. Protection in respect of conviction for offences.—(1) No person 
+shall be convicted of any offence except for violation of...
+2025-11-20 13:27:23,623 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 173, 'total_pages': 402, 'start_index': 760}
+2025-11-20 13:27:23,625 - main - INFO - [RAG Debug] Doc 3 content preview: board or office bearers, adopts any corrupt practice.
+243ZR. Application to multi-State co-operative societies.—The 
+provisions of this Part shall apply to the multi-State co-operative societies 
+subj...
+2025-11-20 13:27:24,199 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 13:27:50,743 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 13:27:50,744 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 13:27:50,744 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 13:27:50,744 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 13:27:50,745 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 13:27:50,746 - main - INFO - [RAG Debug] Processing query: give me an example of article 21 
+2025-11-20 13:27:50,746 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 13:27:50,827 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 13:27:50,828 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 13:27:50,829 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 13:27:50,829 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 173, 'total_pages': 402, 'start_index': 760}
+2025-11-20 13:27:50,830 - main - INFO - [RAG Debug] Doc 2 content preview: board or office bearers, adopts any corrupt practice.
+243ZR. Application to multi-State co-operative societies.—The 
+provisions of this Part shall apply to the multi-State co-operative societies 
+subj...
+2025-11-20 13:27:50,830 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 298, 'total_pages': 402, 'start_index': 2543}
+2025-11-20 13:27:50,831 - main - INFO - [RAG Debug] Doc 3 content preview: ______________________________________________
+1. Subs. by the Constitution (Seventh Amendment) Act, 1956, s. 25(c), (ii), for
+sub-paragraphs (3) and (4) (w.e.f. 1-11-1956)....
+2025-11-20 13:27:51,459 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 13:28:25,713 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-20 13:28:26,122 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-20 13:28:26,724 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:28:27,118 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-20 13:28:30,492 - app.services.cases - INFO - [SCRAPE] Query: 'Hate speech vs free speech related cases' | variants: ['"Hate speech vs free speech related cases"', 'Hate speech vs free speech related cases'], limit: 5
+2025-11-20 13:28:30,494 - app.services.cases - INFO - [SCRAPE] Trying variant: '"Hate speech vs free speech related cases"'
+2025-11-20 13:28:30,979 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Hate+speech+vs+free+speech+related+cases%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 13:28:30,994 - app.services.cases - INFO - [SCRAPE] Variant '"Hate speech vs free speech related cases"' page 0: +0 cases (total: 0)
+2025-11-20 13:28:31,327 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Hate+speech+vs+free+speech+related+cases%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 13:28:31,780 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Hate+speech+vs+free+speech+related+cases%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 13:28:31,789 - app.services.cases - INFO - [SCRAPE] Variant '"Hate speech vs free speech related cases"' page 1: +0 cases (total: 0)
+2025-11-20 13:28:31,791 - app.services.cases - INFO - [SCRAPE] Variant '"Hate speech vs free speech related cases"' page 2: +0 cases (total: 0)
+2025-11-20 13:28:31,791 - app.services.cases - INFO - [SCRAPE] Trying variant: 'Hate speech vs free speech related cases'
+2025-11-20 13:28:32,799 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=Hate+speech+vs+free+speech+related+cases&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 13:28:32,848 - app.services.cases - INFO - [SCRAPE] Variant 'Hate speech vs free speech related cases' page 0: +5 cases (total: 5)
+2025-11-20 13:28:32,850 - app.services.cases - INFO - [SCRAPE] Final result: 5 cases returned
+2025-11-20 13:28:33,515 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/ "HTTP/1.1 200 OK"
+2025-11-20 13:28:33,539 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/ "HTTP/1.1 200 OK"
+2025-11-20 13:28:33,544 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/103640961/ "HTTP/1.1 200 OK"
+2025-11-20 13:28:33,663 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/681409/ "HTTP/1.1 200 OK"
+2025-11-20 13:28:33,745 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-20 13:28:34,786 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:28:35,036 - app.services.cases - INFO - [CASES] Content lengths - normal: 161775, print: 161510
+2025-11-20 13:28:35,417 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/103640961/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:28:36,468 - app.services.cases - INFO - [CASES] Content lengths - normal: 489660, print: 489393
+2025-11-20 13:28:36,490 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:28:37,259 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-20 13:28:37,284 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/681409/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:28:37,579 - app.services.cases - INFO - [CASES] Content lengths - normal: 540067, print: 539805
+2025-11-20 13:28:37,717 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:28:38,757 - app.services.cases - INFO - [CASES] Content lengths - normal: 542704, print: 542439
+2025-11-20 13:28:41,866 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-20 13:28:41,868 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-20 13:28:43,306 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:28:43,568 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-20 13:28:43,593 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:28:43,878 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-20 13:28:46,657 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 13:33:39,227 - main - INFO - HTTP client closed
+2025-11-20 13:33:52,928 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-20 13:33:52,929 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-20 13:33:58,451 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-11-20 13:34:03,142 - main - INFO - Expected embedding dimension: 384
+2025-11-20 13:34:03,143 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-11-20 13:34:03,144 - main - INFO - Loading existing FAISS index...
+2025-11-20 13:34:03,146 - main - WARNING - Dimension mismatch: Index has 768 dimensions, expected 384
+2025-11-20 13:34:03,147 - main - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-11-20 13:34:03,147 - main - INFO - Creating new FAISS index...
+2025-11-20 13:34:03,147 - main - WARNING - FAISS index not loaded and index build disabled (ALLOW_INDEX_BUILD=0). Some features may be unavailable.
+2025-11-20 13:34:04,193 - main - INFO - Initialized HTTP client with connection pooling
+2025-11-20 13:34:04,197 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-20 13:34:08,754 - main - INFO - Successfully loaded FAISS index
+2025-11-20 13:34:08,755 - main - INFO - Initialized retriever from FAISS index in startup
+2025-11-20 13:38:26,343 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 13:38:26,344 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 13:38:26,344 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 13:38:26,344 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 13:38:26,345 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 13:38:26,345 - main - INFO - [RAG Debug] Processing query: article 32, give a brief about it 
+2025-11-20 13:38:26,346 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 13:38:26,511 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 13:38:26,512 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 13:38:26,512 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 13:38:26,512 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 248, 'total_pages': 402, 'start_index': 1577}
+2025-11-20 13:38:26,512 - main - INFO - [RAG Debug] Doc 2 content preview: (b) shall be laid before each House of Parliament;
+______________________________________________
+1. Ins. by the Constitution  (Forty-fourth Amendment)  Act, 1978, s. 40 (w.e.f. 20-6-1979).
+2. Added b...
+2025-11-20 13:38:26,512 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 6, 'total_pages': 402, 'start_index': 0}
+2025-11-20 13:38:26,513 - main - INFO - [RAG Debug] Doc 3 content preview: Contents
+ARTICLES
+(iii)
+ 
+Cultural and Educational Rights
+29.
+Protection of interests of minorities.
+30.
+Right of minorities to establish and administer educational 
+institutions.
+[31.
+Compulsory acqu...
+2025-11-20 13:38:27,586 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 13:38:59,104 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 13:39:12,183 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 13:39:35,018 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-20 13:39:35,020 - app.services.cases - INFO - [SCRAPE] Query: 'hate speech related cases' | variants: ['"hate speech related cases"', 'hate speech related cases'], limit: 5
+2025-11-20 13:39:35,020 - app.services.cases - INFO - [SCRAPE] Trying variant: '"hate speech related cases"'
+2025-11-20 13:39:35,849 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22hate+speech+related+cases%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 13:39:35,860 - app.services.cases - INFO - [SCRAPE] Variant '"hate speech related cases"' page 0: +0 cases (total: 0)
+2025-11-20 13:39:36,312 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22hate+speech+related+cases%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 13:39:37,114 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22hate+speech+related+cases%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 13:39:37,284 - app.services.cases - INFO - [SCRAPE] Variant '"hate speech related cases"' page 1: +0 cases (total: 0)
+2025-11-20 13:39:37,286 - app.services.cases - INFO - [SCRAPE] Variant '"hate speech related cases"' page 2: +0 cases (total: 0)
+2025-11-20 13:39:37,286 - app.services.cases - INFO - [SCRAPE] Trying variant: 'hate speech related cases'
+2025-11-20 13:39:38,980 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=hate+speech+related+cases&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 13:39:39,013 - app.services.cases - INFO - [SCRAPE] Variant 'hate speech related cases' page 0: +5 cases (total: 5)
+2025-11-20 13:39:39,014 - app.services.cases - INFO - [SCRAPE] Final result: 5 cases returned
+2025-11-20 13:39:40,289 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1036814/ "HTTP/1.1 200 OK"
+2025-11-20 13:39:40,704 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/ "HTTP/1.1 200 OK"
+2025-11-20 13:39:40,943 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/127366010/ "HTTP/1.1 200 OK"
+2025-11-20 13:39:41,189 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/100389024/ "HTTP/1.1 200 OK"
+2025-11-20 13:39:41,192 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:39:41,281 - app.services.cases - INFO - [CASES] Content lengths - normal: 33827, print: 33560
+2025-11-20 13:39:41,375 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/127366010/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:39:41,615 - app.services.cases - INFO - [CASES] Content lengths - normal: 159640, print: 159378
+2025-11-20 13:39:41,623 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/100389024/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:39:41,669 - app.services.cases - INFO - [CASES] Content lengths - normal: 34154, print: 33881
+2025-11-20 13:39:41,963 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/98777825/ "HTTP/1.1 200 OK"
+2025-11-20 13:39:42,266 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/98777825/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:39:42,295 - app.services.cases - INFO - [CASES] Content lengths - normal: 23881, print: 23616
+2025-11-20 13:39:42,823 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1036814/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:39:43,238 - app.services.cases - INFO - [CASES] Content lengths - normal: 165800, print: 165539
+2025-11-20 13:40:00,693 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1036814/ "HTTP/1.1 200 OK"
+2025-11-20 13:40:01,239 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1036814/?type=print "HTTP/1.1 200 OK"
+2025-11-20 13:40:01,432 - app.services.cases - INFO - [CASES] Content lengths - normal: 165800, print: 165539
+2025-11-20 13:40:06,958 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 18:02:37,544 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-20 18:02:37,544 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-20 18:02:42,663 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-11-20 18:02:49,416 - main - INFO - Expected embedding dimension: 384
+2025-11-20 18:02:49,417 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-11-20 18:02:49,417 - main - INFO - Loading existing FAISS index...
+2025-11-20 18:02:49,426 - main - WARNING - Dimension mismatch: Index has 768 dimensions, expected 384
+2025-11-20 18:02:49,427 - main - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-11-20 18:02:49,427 - main - INFO - Creating new FAISS index...
+2025-11-20 18:02:49,427 - main - WARNING - FAISS index not loaded and index build disabled (ALLOW_INDEX_BUILD=0). Some features may be unavailable.
+2025-11-20 18:02:50,621 - main - INFO - Initialized HTTP client with connection pooling
+2025-11-20 18:02:50,626 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-20 18:02:55,681 - main - INFO - Successfully loaded FAISS index
+2025-11-20 18:02:55,682 - main - INFO - Initialized retriever from FAISS index in startup
+2025-11-20 18:05:36,266 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 18:05:36,267 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 18:05:36,268 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 18:05:36,269 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 18:05:36,271 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 18:05:36,271 - main - INFO - [RAG Debug] Processing query: article 21
+2025-11-20 18:05:36,272 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 18:05:36,673 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 18:05:36,674 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 18:05:36,674 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 18:05:36,674 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 214, 'total_pages': 402, 'start_index': 795}
+2025-11-20 18:05:36,674 - main - INFO - [RAG Debug] Doc 2 content preview: contempt) and authority which may be exercised by each of the said 
+tribunals; 
+(c) provide for the procedure (including provisions as to limitation 
+and rules of evidence) to be followed by the said ...
+2025-11-20 18:05:36,674 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 215, 'total_pages': 402, 'start_index': 834}
+2025-11-20 18:05:36,674 - main - INFO - [RAG Debug] Doc 3 content preview: defined in article 31A or of any rights therein or the extinguishment or 
+modification of any such rights or by way of ceiling on agricultural land 
+or in any other way; 
+(e) ceiling on urban property...
+2025-11-20 18:05:38,507 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 18:08:28,525 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 18:08:28,526 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 18:08:28,526 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 18:08:28,527 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 18:08:28,527 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 18:08:28,528 - main - INFO - [RAG Debug] Processing query: Tell me about article 21 
+2025-11-20 18:08:28,529 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 18:08:28,793 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 18:08:28,794 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 18:08:28,794 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 18:08:28,795 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 42, 'total_pages': 402, 'start_index': 827}
+2025-11-20 18:08:28,795 - main - INFO - [RAG Debug] Doc 2 content preview: whether to the exclusion, complete or partial, of citizens or otherwise.]
+20. Protection in respect of conviction for offences.—(1) No person 
+shall be convicted of any offence except for violation of...
+2025-11-20 18:08:28,796 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 379, 'total_pages': 402, 'start_index': 1653}
+2025-11-20 18:08:28,796 - main - INFO - [RAG Debug] Doc 3 content preview: comprised in one session or in two or more successive sessions and shall take 
+effect upon the expiry of the said period of thirty days unless they are sooner 
+approved with or without modifications o...
+2025-11-20 18:08:29,689 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 18:09:30,639 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-20 18:09:30,640 - app.services.cases - INFO - [SCRAPE] Query: 'Article 21 related case' | variants: ['"Article 21 related case"', 'Article 21 related case'], limit: 5
+2025-11-20 18:09:30,641 - app.services.cases - INFO - [SCRAPE] Trying variant: '"Article 21 related case"'
+2025-11-20 18:09:36,167 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+related+case%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 18:09:36,190 - app.services.cases - INFO - [SCRAPE] Variant '"Article 21 related case"' page 0: +0 cases (total: 0)
+2025-11-20 18:09:42,198 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+related+case%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 18:09:42,203 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Article+21+related+case%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 18:09:42,216 - app.services.cases - INFO - [SCRAPE] Variant '"Article 21 related case"' page 1: +0 cases (total: 0)
+2025-11-20 18:09:42,218 - app.services.cases - INFO - [SCRAPE] Variant '"Article 21 related case"' page 2: +0 cases (total: 0)
+2025-11-20 18:09:42,219 - app.services.cases - INFO - [SCRAPE] Trying variant: 'Article 21 related case'
+2025-11-20 18:09:48,658 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=Article+21+related+case&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=20-11-2025 "HTTP/1.1 200 OK"
+2025-11-20 18:09:48,690 - app.services.cases - INFO - [SCRAPE] Variant 'Article 21 related case' page 0: +5 cases (total: 5)
+2025-11-20 18:09:48,690 - app.services.cases - INFO - [SCRAPE] Final result: 5 cases returned
+2025-11-20 18:09:50,195 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1766147/ "HTTP/1.1 200 OK"
+2025-11-20 18:09:50,813 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1766147/?type=print "HTTP/1.1 200 OK"
+2025-11-20 18:09:50,963 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/175127852/ "HTTP/1.1 200 OK"
+2025-11-20 18:09:51,106 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/177559998/ "HTTP/1.1 200 OK"
+2025-11-20 18:09:51,110 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/32867845/ "HTTP/1.1 200 OK"
+2025-11-20 18:09:51,378 - app.services.cases - INFO - [CASES] Content lengths - normal: 553362, print: 553095
+2025-11-20 18:09:51,400 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/175127852/?type=print "HTTP/1.1 200 OK"
+2025-11-20 18:09:51,406 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/307437/ "HTTP/1.1 200 OK"
+2025-11-20 18:09:51,760 - app.services.cases - INFO - [CASES] Content lengths - normal: 187051, print: 186790
+2025-11-20 18:09:51,970 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/177559998/?type=print "HTTP/1.1 200 OK"
+2025-11-20 18:09:52,032 - app.services.cases - INFO - [CASES] Content lengths - normal: 96744, print: 96477
+2025-11-20 18:09:52,036 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/307437/?type=print "HTTP/1.1 200 OK"
+2025-11-20 18:09:52,039 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/32867845/?type=print "HTTP/1.1 200 OK"
+2025-11-20 18:09:52,074 - app.services.cases - INFO - [CASES] Content lengths - normal: 54351, print: 54089
+2025-11-20 18:09:52,160 - app.services.cases - INFO - [CASES] Content lengths - normal: 136713, print: 136426
+2025-11-20 18:10:02,794 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/32867845/ "HTTP/1.1 200 OK"
+2025-11-20 18:10:03,199 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/32867845/?type=print "HTTP/1.1 200 OK"
+2025-11-20 18:10:03,556 - app.services.cases - INFO - [CASES] Content lengths - normal: 136713, print: 136426
+2025-11-20 18:10:04,206 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/32867845/ "HTTP/1.1 200 OK"
+2025-11-20 18:10:04,541 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/32867845/?type=print "HTTP/1.1 200 OK"
+2025-11-20 18:10:04,685 - app.services.cases - INFO - [CASES] Content lengths - normal: 136713, print: 136426
+2025-11-20 18:10:11,596 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 18:11:04,586 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 18:11:04,586 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 18:11:04,587 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 18:11:04,587 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 18:11:04,587 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 18:11:04,587 - main - INFO - [RAG Debug] Processing query: Tell me about Article 32
+2025-11-20 18:11:04,587 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 18:11:04,792 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 18:11:04,792 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 18:11:04,793 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 18:11:04,793 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 219, 'total_pages': 402, 'start_index': 1605}
+2025-11-20 18:11:04,793 - main - INFO - [RAG Debug] Doc 2 content preview: (w.e.f. 10-8-1975).
+2. The words, figures and letter "but subject to the provisions of article 329A" omitted by 
+the Constitution (Forty-fourth Amendment) Act, 1978, s. 35 (w.e.f. 20-6-1979).
+3. Ins. ...
+2025-11-20 18:11:04,794 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 34, 'total_pages': 402, 'start_index': 1604}
+2025-11-20 18:11:04,794 - main - INFO - [RAG Debug] Doc 3 content preview: (2) No such law as aforesaid shall be deemed to be an 
+amendment of this Constitution for the purposes of article 368.  
+______________________________________________
+1. Subs. by the Constitution (Fi...
+2025-11-20 18:11:05,666 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 18:40:33,485 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 18:40:33,486 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 18:40:33,487 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 18:40:33,488 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 18:40:33,488 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 18:40:33,489 - main - INFO - [RAG Debug] Processing query: Tell me about articles in the Indian constitution 
+2025-11-20 18:40:33,489 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 18:40:33,743 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 18:40:33,743 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 4, 'total_pages': 402, 'start_index': 0}
+2025-11-20 18:40:33,744 - main - INFO - [RAG Debug] Doc 1 content preview: THE CONSTITUTION OF INDIA
+____________                                                                    
+CONTENTS
+__________
+                                                                         ...
+2025-11-20 18:40:33,744 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 399, 'total_pages': 402, 'start_index': 0}
+2025-11-20 18:40:33,744 - main - INFO - [RAG Debug] Doc 2 content preview: THE CONSTITUTION OF  INDIA
+(Appendix I) 
+368
+1 
+2 
+3
+4 
+5
+     6 
+43.
+(i) Chhit Nalgram
+Sitalkuchi
+Patgarm
+66
+49.5
+ 
+(ii) Chhit Nalgram 
+(Fragment)
+Sitalkuchi
+Patgarm 
+66
+ 
+44.
+(i) Batrigachh
+Dinhata
+...
+2025-11-20 18:40:33,745 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 283, 'total_pages': 402, 'start_index': 0}
+2025-11-20 18:40:33,746 - main - INFO - [RAG Debug] Doc 3 content preview: 252
+PART XXII
+SHORT TITLE, COMMENCEMENT, 1[AUTHORITATIVE 
+TEXT IN HINDI] AND REPEALS
+393. Short title.—This Constitution may be called the Constitution of 
+India. 
+394.  Commencement.—This article and...
+2025-11-20 18:40:34,939 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 18:51:59,204 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 18:51:59,206 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 18:51:59,207 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 18:51:59,207 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 18:51:59,208 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 18:51:59,208 - main - INFO - [RAG Debug] Processing query: tell me about article 21
+2025-11-20 18:51:59,209 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 18:51:59,308 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 18:51:59,308 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 18:51:59,309 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 18:51:59,309 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 42, 'total_pages': 402, 'start_index': 827}
+2025-11-20 18:51:59,310 - main - INFO - [RAG Debug] Doc 2 content preview: whether to the exclusion, complete or partial, of citizens or otherwise.]
+20. Protection in respect of conviction for offences.—(1) No person 
+shall be convicted of any offence except for violation of...
+2025-11-20 18:51:59,311 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 379, 'total_pages': 402, 'start_index': 1653}
+2025-11-20 18:51:59,312 - main - INFO - [RAG Debug] Doc 3 content preview: comprised in one session or in two or more successive sessions and shall take 
+effect upon the expiry of the said period of thirty days unless they are sooner 
+approved with or without modifications o...
+2025-11-20 18:52:00,164 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 19:11:48,593 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 19:11:48,593 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 19:11:48,595 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 19:11:48,595 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 19:11:48,595 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 19:11:48,595 - main - INFO - [RAG Debug] Processing query: tell me about article 21
+2025-11-20 19:11:48,595 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 19:11:48,646 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 19:11:48,647 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 19:11:48,647 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 19:11:48,647 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 42, 'total_pages': 402, 'start_index': 827}
+2025-11-20 19:11:48,647 - main - INFO - [RAG Debug] Doc 2 content preview: whether to the exclusion, complete or partial, of citizens or otherwise.]
+20. Protection in respect of conviction for offences.—(1) No person 
+shall be convicted of any offence except for violation of...
+2025-11-20 19:11:48,647 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 379, 'total_pages': 402, 'start_index': 1653}
+2025-11-20 19:11:48,648 - main - INFO - [RAG Debug] Doc 3 content preview: comprised in one session or in two or more successive sessions and shall take 
+effect upon the expiry of the said period of thirty days unless they are sooner 
+approved with or without modifications o...
+2025-11-20 19:11:49,297 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 19:12:01,202 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 19:12:01,202 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 19:12:01,202 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 19:12:01,202 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 19:12:01,203 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 19:12:01,203 - main - INFO - [RAG Debug] Processing query: tell me more about its cases
+2025-11-20 19:12:01,203 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 19:12:01,250 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 19:12:01,250 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 95, 'total_pages': 402, 'start_index': 854}
+2025-11-20 19:12:01,250 - main - INFO - [RAG Debug] Doc 1 content preview: purposes other than those mentioned in clause (2) of article 32.
+1[139A. Transfer of certain cases.—2[(1) Where cases involving the 
+same or substantially the same questions of law are pending before ...
+2025-11-20 19:12:01,251 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 88, 'total_pages': 402, 'start_index': 2486}
+2025-11-20 19:12:01,251 - main - INFO - [RAG Debug] Doc 2 content preview: India in its judgment dated 16-10-2015, AIR 2016 SC 117.
+4. Subs. by s. 2, ibid. for "provided further that" This amendment has been struck down by the Supreme 
+Court in the Supreme Court Advocates-on...
+2025-11-20 19:12:01,251 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 137, 'total_pages': 402, 'start_index': 1629}
+2025-11-20 19:12:01,252 - main - INFO - [RAG Debug] Doc 3 content preview: its judgment on such question, and the said court shall on receipt thereof 
+proceed to dispose of the case in conformity with such judgment.
+______________________________________________
+1. Cl. (5) w...
+2025-11-20 19:12:02,425 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 19:12:23,632 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-20 19:12:23,633 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-20 19:12:23,633 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-20 19:12:23,633 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-20 19:12:23,633 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-20 19:12:23,633 - main - INFO - [RAG Debug] Processing query: article 21 related cases
+2025-11-20 19:12:23,633 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-20 19:12:23,683 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-20 19:12:23,683 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-20 19:12:23,685 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-20 19:12:23,685 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 216, 'total_pages': 402, 'start_index': 811}
+2025-11-20 19:12:23,685 - main - INFO - [RAG Debug] Doc 2 content preview: before any court or any other authority immediately before the 
+establishment of such tribunal as would have been within the jurisdiction 
+of such tribunal if the causes of action on which such suits ...
+2025-11-20 19:12:23,685 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 137, 'total_pages': 402, 'start_index': 1629}
+2025-11-20 19:12:23,685 - main - INFO - [RAG Debug] Doc 3 content preview: its judgment on such question, and the said court shall on receipt thereof 
+proceed to dispose of the case in conformity with such judgment.
+______________________________________________
+1. Cl. (5) w...
+2025-11-20 19:12:24,806 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 19:14:38,909 - main - INFO - HTTP client closed
+2025-11-20 19:14:44,993 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-20 19:14:44,993 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-20 19:14:47,001 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-11-20 19:14:51,525 - main - INFO - Expected embedding dimension: 384
+2025-11-20 19:14:51,525 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-11-20 19:14:51,525 - main - INFO - Loading existing FAISS index...
+2025-11-20 19:14:51,527 - main - WARNING - Dimension mismatch: Index has 768 dimensions, expected 384
+2025-11-20 19:14:51,527 - main - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-11-20 19:14:51,528 - main - INFO - Creating new FAISS index...
+2025-11-20 19:14:51,528 - main - WARNING - FAISS index not loaded and index build disabled (ALLOW_INDEX_BUILD=0). Some features may be unavailable.
+2025-11-20 19:14:52,057 - main - INFO - Initialized HTTP client with connection pooling
+2025-11-20 19:14:52,059 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-20 19:14:55,690 - main - INFO - Successfully loaded FAISS index
+2025-11-20 19:14:55,690 - main - INFO - Initialized retriever from FAISS index in startup
+2025-11-20 19:16:57,625 - main - INFO - HTTP client closed
+2025-11-20 19:17:01,642 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-20 19:17:01,642 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-20 19:17:03,154 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-11-20 19:17:08,491 - main - INFO - Expected embedding dimension: 384
+2025-11-20 19:17:08,491 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-11-20 19:17:08,491 - main - INFO - Loading existing FAISS index...
+2025-11-20 19:17:08,492 - main - WARNING - Dimension mismatch: Index has 768 dimensions, expected 384
+2025-11-20 19:17:08,493 - main - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-11-20 19:17:08,493 - main - INFO - Creating new FAISS index...
+2025-11-20 19:17:08,493 - main - WARNING - FAISS index not loaded and index build disabled (ALLOW_INDEX_BUILD=0). Some features may be unavailable.
+2025-11-20 19:17:08,946 - main - INFO - Initialized HTTP client with connection pooling
+2025-11-20 19:17:08,948 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-20 19:17:13,096 - main - INFO - Successfully loaded FAISS index
+2025-11-20 19:17:13,096 - main - INFO - Initialized retriever from FAISS index in startup
+2025-11-20 19:18:10,832 - main - INFO - HTTP client closed
+2025-11-24 16:41:05,033 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-24 16:41:05,034 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-24 16:41:09,772 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-11-24 16:41:15,864 - main - INFO - Expected embedding dimension: 384
+2025-11-24 16:41:15,864 - main - INFO - Using index path: D:\Coding\NyaySarthi\nyay-sarthi\backend\faiss_index
+2025-11-24 16:41:15,864 - main - INFO - Loading existing FAISS index...
+2025-11-24 16:41:15,875 - main - WARNING - Dimension mismatch: Index has 768 dimensions, expected 384
+2025-11-24 16:41:15,875 - main - ERROR - Error loading FAISS index: Embedding dimension mismatch
+2025-11-24 16:41:15,876 - main - INFO - Creating new FAISS index...
+2025-11-24 16:41:15,876 - main - WARNING - FAISS index not loaded and index build disabled (ALLOW_INDEX_BUILD=0). Some features may be unavailable.
+2025-11-24 16:41:17,057 - main - INFO - Initialized HTTP client with connection pooling
+2025-11-24 16:41:17,062 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-24 16:41:21,832 - main - INFO - Successfully loaded FAISS index
+2025-11-24 16:41:21,833 - main - INFO - Initialized retriever from FAISS index in startup
+2025-11-24 16:46:50,878 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-24 16:46:50,878 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-24 16:46:50,879 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-24 16:46:50,879 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-24 16:46:50,879 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-24 16:46:50,879 - main - INFO - [RAG Debug] Processing query: tell me about hate speech related cases and on what grounds these cases where registered
+2025-11-24 16:46:50,880 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-24 16:46:51,161 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-24 16:46:51,162 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 69, 'total_pages': 402, 'start_index': 1615}
+2025-11-24 16:46:51,162 - main - INFO - [RAG Debug] Doc 1 content preview: 1. Added by the Constitution  (Forty-second Amendment)  Act, 1976, s. 15 (w.e.f. 3-1-1977). 
+2. Subs. by the Constitution (Eighty-fourth Amendment) Act, 2001, s. 3, for "2000"
+(w.e.f. 21-2-2002).
+3. S...
+2025-11-24 16:46:51,162 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 37, 'total_pages': 402, 'start_index': 1572}
+2025-11-24 16:46:51,162 - main - INFO - [RAG Debug] Doc 2 content preview: equality before the law or the equal protection of the laws within the territory of 
+India.
+15.  Prohibition of discrimination on grounds of religion, race, caste, 
+sex or place of birth.—(1) The Stat...
+2025-11-24 16:46:51,162 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 257, 'total_pages': 402, 'start_index': 1576}
+2025-11-24 16:46:51,162 - main - INFO - [RAG Debug] Doc 3 content preview: and subsequently omitted by the Constitution  (Forty-third
+Amendment)  Act, 1977, s. 11 (w.e.f. 13-4-1978).
+2. Ins. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 14(ii) 
+(w.e.f. ...
+2025-11-24 16:46:52,649 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-24 16:53:00,788 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-24 16:53:00,791 - app.services.cases - INFO - [SCRAPE] Query: 'hate speech related cases' | variants: ['"hate speech related cases"', 'hate speech related cases'], limit: 5
+2025-11-24 16:53:00,792 - app.services.cases - INFO - [SCRAPE] Trying variant: '"hate speech related cases"'
+2025-11-24 16:53:01,319 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22hate+speech+related+cases%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=24-11-2025 "HTTP/1.1 200 OK"
+2025-11-24 16:53:01,332 - app.services.cases - INFO - [SCRAPE] Variant '"hate speech related cases"' page 0: +0 cases (total: 0)
+2025-11-24 16:53:01,734 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22hate+speech+related+cases%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=24-11-2025 "HTTP/1.1 200 OK"
+2025-11-24 16:53:02,053 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22hate+speech+related+cases%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=24-11-2025 "HTTP/1.1 200 OK"
+2025-11-24 16:53:02,066 - app.services.cases - INFO - [SCRAPE] Variant '"hate speech related cases"' page 1: +0 cases (total: 0)
+2025-11-24 16:53:02,068 - app.services.cases - INFO - [SCRAPE] Variant '"hate speech related cases"' page 2: +0 cases (total: 0)
+2025-11-24 16:53:02,068 - app.services.cases - INFO - [SCRAPE] Trying variant: 'hate speech related cases'
+2025-11-24 16:53:02,613 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=hate+speech+related+cases&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=24-11-2025 "HTTP/1.1 200 OK"
+2025-11-24 16:53:02,649 - app.services.cases - INFO - [SCRAPE] Variant 'hate speech related cases' page 0: +5 cases (total: 5)
+2025-11-24 16:53:02,650 - app.services.cases - INFO - [SCRAPE] Final result: 5 cases returned
+2025-11-24 16:53:04,119 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/98777825/ "HTTP/1.1 200 OK"
+2025-11-24 16:53:04,332 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/98777825/?type=print "HTTP/1.1 200 OK"
+2025-11-24 16:53:04,356 - app.services.cases - INFO - [CASES] Content lengths - normal: 23881, print: 23616
+2025-11-24 16:53:04,443 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/ "HTTP/1.1 200 OK"
+2025-11-24 16:53:04,611 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1036814/ "HTTP/1.1 200 OK"
+2025-11-24 16:53:04,673 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/127366010/ "HTTP/1.1 200 OK"
+2025-11-24 16:53:05,261 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/?type=print "HTTP/1.1 200 OK"
+2025-11-24 16:53:05,264 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/100389024/ "HTTP/1.1 200 OK"
+2025-11-24 16:53:05,302 - app.services.cases - INFO - [CASES] Content lengths - normal: 33827, print: 33560
+2025-11-24 16:53:05,454 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1036814/?type=print "HTTP/1.1 200 OK"
+2025-11-24 16:53:05,778 - app.services.cases - INFO - [CASES] Content lengths - normal: 165800, print: 165539
+2025-11-24 16:53:05,786 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/100389024/?type=print "HTTP/1.1 200 OK"
+2025-11-24 16:53:05,821 - app.services.cases - INFO - [CASES] Content lengths - normal: 34154, print: 33881
+2025-11-24 16:53:05,873 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/127366010/?type=print "HTTP/1.1 200 OK"
+2025-11-24 16:53:06,290 - app.services.cases - INFO - [CASES] Content lengths - normal: 159640, print: 159378
+2025-11-24 16:53:23,238 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/ "HTTP/1.1 200 OK"
+2025-11-24 16:53:23,474 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/?type=print "HTTP/1.1 200 OK"
+2025-11-24 16:53:23,504 - app.services.cases - INFO - [CASES] Content lengths - normal: 33827, print: 33560
+2025-11-24 16:53:27,318 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-24 16:54:09,018 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/ "HTTP/1.1 200 OK"
+2025-11-24 16:54:09,285 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/?type=print "HTTP/1.1 200 OK"
+2025-11-24 16:54:09,318 - app.services.cases - INFO - [CASES] Content lengths - normal: 33827, print: 33560
+2025-11-24 16:54:16,614 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-24 16:54:53,095 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-24 17:08:21,852 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-24 17:08:21,854 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-24 17:08:21,854 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-24 17:08:21,854 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-24 17:08:21,854 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-24 17:08:21,854 - main - INFO - [RAG Debug] Processing query: hi 
+2025-11-24 17:08:21,856 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-24 17:08:21,966 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-24 17:08:21,966 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 16, 'total_pages': 402, 'start_index': 829}
+2025-11-24 17:08:21,967 - main - INFO - [RAG Debug] Doc 1 content preview: 223.
+Appointment of acting Chief Justice.
+224.
+Appointment of additional and acting Judges.
+224A. 
+Appointment of retired Judges at sittings of High Courts.
+225.
+Jurisdiction of existing High Courts.
+...
+2025-11-24 17:08:21,967 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 71, 'total_pages': 402, 'start_index': 780}
+2025-11-24 17:08:21,968 - main - INFO - [RAG Debug] Doc 2 content preview: whether with respect to a Bill then pending in Parliament or otherwise, and a 
+House to which any message is so sent shall with all convenient despatch 
+consider any matter required by the message to ...
+2025-11-24 17:08:21,968 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 111, 'total_pages': 402, 'start_index': 819}
+2025-11-24 17:08:21,969 - main - INFO - [RAG Debug] Doc 3 content preview: (b) dissolve the Legislative Assembly.]
+175. Right of Governor to address and send messages to the House 
+or Houses.—(1) The Governor may address the Legislative Assembly or, in 
+the case of a State h...
+2025-11-24 17:08:22,435 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-24 17:08:52,394 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-24 17:08:52,394 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-24 17:08:52,395 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-24 17:08:52,395 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-24 17:08:52,395 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-24 17:08:52,396 - main - INFO - [RAG Debug] Processing query: article 21 
+2025-11-24 17:08:52,396 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-24 17:08:52,476 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-24 17:08:52,476 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-24 17:08:52,476 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-24 17:08:52,477 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 214, 'total_pages': 402, 'start_index': 795}
+2025-11-24 17:08:52,477 - main - INFO - [RAG Debug] Doc 2 content preview: contempt) and authority which may be exercised by each of the said 
+tribunals; 
+(c) provide for the procedure (including provisions as to limitation 
+and rules of evidence) to be followed by the said ...
+2025-11-24 17:08:52,478 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 215, 'total_pages': 402, 'start_index': 834}
+2025-11-24 17:08:52,479 - main - INFO - [RAG Debug] Doc 3 content preview: defined in article 31A or of any rights therein or the extinguishment or 
+modification of any such rights or by way of ceiling on agricultural land 
+or in any other way; 
+(e) ceiling on urban property...
+2025-11-24 17:08:53,616 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-24 17:09:06,357 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-24 17:09:06,357 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-24 17:09:06,357 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-24 17:09:06,358 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-24 17:09:06,358 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-24 17:09:06,359 - main - INFO - [RAG Debug] Processing query: what is article 21 
+2025-11-24 17:09:06,359 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-24 17:09:06,418 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-24 17:09:06,419 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-24 17:09:06,419 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-24 17:09:06,419 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 173, 'total_pages': 402, 'start_index': 760}
+2025-11-24 17:09:06,420 - main - INFO - [RAG Debug] Doc 2 content preview: board or office bearers, adopts any corrupt practice.
+243ZR. Application to multi-State co-operative societies.—The 
+provisions of this Part shall apply to the multi-State co-operative societies 
+subj...
+2025-11-24 17:09:06,420 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 139, 'total_pages': 402, 'start_index': 1619}
+2025-11-24 17:09:06,420 - main - INFO - [RAG Debug] Doc 3 content preview: s. 10 (w.e.f. 13-4-2015). This amendment has been struck down by the Supreme Court
+vide its order the 16-10-2015 in the Supreme Court Advocates-on-Record Association 
+and Another Vs. Union of India re...
+2025-11-24 17:09:06,939 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-24 17:10:01,986 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-24 17:10:01,986 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-24 17:10:01,988 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-24 17:10:01,988 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-24 17:10:01,988 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-24 17:10:01,988 - main - INFO - [RAG Debug] Processing query: ok tell me more about article 21 
+2025-11-24 17:10:01,990 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-24 17:10:02,051 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-24 17:10:02,052 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 259, 'total_pages': 402, 'start_index': 1562}
+2025-11-24 17:10:02,052 - main - INFO - [RAG Debug] Doc 1 content preview: 4. Subs. by s.  3, ibid., (w.e.f. 5-11-1971).
+5. Subs. by the Constitution (One Hundred and First Amendment) Act, 2016, s. 15,  for the 
+words and figures "article 162 or article 241" (w.e.f. 16-9-201...
+2025-11-24 17:10:02,052 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 42, 'total_pages': 402, 'start_index': 827}
+2025-11-24 17:10:02,052 - main - INFO - [RAG Debug] Doc 2 content preview: whether to the exclusion, complete or partial, of citizens or otherwise.]
+20. Protection in respect of conviction for offences.—(1) No person 
+shall be convicted of any offence except for violation of...
+2025-11-24 17:10:02,054 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 298, 'total_pages': 402, 'start_index': 2543}
+2025-11-24 17:10:02,054 - main - INFO - [RAG Debug] Doc 3 content preview: ______________________________________________
+1. Subs. by the Constitution (Seventh Amendment) Act, 1956, s. 25(c), (ii), for
+sub-paragraphs (3) and (4) (w.e.f. 1-11-1956)....
+2025-11-24 17:10:02,863 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-24 17:19:27,781 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-24 17:19:27,782 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-24 17:19:27,782 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-24 17:19:27,782 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-24 17:19:27,783 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-24 17:19:27,783 - main - INFO - [RAG Debug] Processing query: hi
+2025-11-24 17:19:27,784 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-24 17:19:27,849 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-24 17:19:27,849 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 16, 'total_pages': 402, 'start_index': 829}
+2025-11-24 17:19:27,850 - main - INFO - [RAG Debug] Doc 1 content preview: 223.
+Appointment of acting Chief Justice.
+224.
+Appointment of additional and acting Judges.
+224A. 
+Appointment of retired Judges at sittings of High Courts.
+225.
+Jurisdiction of existing High Courts.
+...
+2025-11-24 17:19:27,850 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 71, 'total_pages': 402, 'start_index': 780}
+2025-11-24 17:19:27,851 - main - INFO - [RAG Debug] Doc 2 content preview: whether with respect to a Bill then pending in Parliament or otherwise, and a 
+House to which any message is so sent shall with all convenient despatch 
+consider any matter required by the message to ...
+2025-11-24 17:19:27,851 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 111, 'total_pages': 402, 'start_index': 819}
+2025-11-24 17:19:27,852 - main - INFO - [RAG Debug] Doc 3 content preview: (b) dissolve the Legislative Assembly.]
+175. Right of Governor to address and send messages to the House 
+or Houses.—(1) The Governor may address the Legislative Assembly or, in 
+the case of a State h...
+2025-11-24 17:19:28,572 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-24 17:22:39,597 - main - INFO - [RAG Debug] Initializing chat endpoint
+2025-11-24 17:22:39,598 - main - INFO - [RAG Debug] Retriever initialized: True
+2025-11-24 17:22:39,598 - main - INFO - [RAG Debug] Document chain initialized: True
+2025-11-24 17:22:39,598 - main - INFO - [RAG Debug] FAISS index available: True
+2025-11-24 17:22:39,599 - main - INFO - [RAG Debug] Embeddings available: True
+2025-11-24 17:22:39,599 - main - INFO - [RAG Debug] Processing query: Hi
+2025-11-24 17:22:39,600 - main - INFO - [RAG Debug] Using invoke() method for retrieval
+2025-11-24 17:22:39,648 - main - INFO - [RAG Debug] Retrieved 5 documents
+2025-11-24 17:22:39,648 - main - INFO - [RAG Debug] Doc 1 metadata: {'source': 'data\\constitution.pdf', 'page': 16, 'total_pages': 402, 'start_index': 829}
+2025-11-24 17:22:39,648 - main - INFO - [RAG Debug] Doc 1 content preview: 223.
+Appointment of acting Chief Justice.
+224.
+Appointment of additional and acting Judges.
+224A. 
+Appointment of retired Judges at sittings of High Courts.
+225.
+Jurisdiction of existing High Courts.
+...
+2025-11-24 17:22:39,649 - main - INFO - [RAG Debug] Doc 2 metadata: {'source': 'data\\constitution.pdf', 'page': 71, 'total_pages': 402, 'start_index': 780}
+2025-11-24 17:22:39,649 - main - INFO - [RAG Debug] Doc 2 content preview: whether with respect to a Bill then pending in Parliament or otherwise, and a 
+House to which any message is so sent shall with all convenient despatch 
+consider any matter required by the message to ...
+2025-11-24 17:22:39,649 - main - INFO - [RAG Debug] Doc 3 metadata: {'source': 'data\\constitution.pdf', 'page': 111, 'total_pages': 402, 'start_index': 819}
+2025-11-24 17:22:39,650 - main - INFO - [RAG Debug] Doc 3 content preview: (b) dissolve the Legislative Assembly.]
+175. Right of Governor to address and send messages to the House 
+or Houses.—(1) The Governor may address the Legislative Assembly or, in 
+the case of a State h...
+2025-11-24 17:22:40,945 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-24 17:33:57,914 - app.services.cases - INFO - [SCRAPE] Query: 'hate speech related cases' | variants: ['"hate speech related cases"', 'hate speech related cases'], limit: 5
+2025-11-24 17:33:57,915 - app.services.cases - INFO - [SCRAPE] Trying variant: '"hate speech related cases"'
+2025-11-24 17:33:58,672 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22hate+speech+related+cases%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=24-11-2025 "HTTP/1.1 200 OK"
+2025-11-24 17:33:58,689 - app.services.cases - INFO - [SCRAPE] Variant '"hate speech related cases"' page 0: +0 cases (total: 0)
+2025-11-24 17:33:58,969 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22hate+speech+related+cases%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=24-11-2025 "HTTP/1.1 200 OK"
+2025-11-24 17:33:59,039 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22hate+speech+related+cases%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=24-11-2025 "HTTP/1.1 200 OK"
+2025-11-24 17:33:59,057 - app.services.cases - INFO - [SCRAPE] Variant '"hate speech related cases"' page 1: +0 cases (total: 0)
+2025-11-24 17:33:59,059 - app.services.cases - INFO - [SCRAPE] Variant '"hate speech related cases"' page 2: +0 cases (total: 0)
+2025-11-24 17:33:59,059 - app.services.cases - INFO - [SCRAPE] Trying variant: 'hate speech related cases'
+2025-11-24 17:33:59,263 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=hate+speech+related+cases&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=24-11-2025 "HTTP/1.1 200 OK"
+2025-11-24 17:33:59,320 - app.services.cases - INFO - [SCRAPE] Variant 'hate speech related cases' page 0: +5 cases (total: 5)
+2025-11-24 17:33:59,321 - app.services.cases - INFO - [SCRAPE] Final result: 5 cases returned
+2025-11-24 17:34:00,256 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/98777825/ "HTTP/1.1 200 OK"
+2025-11-24 17:34:00,544 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/98777825/?type=print "HTTP/1.1 200 OK"
+2025-11-24 17:34:00,575 - app.services.cases - INFO - [CASES] Content lengths - normal: 23881, print: 23616
+2025-11-24 17:34:00,843 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/ "HTTP/1.1 200 OK"
+2025-11-24 17:34:00,909 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/127366010/ "HTTP/1.1 200 OK"
+2025-11-24 17:34:01,183 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1036814/ "HTTP/1.1 200 OK"
+2025-11-24 17:34:01,452 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/127366010/?type=print "HTTP/1.1 200 OK"
+2025-11-24 17:34:01,459 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/?type=print "HTTP/1.1 200 OK"
+2025-11-24 17:34:02,352 - app.services.cases - INFO - [CASES] Content lengths - normal: 159640, print: 159378
+2025-11-24 17:34:02,390 - app.services.cases - INFO - [CASES] Content lengths - normal: 33827, print: 33560
+2025-11-24 17:34:02,398 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1036814/?type=print "HTTP/1.1 200 OK"
+2025-11-24 17:34:02,602 - app.services.cases - INFO - [CASES] Content lengths - normal: 165800, print: 165539
+2025-11-24 17:34:03,570 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/100389024/ "HTTP/1.1 200 OK"
+2025-11-24 17:34:03,802 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/100389024/?type=print "HTTP/1.1 200 OK"
+2025-11-24 17:34:03,838 - app.services.cases - INFO - [CASES] Content lengths - normal: 34154, print: 33881
+2025-11-24 17:34:16,435 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/ "HTTP/1.1 200 OK"
+2025-11-24 17:34:16,672 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/?type=print "HTTP/1.1 200 OK"
+2025-11-24 17:34:16,711 - app.services.cases - INFO - [CASES] Content lengths - normal: 33827, print: 33560
+2025-11-24 17:34:20,530 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-24 17:34:28,315 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/ "HTTP/1.1 200 OK"
+2025-11-24 17:34:28,564 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/194770087/?type=print "HTTP/1.1 200 OK"
+2025-11-24 17:34:28,602 - app.services.cases - INFO - [CASES] Content lengths - normal: 33827, print: 33560
+2025-11-24 18:12:51,775 - main - INFO - HTTP client closed
+2025-11-25 23:18:19,713 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-25 23:18:44,480 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-25 23:18:44,480 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-25 23:19:36,327 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-25 23:19:42,881 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-25 23:19:42,882 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-25 23:19:43,525 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-25 23:48:39,783 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-25 23:48:39,794 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-25 23:48:45,777 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-25 23:49:01,873 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-25 23:49:01,874 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-25 23:49:07,400 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-25 23:49:15,020 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-25 23:49:15,021 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-25 23:49:15,603 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-26 00:01:13,821 - app.services.cases - INFO - [SCRAPE] Query: 'i need a case of any murder that has been popular in the past 5 yers' | variants: ['"i need a case of any murder that has been popular in the past 5 yers"', 'i need a case of any murder that has been popular in the past 5 yers'], limit: 5
+2025-11-26 00:01:13,822 - app.services.cases - INFO - [SCRAPE] Trying variant: '"i need a case of any murder that has been popular in the past 5 yers"'
+2025-11-26 00:01:15,985 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22i+need+a+case+of+any+murder+that+has+been+popular+in+the+past+5+yers%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 00:01:16,000 - app.services.cases - INFO - [SCRAPE] Variant '"i need a case of any murder that has been popular in the past 5 yers"' page 0: +0 cases (total: 0)
+2025-11-26 00:01:16,904 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22i+need+a+case+of+any+murder+that+has+been+popular+in+the+past+5+yers%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 00:01:17,666 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22i+need+a+case+of+any+murder+that+has+been+popular+in+the+past+5+yers%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 00:01:17,675 - app.services.cases - INFO - [SCRAPE] Variant '"i need a case of any murder that has been popular in the past 5 yers"' page 1: +0 cases (total: 0)
+2025-11-26 00:01:17,677 - app.services.cases - INFO - [SCRAPE] Variant '"i need a case of any murder that has been popular in the past 5 yers"' page 2: +0 cases (total: 0)
+2025-11-26 00:01:17,677 - app.services.cases - INFO - [SCRAPE] Trying variant: 'i need a case of any murder that has been popular in the past 5 yers'
+2025-11-26 00:01:20,025 - app.services.rag - INFO - [RAG] Creating LLM and document chain (lazy)
+2025-11-26 00:01:22,181 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-26 00:01:22,220 - app.services.rag - WARNING - [RAG] Citation validation warnings: ["WARNING: Response references case URLs not in context: ['https://indiankanoon.org/doc/1144447']"]
+2025-11-26 00:16:14,275 - app.services.cases - INFO - [SCRAPE] Query: 'all murder cases from past 2 years' | variants: ['"all murder cases from past 2 years"', 'all murder cases from past 2 years'], limit: 5
+2025-11-26 00:16:14,275 - app.services.cases - INFO - [SCRAPE] Trying variant: '"all murder cases from past 2 years"'
+2025-11-26 00:16:16,752 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22all+murder+cases+from+past+2+years%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 00:16:16,766 - app.services.cases - INFO - [SCRAPE] Variant '"all murder cases from past 2 years"' page 0: +0 cases (total: 0)
+2025-11-26 00:16:18,009 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22all+murder+cases+from+past+2+years%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 00:16:18,019 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22all+murder+cases+from+past+2+years%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 00:16:18,031 - app.services.cases - INFO - [SCRAPE] Variant '"all murder cases from past 2 years"' page 1: +0 cases (total: 0)
+2025-11-26 00:16:18,033 - app.services.cases - INFO - [SCRAPE] Variant '"all murder cases from past 2 years"' page 2: +0 cases (total: 0)
+2025-11-26 00:16:18,033 - app.services.cases - INFO - [SCRAPE] Trying variant: 'all murder cases from past 2 years'
+2025-11-26 00:16:22,012 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-26 00:16:22,018 - app.services.rag - WARNING - [RAG] Citation validation warnings: ["WARNING: Response references case URLs not in context: ['https://indiankanoon.org/doc/1044845']"]
+2025-11-26 01:14:00,575 - app.services.cases - INFO - [SCRAPE] Query: 'Hate speech vs free speech related cases' | variants: ['"Hate speech vs free speech related cases"', 'Hate speech vs free speech related cases'], limit: 5
+2025-11-26 01:14:00,577 - app.services.cases - INFO - [SCRAPE] Trying variant: '"Hate speech vs free speech related cases"'
+2025-11-26 01:14:01,780 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Hate+speech+vs+free+speech+related+cases%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:14:01,795 - app.services.cases - INFO - [SCRAPE] Variant '"Hate speech vs free speech related cases"' page 0: +0 cases (total: 0)
+2025-11-26 01:14:02,203 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Hate+speech+vs+free+speech+related+cases%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:14:02,229 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Hate+speech+vs+free+speech+related+cases%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:14:02,238 - app.services.cases - INFO - [SCRAPE] Variant '"Hate speech vs free speech related cases"' page 1: +0 cases (total: 0)
+2025-11-26 01:14:02,240 - app.services.cases - INFO - [SCRAPE] Variant '"Hate speech vs free speech related cases"' page 2: +0 cases (total: 0)
+2025-11-26 01:14:02,241 - app.services.cases - INFO - [SCRAPE] Trying variant: 'Hate speech vs free speech related cases'
+2025-11-26 01:14:04,056 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=Hate+speech+vs+free+speech+related+cases&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:14:04,105 - app.services.cases - INFO - [SCRAPE] Variant 'Hate speech vs free speech related cases' page 0: +5 cases (total: 5)
+2025-11-26 01:14:04,105 - app.services.cases - INFO - [SCRAPE] Final result: 5 cases returned
+2025-11-26 01:14:05,684 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:14:05,812 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/681409/ "HTTP/1.1 200 OK"
+2025-11-26 01:14:05,833 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/ "HTTP/1.1 200 OK"
+2025-11-26 01:14:05,988 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/103640961/ "HTTP/1.1 200 OK"
+2025-11-26 01:14:06,599 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:14:06,770 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/ "HTTP/1.1 200 OK"
+2025-11-26 01:14:06,972 - app.services.cases - INFO - [CASES] Content lengths - normal: 161775, print: 161510
+2025-11-26 01:14:08,273 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:14:09,754 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:14:09,781 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/103640961/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:14:09,785 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/681409/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:14:10,084 - app.services.cases - INFO - [CASES] Content lengths - normal: 540067, print: 539805
+2025-11-26 01:14:10,104 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:14:10,579 - app.services.cases - INFO - [CASES] Content lengths - normal: 542704, print: 542439
+2025-11-26 01:14:11,043 - app.services.cases - INFO - [CASES] Content lengths - normal: 489660, print: 489393
+2025-11-26 01:14:19,473 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:14:19,529 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:14:21,024 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:14:21,511 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:14:21,728 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:14:22,299 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:14:25,790 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-26 01:29:48,288 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:29:48,304 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:29:48,335 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/ "HTTP/1.1 200 OK"
+2025-11-26 01:29:48,513 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:29:50,323 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:29:51,083 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:29:51,104 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:29:51,107 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:29:51,406 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:29:51,676 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:29:51,703 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:29:52,124 - app.services.cases - INFO - [CASES] Content lengths - normal: 542704, print: 542439
+2025-11-26 01:29:55,210 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-26 01:32:57,369 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:32:57,375 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:32:57,517 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:32:58,658 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:32:58,935 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:32:58,955 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:32:58,959 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:32:59,381 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:33:00,014 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:33:17,295 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/ "HTTP/1.1 200 OK"
+2025-11-26 01:33:18,165 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/70058066/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:33:18,631 - app.services.cases - INFO - [CASES] Content lengths - normal: 542704, print: 542439
+2025-11-26 01:33:18,658 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/ "HTTP/1.1 200 OK"
+2025-11-26 01:33:19,072 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/35272859/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:33:19,282 - app.services.cases - INFO - [CASES] Content lengths - normal: 161775, print: 161510
+2025-11-26 01:33:27,842 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:33:29,088 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:33:29,436 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:33:29,463 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:33:29,472 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:33:30,294 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:33:30,603 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:33:30,622 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:33:31,175 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:35:10,852 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:35:11,529 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:35:11,743 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:35:27,922 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:35:28,383 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:35:28,602 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:38:24,497 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:38:24,501 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:38:25,772 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:38:25,776 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:38:26,064 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:38:26,428 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:40:28,989 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:40:28,995 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:40:29,027 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:40:30,648 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:40:30,933 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:40:30,953 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:40:31,245 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:40:31,271 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:40:31,541 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:44:01,300 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:44:01,317 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:44:01,356 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:44:02,806 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:44:03,057 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:44:03,074 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:44:03,375 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:44:03,395 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:44:03,789 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:44:13,655 - app.services.cases - INFO - [SCRAPE] Query: '.
+
+[CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab on 12 September, 2019". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]' | variants: ['". [CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab ". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]"', '. [CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab ". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]', '.\n\n[CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab on 12 September, 2019". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]'], limit: 5
+2025-11-26 01:44:13,656 - app.services.cases - INFO - [SCRAPE] Trying variant: '". [CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab ". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]"'
+2025-11-26 01:44:14,401 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22.+%5BCONTEXT%3A+The+user+is+asking+about+the+case+%22Hardam+Singh+vs+State+Of+Punjab+%22.+Case+Summary%3A+Hardam+Singh%2C+Piara+Singh%2C+Narinder+Pal+Singh%2C+and+Harcharan+Singh+were+convicted+for+offences+under+Sections+148%2C+302%2C+307%2C+and+149+of+the+Indian+Penal+Code+%28IPC%29+and+Section+27+of+the+Arms+Act.+They+were+sentenced+to+rigorous+imprisonment+for+various+terms%2C+including+life+imprisonment+and+fines.+The+convictions+were+upheld+by+the+Sessions+Court%2C+and+the+appellants+filed+appeals+against+the+judgment.+The+Punjab+and+Haryana+High+Court+took+up+three+appeals+together%2C+including+those+of+Hardam+Singh%2C+Piara+Singh%2C+and+Narinder+Pal+Singh%2C+and+disposed+of+them+by+a+common+judgment.+The+court+held+that+the+convictions+were+sustainable+and+the+sentences+were+legal.+The+court+also+considered+the+delay+in+registering+the+FIR+and+the+role+of+the+police+in+the+firing+incident.+The+court+noted+that+the+FIR+was+registered+after+a+long+delay%2C+but+the+investigation+was+conducted+effectively%2C+and+the+accused+were+charge-sheeted.+The+court+also+considered+the+acquittal+of+some+co-accused+and+the+abatement+of+proceedings+against+others.+Please+answer+ONLY+based+on+this+specific+case+context.+Do+not+provide+general+information.%5D%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:14,406 - app.services.cases - INFO - [SCRAPE] Variant '". [CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab ". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]"' page 0: +0 cases (total: 0)
+2025-11-26 01:44:14,715 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22.+%5BCONTEXT%3A+The+user+is+asking+about+the+case+%22Hardam+Singh+vs+State+Of+Punjab+%22.+Case+Summary%3A+Hardam+Singh%2C+Piara+Singh%2C+Narinder+Pal+Singh%2C+and+Harcharan+Singh+were+convicted+for+offences+under+Sections+148%2C+302%2C+307%2C+and+149+of+the+Indian+Penal+Code+%28IPC%29+and+Section+27+of+the+Arms+Act.+They+were+sentenced+to+rigorous+imprisonment+for+various+terms%2C+including+life+imprisonment+and+fines.+The+convictions+were+upheld+by+the+Sessions+Court%2C+and+the+appellants+filed+appeals+against+the+judgment.+The+Punjab+and+Haryana+High+Court+took+up+three+appeals+together%2C+including+those+of+Hardam+Singh%2C+Piara+Singh%2C+and+Narinder+Pal+Singh%2C+and+disposed+of+them+by+a+common+judgment.+The+court+held+that+the+convictions+were+sustainable+and+the+sentences+were+legal.+The+court+also+considered+the+delay+in+registering+the+FIR+and+the+role+of+the+police+in+the+firing+incident.+The+court+noted+that+the+FIR+was+registered+after+a+long+delay%2C+but+the+investigation+was+conducted+effectively%2C+and+the+accused+were+charge-sheeted.+The+court+also+considered+the+acquittal+of+some+co-accused+and+the+abatement+of+proceedings+against+others.+Please+answer+ONLY+based+on+this+specific+case+context.+Do+not+provide+general+information.%5D%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:15,044 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22.+%5BCONTEXT%3A+The+user+is+asking+about+the+case+%22Hardam+Singh+vs+State+Of+Punjab+%22.+Case+Summary%3A+Hardam+Singh%2C+Piara+Singh%2C+Narinder+Pal+Singh%2C+and+Harcharan+Singh+were+convicted+for+offences+under+Sections+148%2C+302%2C+307%2C+and+149+of+the+Indian+Penal+Code+%28IPC%29+and+Section+27+of+the+Arms+Act.+They+were+sentenced+to+rigorous+imprisonment+for+various+terms%2C+including+life+imprisonment+and+fines.+The+convictions+were+upheld+by+the+Sessions+Court%2C+and+the+appellants+filed+appeals+against+the+judgment.+The+Punjab+and+Haryana+High+Court+took+up+three+appeals+together%2C+including+those+of+Hardam+Singh%2C+Piara+Singh%2C+and+Narinder+Pal+Singh%2C+and+disposed+of+them+by+a+common+judgment.+The+court+held+that+the+convictions+were+sustainable+and+the+sentences+were+legal.+The+court+also+considered+the+delay+in+registering+the+FIR+and+the+role+of+the+police+in+the+firing+incident.+The+court+noted+that+the+FIR+was+registered+after+a+long+delay%2C+but+the+investigation+was+conducted+effectively%2C+and+the+accused+were+charge-sheeted.+The+court+also+considered+the+acquittal+of+some+co-accused+and+the+abatement+of+proceedings+against+others.+Please+answer+ONLY+based+on+this+specific+case+context.+Do+not+provide+general+information.%5D%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:15,052 - app.services.cases - INFO - [SCRAPE] Variant '". [CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab ". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]"' page 1: +0 cases (total: 0)
+2025-11-26 01:44:15,053 - app.services.cases - INFO - [SCRAPE] Variant '". [CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab ". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]"' page 2: +0 cases (total: 0)
+2025-11-26 01:44:15,054 - app.services.cases - INFO - [SCRAPE] Trying variant: '. [CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab ". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]'
+2025-11-26 01:44:15,327 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=.+%5BCONTEXT%3A+The+user+is+asking+about+the+case+%22Hardam+Singh+vs+State+Of+Punjab+%22.+Case+Summary%3A+Hardam+Singh%2C+Piara+Singh%2C+Narinder+Pal+Singh%2C+and+Harcharan+Singh+were+convicted+for+offences+under+Sections+148%2C+302%2C+307%2C+and+149+of+the+Indian+Penal+Code+%28IPC%29+and+Section+27+of+the+Arms+Act.+They+were+sentenced+to+rigorous+imprisonment+for+various+terms%2C+including+life+imprisonment+and+fines.+The+convictions+were+upheld+by+the+Sessions+Court%2C+and+the+appellants+filed+appeals+against+the+judgment.+The+Punjab+and+Haryana+High+Court+took+up+three+appeals+together%2C+including+those+of+Hardam+Singh%2C+Piara+Singh%2C+and+Narinder+Pal+Singh%2C+and+disposed+of+them+by+a+common+judgment.+The+court+held+that+the+convictions+were+sustainable+and+the+sentences+were+legal.+The+court+also+considered+the+delay+in+registering+the+FIR+and+the+role+of+the+police+in+the+firing+incident.+The+court+noted+that+the+FIR+was+registered+after+a+long+delay%2C+but+the+investigation+was+conducted+effectively%2C+and+the+accused+were+charge-sheeted.+The+court+also+considered+the+acquittal+of+some+co-accused+and+the+abatement+of+proceedings+against+others.+Please+answer+ONLY+based+on+this+specific+case+context.+Do+not+provide+general+information.%5D&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:15,338 - app.services.cases - INFO - [SCRAPE] Variant '. [CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab ". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]' page 0: +0 cases (total: 0)
+2025-11-26 01:44:15,665 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=.+%5BCONTEXT%3A+The+user+is+asking+about+the+case+%22Hardam+Singh+vs+State+Of+Punjab+%22.+Case+Summary%3A+Hardam+Singh%2C+Piara+Singh%2C+Narinder+Pal+Singh%2C+and+Harcharan+Singh+were+convicted+for+offences+under+Sections+148%2C+302%2C+307%2C+and+149+of+the+Indian+Penal+Code+%28IPC%29+and+Section+27+of+the+Arms+Act.+They+were+sentenced+to+rigorous+imprisonment+for+various+terms%2C+including+life+imprisonment+and+fines.+The+convictions+were+upheld+by+the+Sessions+Court%2C+and+the+appellants+filed+appeals+against+the+judgment.+The+Punjab+and+Haryana+High+Court+took+up+three+appeals+together%2C+including+those+of+Hardam+Singh%2C+Piara+Singh%2C+and+Narinder+Pal+Singh%2C+and+disposed+of+them+by+a+common+judgment.+The+court+held+that+the+convictions+were+sustainable+and+the+sentences+were+legal.+The+court+also+considered+the+delay+in+registering+the+FIR+and+the+role+of+the+police+in+the+firing+incident.+The+court+noted+that+the+FIR+was+registered+after+a+long+delay%2C+but+the+investigation+was+conducted+effectively%2C+and+the+accused+were+charge-sheeted.+The+court+also+considered+the+acquittal+of+some+co-accused+and+the+abatement+of+proceedings+against+others.+Please+answer+ONLY+based+on+this+specific+case+context.+Do+not+provide+general+information.%5D&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:15,677 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=.+%5BCONTEXT%3A+The+user+is+asking+about+the+case+%22Hardam+Singh+vs+State+Of+Punjab+%22.+Case+Summary%3A+Hardam+Singh%2C+Piara+Singh%2C+Narinder+Pal+Singh%2C+and+Harcharan+Singh+were+convicted+for+offences+under+Sections+148%2C+302%2C+307%2C+and+149+of+the+Indian+Penal+Code+%28IPC%29+and+Section+27+of+the+Arms+Act.+They+were+sentenced+to+rigorous+imprisonment+for+various+terms%2C+including+life+imprisonment+and+fines.+The+convictions+were+upheld+by+the+Sessions+Court%2C+and+the+appellants+filed+appeals+against+the+judgment.+The+Punjab+and+Haryana+High+Court+took+up+three+appeals+together%2C+including+those+of+Hardam+Singh%2C+Piara+Singh%2C+and+Narinder+Pal+Singh%2C+and+disposed+of+them+by+a+common+judgment.+The+court+held+that+the+convictions+were+sustainable+and+the+sentences+were+legal.+The+court+also+considered+the+delay+in+registering+the+FIR+and+the+role+of+the+police+in+the+firing+incident.+The+court+noted+that+the+FIR+was+registered+after+a+long+delay%2C+but+the+investigation+was+conducted+effectively%2C+and+the+accused+were+charge-sheeted.+The+court+also+considered+the+acquittal+of+some+co-accused+and+the+abatement+of+proceedings+against+others.+Please+answer+ONLY+based+on+this+specific+case+context.+Do+not+provide+general+information.%5D&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:15,697 - app.services.cases - INFO - [SCRAPE] Variant '. [CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab ". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]' page 1: +0 cases (total: 0)
+2025-11-26 01:44:15,699 - app.services.cases - INFO - [SCRAPE] Variant '. [CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab ". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]' page 2: +0 cases (total: 0)
+2025-11-26 01:44:15,700 - app.services.cases - INFO - [SCRAPE] Trying variant: '.
+
+[CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab on 12 September, 2019". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]'
+2025-11-26 01:44:15,999 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=.%0A%0A%5BCONTEXT%3A+The+user+is+asking+about+the+case+%22Hardam+Singh+vs+State+Of+Punjab+on+12+September%2C+2019%22.+Case+Summary%3A+Hardam+Singh%2C+Piara+Singh%2C+Narinder+Pal+Singh%2C+and+Harcharan+Singh+were+convicted+for+offences+under+Sections+148%2C+302%2C+307%2C+and+149+of+the+Indian+Penal+Code+%28IPC%29+and+Section+27+of+the+Arms+Act.+They+were+sentenced+to+rigorous+imprisonment+for+various+terms%2C+including+life+imprisonment+and+fines.+The+convictions+were+upheld+by+the+Sessions+Court%2C+and+the+appellants+filed+appeals+against+the+judgment.+The+Punjab+and+Haryana+High+Court+took+up+three+appeals+together%2C+including+those+of+Hardam+Singh%2C+Piara+Singh%2C+and+Narinder+Pal+Singh%2C+and+disposed+of+them+by+a+common+judgment.+The+court+held+that+the+convictions+were+sustainable+and+the+sentences+were+legal.+The+court+also+considered+the+delay+in+registering+the+FIR+and+the+role+of+the+police+in+the+firing+incident.+The+court+noted+that+the+FIR+was+registered+after+a+long+delay%2C+but+the+investigation+was+conducted+effectively%2C+and+the+accused+were+charge-sheeted.+The+court+also+considered+the+acquittal+of+some+co-accused+and+the+abatement+of+proceedings+against+others.+Please+answer+ONLY+based+on+this+specific+case+context.+Do+not+provide+general+information.%5D&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:16,006 - app.services.cases - INFO - [SCRAPE] Variant '.
+
+[CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab on 12 September, 2019". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]' page 0: +0 cases (total: 0)
+2025-11-26 01:44:16,295 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=.%0A%0A%5BCONTEXT%3A+The+user+is+asking+about+the+case+%22Hardam+Singh+vs+State+Of+Punjab+on+12+September%2C+2019%22.+Case+Summary%3A+Hardam+Singh%2C+Piara+Singh%2C+Narinder+Pal+Singh%2C+and+Harcharan+Singh+were+convicted+for+offences+under+Sections+148%2C+302%2C+307%2C+and+149+of+the+Indian+Penal+Code+%28IPC%29+and+Section+27+of+the+Arms+Act.+They+were+sentenced+to+rigorous+imprisonment+for+various+terms%2C+including+life+imprisonment+and+fines.+The+convictions+were+upheld+by+the+Sessions+Court%2C+and+the+appellants+filed+appeals+against+the+judgment.+The+Punjab+and+Haryana+High+Court+took+up+three+appeals+together%2C+including+those+of+Hardam+Singh%2C+Piara+Singh%2C+and+Narinder+Pal+Singh%2C+and+disposed+of+them+by+a+common+judgment.+The+court+held+that+the+convictions+were+sustainable+and+the+sentences+were+legal.+The+court+also+considered+the+delay+in+registering+the+FIR+and+the+role+of+the+police+in+the+firing+incident.+The+court+noted+that+the+FIR+was+registered+after+a+long+delay%2C+but+the+investigation+was+conducted+effectively%2C+and+the+accused+were+charge-sheeted.+The+court+also+considered+the+acquittal+of+some+co-accused+and+the+abatement+of+proceedings+against+others.+Please+answer+ONLY+based+on+this+specific+case+context.+Do+not+provide+general+information.%5D&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:16,317 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=.%0A%0A%5BCONTEXT%3A+The+user+is+asking+about+the+case+%22Hardam+Singh+vs+State+Of+Punjab+on+12+September%2C+2019%22.+Case+Summary%3A+Hardam+Singh%2C+Piara+Singh%2C+Narinder+Pal+Singh%2C+and+Harcharan+Singh+were+convicted+for+offences+under+Sections+148%2C+302%2C+307%2C+and+149+of+the+Indian+Penal+Code+%28IPC%29+and+Section+27+of+the+Arms+Act.+They+were+sentenced+to+rigorous+imprisonment+for+various+terms%2C+including+life+imprisonment+and+fines.+The+convictions+were+upheld+by+the+Sessions+Court%2C+and+the+appellants+filed+appeals+against+the+judgment.+The+Punjab+and+Haryana+High+Court+took+up+three+appeals+together%2C+including+those+of+Hardam+Singh%2C+Piara+Singh%2C+and+Narinder+Pal+Singh%2C+and+disposed+of+them+by+a+common+judgment.+The+court+held+that+the+convictions+were+sustainable+and+the+sentences+were+legal.+The+court+also+considered+the+delay+in+registering+the+FIR+and+the+role+of+the+police+in+the+firing+incident.+The+court+noted+that+the+FIR+was+registered+after+a+long+delay%2C+but+the+investigation+was+conducted+effectively%2C+and+the+accused+were+charge-sheeted.+The+court+also+considered+the+acquittal+of+some+co-accused+and+the+abatement+of+proceedings+against+others.+Please+answer+ONLY+based+on+this+specific+case+context.+Do+not+provide+general+information.%5D&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:16,327 - app.services.cases - INFO - [SCRAPE] Variant '.
+
+[CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab on 12 September, 2019". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]' page 1: +0 cases (total: 0)
+2025-11-26 01:44:16,328 - app.services.cases - INFO - [SCRAPE] Variant '.
+
+[CONTEXT: The user is asking about the case "Hardam Singh vs State Of Punjab on 12 September, 2019". Case Summary: Hardam Singh, Piara Singh, Narinder Pal Singh, and Harcharan Singh were convicted for offences under Sections 148, 302, 307, and 149 of the Indian Penal Code (IPC) and Section 27 of the Arms Act. They were sentenced to rigorous imprisonment for various terms, including life imprisonment and fines. The convictions were upheld by the Sessions Court, and the appellants filed appeals against the judgment. The Punjab and Haryana High Court took up three appeals together, including those of Hardam Singh, Piara Singh, and Narinder Pal Singh, and disposed of them by a common judgment. The court held that the convictions were sustainable and the sentences were legal. The court also considered the delay in registering the FIR and the role of the police in the firing incident. The court noted that the FIR was registered after a long delay, but the investigation was conducted effectively, and the accused were charge-sheeted. The court also considered the acquittal of some co-accused and the abatement of proceedings against others. Please answer ONLY based on this specific case context. Do not provide general information.]' page 2: +0 cases (total: 0)
+2025-11-26 01:44:16,329 - app.services.cases - INFO - [SCRAPE] Final result: 0 cases returned
+2025-11-26 01:44:16,330 - app.services.cases - INFO - [SCRAPE] Query: 'Section 27 Contract Act restraint trade' | variants: ['"Section 27 Contract Act restraint trade"', 'Section 27 Contract Act restraint trade'], limit: 5
+2025-11-26 01:44:16,331 - app.services.cases - INFO - [SCRAPE] Trying variant: '"Section 27 Contract Act restraint trade"'
+2025-11-26 01:44:18,081 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Section+27+Contract+Act+restraint+trade%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:18,095 - app.services.cases - INFO - [SCRAPE] Variant '"Section 27 Contract Act restraint trade"' page 0: +0 cases (total: 0)
+2025-11-26 01:44:19,206 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Section+27+Contract+Act+restraint+trade%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:19,209 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22Section+27+Contract+Act+restraint+trade%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:19,227 - app.services.cases - INFO - [SCRAPE] Variant '"Section 27 Contract Act restraint trade"' page 1: +0 cases (total: 0)
+2025-11-26 01:44:19,229 - app.services.cases - INFO - [SCRAPE] Variant '"Section 27 Contract Act restraint trade"' page 2: +0 cases (total: 0)
+2025-11-26 01:44:19,230 - app.services.cases - INFO - [SCRAPE] Trying variant: 'Section 27 Contract Act restraint trade'
+2025-11-26 01:44:20,682 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=Section+27+Contract+Act+restraint+trade&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=26-11-2025 "HTTP/1.1 200 OK"
+2025-11-26 01:44:20,736 - app.services.cases - INFO - [SCRAPE] Variant 'Section 27 Contract Act restraint trade' page 0: +5 cases (total: 5)
+2025-11-26 01:44:20,736 - app.services.cases - INFO - [SCRAPE] Final result: 5 cases returned
+2025-11-26 01:44:21,016 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/647033/ "HTTP/1.1 200 OK"
+2025-11-26 01:44:21,038 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1186410/ "HTTP/1.1 200 OK"
+2025-11-26 01:44:21,280 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/571375/ "HTTP/1.1 200 OK"
+2025-11-26 01:44:21,481 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/647033/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:44:21,560 - app.services.cases - INFO - [CASES] Content lengths - normal: 101575, print: 101314
+2025-11-26 01:44:21,566 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1186410/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:44:21,609 - app.services.cases - INFO - [CASES] Content lengths - normal: 67912, print: 67645
+2025-11-26 01:44:21,795 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/571375/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:44:21,842 - app.services.cases - INFO - [CASES] Content lengths - normal: 61576, print: 61309
+2025-11-26 01:44:21,887 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/793778/ "HTTP/1.1 200 OK"
+2025-11-26 01:44:21,978 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1082221/ "HTTP/1.1 200 OK"
+2025-11-26 01:44:22,287 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/793778/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:44:22,340 - app.services.cases - INFO - [CASES] Content lengths - normal: 51302, print: 51035
+2025-11-26 01:44:22,343 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/1082221/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:44:22,361 - app.services.cases - INFO - [CASES] Content lengths - normal: 49722, print: 49460
+2025-11-26 01:44:30,241 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-26 01:44:30,246 - app.services.rag - WARNING - [RAG] Citation validation warnings: ["WARNING: Response references case URLs not in context: ['https://indiankanoon.org/doc/1345550']"]
+2025-11-26 01:44:52,321 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:44:53,269 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:44:53,278 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:44:54,095 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:44:54,353 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:44:54,370 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:44:54,371 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:44:54,773 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:44:55,101 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:45:14,720 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:45:14,735 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/ "HTTP/1.1 200 OK"
+2025-11-26 01:45:15,689 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:45:16,013 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-26 01:45:16,161 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/90020753/?type=print "HTTP/1.1 200 OK"
+2025-11-26 01:45:16,696 - app.services.cases - INFO - [CASES] Content lengths - normal: 527580, print: 527310
+2025-11-30 13:52:52,344 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-30 13:52:59,201 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-30 13:52:59,201 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-30 13:53:03,779 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-30 13:53:07,942 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-30 13:53:07,942 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-30 13:53:08,362 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-30 14:09:57,226 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-30 14:22:07,834 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-30 15:11:23,363 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-30 15:11:23,396 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-30 15:11:28,579 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-30 15:11:35,116 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-30 15:11:35,117 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-30 15:11:39,744 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-30 15:11:43,739 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-30 15:11:43,739 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-30 15:11:44,137 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-30 15:12:03,538 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-30 15:12:03,545 - app.services.cases - INFO - [CASES] HTTP client closed
+2025-11-30 15:12:08,043 - app.services.rag - INFO - [RAG] Initializing RAG service
+2025-11-30 15:12:14,888 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-11-30 15:12:14,888 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-11-30 15:12:20,519 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-mpnet-base-v2
+2025-11-30 15:12:24,902 - app.services.rag - INFO - [RAG] Loaded FAISS index from D:\Coding\NyaySarthi\nyay-sarthi\Backend\faiss_index with 1184 vectors
+2025-11-30 15:12:24,902 - app.services.rag - INFO - [RAG] RAG service initialized (LLM lazy-loaded)
+2025-11-30 15:12:25,258 - app.services.cases - INFO - [CASES] HTTP client initialized
+2025-11-30 15:13:00,675 - app.services.rag - INFO - [RAG] Creating LLM and document chain (lazy)
+2025-11-30 15:13:02,313 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-30 15:16:46,413 - app.services.cases - INFO - [SCRAPE] Query: 'tell me about article 32 and what it is mainly about' | variants: ['"tell me about article 32 and what it is mainly about"', 'tell me about article 32 and what it is mainly about'], limit: 5
+2025-11-30 15:16:46,414 - app.services.cases - INFO - [SCRAPE] Trying variant: '"tell me about article 32 and what it is mainly about"'
+2025-11-30 15:16:50,150 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22tell+me+about+article+32+and+what+it+is+mainly+about%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=30-11-2025 "HTTP/1.1 200 OK"
+2025-11-30 15:16:50,328 - app.services.cases - INFO - [SCRAPE] Variant '"tell me about article 32 and what it is mainly about"' page 0: +0 cases (total: 0)
+2025-11-30 15:16:51,427 - app.services.cases - INFO - [SCRAPE] Query: 'Article 32 Constitution India' | variants: ['"Article 32 Constitution India"', 'Article 32 Constitution India'], limit: 5
+2025-11-30 15:16:51,428 - app.services.cases - INFO - [SCRAPE] Trying variant: '"Article 32 Constitution India"'
+2025-11-30 15:17:01,040 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-30 15:34:43,738 - app.services.cases - INFO - [SCRAPE] Query: 'siddhart yadav related cases' | variants: ['"siddhart yadav related cases"', 'siddhart yadav related cases'], limit: 5
+2025-11-30 15:34:43,739 - app.services.cases - INFO - [SCRAPE] Trying variant: '"siddhart yadav related cases"'
+2025-11-30 15:34:44,369 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22siddhart+yadav+related+cases%22&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=30-11-2025 "HTTP/1.1 200 OK"
+2025-11-30 15:34:44,382 - app.services.cases - INFO - [SCRAPE] Variant '"siddhart yadav related cases"' page 0: +0 cases (total: 0)
+2025-11-30 15:34:44,754 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22siddhart+yadav+related+cases%22&pagenum=1&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=30-11-2025 "HTTP/1.1 200 OK"
+2025-11-30 15:34:44,984 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=%22siddhart+yadav+related+cases%22&pagenum=2&sortby=relevance&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=30-11-2025 "HTTP/1.1 200 OK"
+2025-11-30 15:34:44,997 - app.services.cases - INFO - [SCRAPE] Variant '"siddhart yadav related cases"' page 1: +0 cases (total: 0)
+2025-11-30 15:34:44,999 - app.services.cases - INFO - [SCRAPE] Variant '"siddhart yadav related cases"' page 2: +0 cases (total: 0)
+2025-11-30 15:34:45,000 - app.services.cases - INFO - [SCRAPE] Trying variant: 'siddhart yadav related cases'
+2025-11-30 15:34:46,179 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/search/?formInput=siddhart+yadav+related+cases&pagenum=0&sortby=mostrecent&type=judgments&fromdate=01-01-1950&from=01-01-1950&to=30-11-2025 "HTTP/1.1 200 OK"
+2025-11-30 15:34:46,224 - app.services.cases - INFO - [SCRAPE] Variant 'siddhart yadav related cases' page 0: +5 cases (total: 5)
+2025-11-30 15:34:46,224 - app.services.cases - INFO - [SCRAPE] Final result: 5 cases returned
+2025-11-30 15:34:47,424 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/146191673/ "HTTP/1.1 200 OK"
+2025-11-30 15:34:47,464 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/113422571/ "HTTP/1.1 200 OK"
+2025-11-30 15:34:47,708 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/45204858/ "HTTP/1.1 200 OK"
+2025-11-30 15:34:47,726 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/84177176/ "HTTP/1.1 200 OK"
+2025-11-30 15:34:48,981 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/165879409/ "HTTP/1.1 200 OK"
+2025-11-30 15:34:51,974 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/113422571/?type=print "HTTP/1.1 200 OK"
+2025-11-30 15:34:52,269 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/146191673/?type=print "HTTP/1.1 200 OK"
+2025-11-30 15:34:52,502 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/84177176/?type=print "HTTP/1.1 200 OK"
+2025-11-30 15:34:53,169 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/45204858/?type=print "HTTP/1.1 200 OK"
+2025-11-30 15:34:55,635 - app.services.cases - INFO - [CASES] Content lengths - normal: 870016, print: 869754
+2025-11-30 15:34:55,672 - httpx - INFO - HTTP Request: GET https://indiankanoon.org/doc/165879409/?type=print "HTTP/1.1 200 OK"
+2025-11-30 15:34:56,484 - app.services.cases - INFO - [CASES] Content lengths - normal: 870018, print: 869756
+2025-11-30 15:34:56,680 - app.services.cases - INFO - [CASES] Content lengths - normal: 870022, print: 869760
+2025-11-30 15:34:57,322 - app.services.cases - INFO - [CASES] Content lengths - normal: 870027, print: 869765
+2025-11-30 15:34:58,189 - app.services.cases - INFO - [CASES] Content lengths - normal: 870036, print: 869774
+2025-11-30 15:41:27,039 - app.services.rag - INFO - [RAG] Shutdown called
+2025-11-30 15:41:27,040 - app.services.cases - INFO - [CASES] HTTP client closed

@@ -19,6 +19,7 @@ from fastapi.routing import APIRoute
 from starlette.middleware.base import BaseHTTPMiddleware
 from uuid import uuid4
 from app.routers.upload import router as upload_router
+from app.routers.cases import router as cases_router
 
 # Lazy imports for heavy libraries
 try:
@@ -191,6 +192,7 @@ async def health():
 
 # Mount routers from modular packages (e.g., upload endpoints)
 app.include_router(upload_router, tags=["upload"])  # exposes /api/analyze-document
+app.include_router(cases_router, tags=["cases"])    # exposes /api/case-details and /cases/search
 
 # Simple in-memory cache for API responses
 # Format: {cache_key: {"data": response_data, "timestamp": datetime, "ttl": seconds}}
